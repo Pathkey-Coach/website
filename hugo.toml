@@ -1,0 +1,217 @@
+baseURL = "https://pathkey-coach.github.io/website/"
+title = "Pathkey | Values-first Advisory by Avani & Suyog Patki"
+languageCode = "en"
+theme = "adritian-free-hugo-theme"
+
+[pagination]
+pagerSize = 6
+
+[outputs]
+  page = ["HTML"]
+  home = ["HTML", "RSS", "JSON"]
+  section = ["HTML", "RSS"]
+  taxonomy = ["HTML", "RSS"]
+  term = ["HTML", "RSS"]
+  footer = []
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+  author = "authors"
+
+disableKinds = ["footerSection"]
+
+## Base mounts
+[[module.mounts]]
+source = "archetypes"
+target = "archetypes"
+
+[[module.mounts]]
+source = "assets"
+target = "assets"
+
+[[module.mounts]]
+source = "i18n"
+target = "i18n"
+
+[[module.mounts]]
+source = "layouts"
+target = "layouts"
+
+[[module.mounts]]
+source = "static"
+target = "static"
+
+[[module.mounts]]
+source = "node_modules/bootstrap/scss"
+target = "assets/scss/bootstrap"
+
+[[module.mounts]]
+source = "node_modules/bootstrap/dist/js"
+target = "assets/js/bootstrap"
+
+[[module.mounts]]
+source = "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+target = "assets/js/vendor/bootstrap.bundle.min.js"
+
+[[module.mounts]]
+source = "node_modules/bootstrap-print-css/css/bootstrap-print.css"
+target = "assets/css/bootstrap-print.css"
+
+[params]
+title = "Pathkey – Values-first Advisory"
+description = "Pathkey is the personal advisory brand of Avani & Suyog Patki – values-first founders, servant leaders and AI-wise advisors helping CxOs build organisations that are trusted, human and future-ready."
+images = ["/images/pathkey_logo_transparent.png"]
+
+[params.seo]
+siteName = "Pathkey"
+siteDescription = "Values-first advisory by Avani & Suyog Patki – helping CxOs build organisations that are trusted, human and future-ready."
+siteImage = "/images/pathkey_logo_transparent.png"
+
+[params.seo.person]
+name = "Suyog Patki"
+url = "https://pathkey-coach.github.io/website/"
+sameAs = ["https://www.linkedin.com/in/suyogpatki"]
+sections = [
+  "showcase",
+  "about",
+  "client-and-work",
+  "testimonial",
+  "contact",
+]
+
+# Logo in header
+# logo = "/images/pathkey_logo_transparent.png"
+
+homepageExperienceCount = 6
+
+[params.colorTheme]
+[params.colorTheme.auto]
+  disable = true
+[params.colorTheme.forced]
+  theme = "dark"
+
+[params.colorTheme.selector.disable]
+footer = true
+header = true
+mobileHeader = true
+
+[params.languages.selector.disable]
+footer = true
+header = true
+mobileHeader = true
+
+[params.blog]
+layout = "sidebar-right"
+sidebarWidth = "25"
+narrowContent = true
+showCategories = true
+showRecentPosts = true
+recentPostCount = 5
+listStyle = "summary"
+listLayout = "cards"
+
+[params.plugins]
+
+[[params.plugins.css]]
+URL = "css/custom.css"
+[[params.plugins.css]]
+URL = "css/adritian-icons.css"
+[[params.plugins.css]]
+URL = "css/bootstrap-print.css"
+
+[[params.plugins.js]]
+URL = "js/rad-animations.js"
+[[params.plugins.js]]
+URL = "js/sticky-header.js"
+[[params.plugins.js]]
+URL = "js/library/fontfaceobserver.js"
+
+[[params.plugins.scss]]
+URL = "scss/adritian.scss"
+
+[languages]
+[languages.en]
+disabled = false
+languageCode = "en"
+languageDirection = "ltr"
+languageName = "English"
+title = ""
+weight = 0
+
+[languages.en.menus]
+[[languages.en.menus.header]]
+name = "Home"
+URL = "/"
+weight = 1
+[[languages.en.menus.header]]
+name = "About"
+URL = "#about"
+weight = 2
+[[languages.en.menus.header]]
+name = "Ventures"
+URL = "#client-and-work-section"
+weight = 3
+[[languages.en.menus.header]]
+name = "Blog"
+URL = "/blog"
+weight = 4
+[[languages.en.menus.header]]
+pre = "email"
+name = "Contact"
+URL = "#contact"
+weight = 5
+
+[[languages.en.menus.footer]]
+name = "Home"
+URL = "/"
+weight = 1
+[[languages.en.menus.footer]]
+name = "About"
+URL = "#about"
+weight = 2
+[[languages.en.menus.footer]]
+name = "Ventures"
+URL = "#client-and-work-section"
+weight = 3
+[[languages.en.menus.footer]]
+name = "Contact"
+URL = "#contact"
+weight = 4
+
+[build]
+writeStats = true
+
+[build.buildStats]
+enabledFor = ["scss"]
+disableClasses = false
+disableIDs = false
+disableTags = false
+enable = true
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[imaging]
+  resampleFilter = "Lanczos"
+  quality = 85
+  anchor = "Smart"
+
+[minify]
+  disableCSS = false
+  disableHTML = false
+  disableJS = false
+  disableJSON = false
+  disableSVG = false
+  disableXML = false
+  minifyOutput = true
+  [minify.tdewolff]
+    [minify.tdewolff.html]
+      keepDefaultAttrVals = true
+      keepWhitespace = false
+    [minify.tdewolff.css]
+      precision = 0
+    [minify.tdewolff.js]
+      precision = 0
