@@ -1,0 +1,25 @@
+---
+title: "Services"
+description: "Pathkey's AI advisory services — from strategy to implementation to team enablement."
+draft: false
+intro: "We meet you where you are — here's how we can help."
+services:
+  - title: "AI Strategy & Roadmapping"
+    description: "Not every problem needs AI, and not every AI initiative delivers value. We help you assess where AI genuinely fits in your business, prioritise the opportunities that matter, and build a realistic, sequenced plan — so your team isn't chasing hype but building on solid ground."
+    audience: "For leaders who know AI matters but need clarity on where to start — and what to ignore."
+    examples: "Opportunity assessment workshops, technology landscape analysis, phased AI roadmaps, vendor-agnostic architecture guidance."
+  - title: "Idea to Product (0→1)"
+    description: "You have a vision — maybe it's a new product, a workflow transformation, or an AI capability that doesn't exist yet. We help you shape that raw idea into something buildable: scoping feasibility, defining an MVP, stress-testing assumptions, and mapping the path from concept to something real."
+    audience: "For founders and leaders with a vision that needs structure — before the first line of code."
+    examples: "Concept validation, MVP scoping and design, feasibility studies, technical architecture for new AI products."
+  - title: "Hands-on Implementation"
+    description: "Strategy without execution is shelf-ware. We embed with your team to build, deploy, and iterate AI solutions — writing code, training models, setting up infrastructure, and shipping. Not from the sidelines. Alongside you."
+    audience: "For teams that need execution capacity and technical depth, not another consultant."
+    examples: "AI/ML solution development, data pipeline setup, model training and deployment, technical prototyping, production readiness."
+  - title: "Team Enablement"
+    description: "The goal isn't to make you dependent on us. It's to make your team capable. We design and deliver workshops, training programmes, and ongoing coaching so your people can confidently work with AI — understanding what's possible, what's practical, and how to make decisions about it."
+    audience: "For organisations that want to own AI as an internal capability, not outsource it indefinitely."
+    examples: "AI literacy workshops for leadership, hands-on technical training, tool-specific enablement, decision-making frameworks for AI adoption."
+cta_text: "Book a Conversation"
+cta_url: "https://outlook.office.com/bookwithme/user/763e021d35b74e1aacb90bdd154f3dc9@pathkey.in?anonymous&ismsaljsauthenabled&ep=plink"
+---

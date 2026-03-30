@@ -1,0 +1,111 @@
+{{ define "main" }}
+
+{{ $page := . }}
+{{ range where .Site.RegularPages "Type" "home" }}
+
+<!-- Hero -->
+<section class="pk-hero">
+  <div class="container">
+    <h1 class="pk-animate-in">
+      {{ .Params.hero.headline_1 }}<br>
+      <span class="pk-accent">{{ .Params.hero.headline_2 }}</span>
+    </h1>
+    <p class="pk-subtitle pk-animate-in pk-animate-delay-1">{{ .Params.hero.subheadline }}</p>
+    <a href="{{ .Params.hero.cta_url }}" class="btn btn-primary pk-animate-in pk-animate-delay-2">
+      {{ .Params.hero.cta_text }} →
+    </a>
+  </div>
+</section>
+
+<!-- Problem Acknowledgment -->
+<section class="pk-problem">
+  <div class="container">
+    <h2>{{ .Params.problem.headline }}</h2>
+    <div class="pk-problem-grid">
+      {{ range .Params.problem.items }}
+      <div class="pk-problem-card">
+        <h3>{{ .title }}</h3>
+        <p>{{ .description }}</p>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<!-- Services Overview -->
+<section class="pk-services-overview">
+  <div class="container">
+    <h2>{{ .Params.services.headline }}</h2>
+    <div class="pk-services-grid">
+      {{ range .Params.services.items }}
+      <a href="{{ "services/" | relURL }}" class="pk-service-card" style="text-decoration:none;">
+        <span class="pk-service-icon">
+          {{ if eq .icon "compass" }}&#9788;{{ end }}
+          {{ if eq .icon "rocket" }}&#10148;{{ end }}
+          {{ if eq .icon "wrench" }}&#9881;{{ end }}
+          {{ if eq .icon "graduation-cap" }}&#9734;{{ end }}
+        </span>
+        <h3>{{ .title }}</h3>
+        <p>{{ .description }}</p>
+      </a>
+      {{ end }}
+    </div>
+    <div class="pk-services-cta">
+      <a href="{{ "services/" | relURL }}" class="btn btn-primary">Explore Services →</a>
+    </div>
+  </div>
+</section>
+
+<!-- Methodology -->
+<section class="pk-methodology">
+  <div class="container">
+    <h2>{{ .Params.methodology.headline }}</h2>
+    <div class="pk-steps">
+      {{ range $i, $step := .Params.methodology.steps }}
+        {{ if gt $i 0 }}
+        <div class="pk-step-arrow">→</div>
+        {{ end }}
+        <div class="pk-step">
+          <div class="pk-step-number">{{ .number }}</div>
+          <h3>{{ .title }}</h3>
+          <p>{{ .description }}</p>
+        </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<!-- Case Studies Preview (hidden if no content) -->
+{{ $caseStudies := where $page.Site.RegularPages "Section" "case-studies" }}
+{{ if gt (len $caseStudies) 0 }}
+<section class="pk-section">
+  <div class="container">
+    <h2 class="pk-section-title">Case Studies</h2>
+    <div class="pk-case-studies-grid">
+      {{ range $caseStudies }}
+      <div class="pk-card">
+        <h3>{{ .Title }}</h3>
+        <p>{{ .Description }}</p>
+        <a href="{{ .Permalink }}">Read more →</a>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+
+<!-- Final CTA -->
+<section class="pk-final-cta">
+  <div class="container">
+    <div class="pk-final-cta-inner">
+      <h2>{{ .Params.final_cta.headline }}</h2>
+      <p>{{ .Params.final_cta.subheadline }}</p>
+      <a href="{{ .Params.final_cta.cta_url }}" class="btn btn-primary">
+        {{ .Params.final_cta.cta_text }} →
+      </a>
+    </div>
+  </div>
+</section>
+
+{{ end }}
+{{ end }}

@@ -1,0 +1,99 @@
+{{ define "main" }}
+
+<div class="pk-page-header">
+  <h1>{{ .Title }}</h1>
+  <p class="pk-subtitle">{{ .Params.intro }}</p>
+</div>
+
+<div class="container" style="max-width: 880px;">
+
+  <!-- Founder Profiles -->
+  {{ range .Params.founders }}
+  <div class="pk-founder-profile">
+    <div class="pk-founder-image">
+      <img src="{{ .image | absURL }}" alt="{{ .name }}" loading="lazy" />
+    </div>
+    <div class="pk-founder-bio">
+      <h2>{{ .name }}</h2>
+      {{ .bio | markdownify }}
+      <div style="margin-top: 12px;">
+        <a href="{{ .linkedin }}" target="_blank" class="pk-social-link">LinkedIn ↗</a>
+        &nbsp;&bull;&nbsp;
+        <a href="mailto:{{ .email }}" class="pk-social-link">{{ .email }}</a>
+      </div>
+    </div>
+  </div>
+  {{ end }}
+
+  <!-- Ventures & Portfolio -->
+  {{ $clients := where .Site.RegularPages "Type" "client-work" }}
+  {{ if gt (len $clients) 0 }}
+  <div class="pk-section">
+    <h2 class="pk-section-title">Ventures & Portfolio</h2>
+    <div class="pk-portfolio-grid">
+      {{ range $clients.ByWeight }}
+      <div class="pk-portfolio-item">
+        {{ if .Params.logo }}
+          {{ $logoSrc := .Params.logo.src }}
+          {{ if .Params.link }}
+          <a href="{{ .Params.link }}" target="_blank" title="{{ .Title }}">
+            <img src="{{ $logoSrc | absURL }}" alt="{{ .Title }}" loading="lazy" />
+          </a>
+          {{ else }}
+          <img src="{{ $logoSrc | absURL }}" alt="{{ .Title }}" loading="lazy" />
+          {{ end }}
+        {{ else }}
+          <span style="color:var(--pk-text-secondary); font-size:0.9rem;">{{ .Title }}</span>
+        {{ end }}
+      </div>
+      {{ end }}
+    </div>
+  </div>
+  {{ end }}
+
+  <!-- Testimonials -->
+  {{ $testimonials := where .Site.RegularPages "Type" "testimonial" }}
+  {{ if gt (len $testimonials) 0 }}
+  <div class="pk-section">
+    <h2 class="pk-section-title">What Others Say</h2>
+    <div class="pk-testimonials-grid">
+      {{ range $testimonials.ByWeight }}
+      <div class="pk-testimonial-card">
+        <blockquote>{{ .Content }}</blockquote>
+        <div class="pk-testimonial-author">
+          {{ if .Params.image }}
+          <img src="{{ .Params.image.src | absURL }}" alt="{{ .Params.name }}" loading="lazy" />
+          {{ end }}
+          <div>
+            <div class="pk-author-name">{{ .Params.name }}</div>
+            {{ if .Params.position }}
+            <div class="pk-author-position">{{ .Params.position }}</div>
+            {{ end }}
+          </div>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+  {{ end }}
+
+  <!-- Leadership Blog -->
+  {{ $blogPosts := where .Site.RegularPages "Section" "blog" }}
+  {{ if gt (len $blogPosts) 0 }}
+  <div class="pk-section">
+    <h2 class="pk-section-title">Leadership Blog</h2>
+    <div class="pk-blog-grid">
+      {{ range $blogPosts.ByDate.Reverse }}
+      <div class="pk-blog-card">
+        <div class="pk-blog-date">{{ .Date.Format "January 2, 2006" }}</div>
+        <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+        {{ if .Description }}<p>{{ .Description }}</p>{{ end }}
+      </div>
+      {{ end }}
+    </div>
+  </div>
+  {{ end }}
+
+</div>
+
+{{ end }}

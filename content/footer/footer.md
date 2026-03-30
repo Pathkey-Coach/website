@@ -8,7 +8,7 @@ draft = false
     title="Work with Pathkey"
     contact_form_name="Your name"
     contact_form_email="Your e-mail"
-    contact_form_message="Tell us where you are and what you're trying to protect or unlock"
+    contact_form_message="Tell us what you're working on and how we can help"
     contact_button="Send message"
     contact_email_title="Suyog"
     contact_email_email="<a href='mailto:suyog@pathkey.in'>suyog@pathkey.in</a> &bull; <a href='https://www.linkedin.com/in/suyogpatki' target='_blank'>/in/suyogpatki</a>"
@@ -22,12 +22,10 @@ draft = false
 >}}
 
 {{< text-section
-title="If you want to grow without losing yourself, let's talk."
+title="From AI ambition to AI execution — let's talk."
 centered="true"
 >}}
 
-Pathkey is especially relevant if you are entering a new phase – expansion, reset, capital raise, or leadership transition – and you want a values-first, AI-aware partner alongside your internal team.
-
-Skip the pitch deck. Just tell us where you are. A few honest lines about your context, current constraints, and what you are trying to protect or unlock are enough.
+Whether you're exploring where AI fits, shaping a new idea, or ready to build — a conversation is the first step. No pitch decks. Just tell us where you are and what you're trying to do.
 
 {{< /text-section >}}

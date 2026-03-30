@@ -1,5 +1,5 @@
 baseURL = "https://pathkey-coach.github.io/website/"
-title = "Pathkey | Values-first Advisory by Avani & Suyog Patki"
+title = "Pathkey | AI Advisory & Enablement for Founders"
 languageCode = "en"
 theme = "adritian-free-hugo-theme"
 
@@ -59,26 +59,20 @@ source = "node_modules/bootstrap-print-css/css/bootstrap-print.css"
 target = "assets/css/bootstrap-print.css"
 
 [params]
-title = "Pathkey – Values-first Advisory"
-description = "Pathkey is the personal advisory brand of Avani & Suyog Patki – values-first founders, servant leaders and AI-wise advisors helping CxOs build organisations that are trusted, human and future-ready."
+title = "Pathkey – AI Advisory & Enablement"
+description = "Pathkey partners with founders and decision-makers to turn AI ambition into execution. Strategy, implementation, enablement — whatever moves the needle."
+themeColor = "#2c3e2d"
 images = ["/images/pathkey_logo_transparent.png"]
 
 [params.seo]
 siteName = "Pathkey"
-siteDescription = "Values-first advisory by Avani & Suyog Patki – helping CxOs build organisations that are trusted, human and future-ready."
+siteDescription = "Pathkey partners with founders and decision-makers to turn AI ambition into execution. Strategy, implementation, enablement — whatever moves the needle."
 siteImage = "/images/pathkey_logo_transparent.png"
 
 [params.seo.person]
-name = "Suyog Patki"
+name = "Pathkey"
 url = "https://pathkey-coach.github.io/website/"
-sameAs = ["https://www.linkedin.com/in/suyogpatki"]
-sections = [
-  "showcase",
-  "about",
-  "client-and-work",
-  "testimonial",
-  "contact",
-]
+sameAs = ["https://www.linkedin.com/in/suyogpatki", "https://www.linkedin.com/in/avanipatki"]
 
 # Logo in header
 # logo = "/images/pathkey_logo_transparent.png"
@@ -89,7 +83,7 @@ homepageExperienceCount = 6
 [params.colorTheme.auto]
   disable = true
 [params.colorTheme.forced]
-  theme = "dark"
+  theme = "light"
 
 [params.colorTheme.selector.disable]
 footer = true
@@ -113,6 +107,8 @@ listLayout = "cards"
 
 [params.plugins]
 
+[[params.plugins.css]]
+URL = "css/pathkey.css"
 [[params.plugins.css]]
 URL = "css/custom.css"
 [[params.plugins.css]]
@@ -145,21 +141,20 @@ name = "Home"
 URL = "/"
 weight = 1
 [[languages.en.menus.header]]
-name = "About"
-URL = "#about"
+name = "Services"
+URL = "/services/"
 weight = 2
 [[languages.en.menus.header]]
-name = "Ventures"
-URL = "#client-and-work-section"
+name = "Case Studies"
+URL = "/case-studies/"
 weight = 3
 [[languages.en.menus.header]]
-name = "Blog"
-URL = "/blog"
+name = "People"
+URL = "/people/"
 weight = 4
 [[languages.en.menus.header]]
-pre = "email"
-name = "Contact"
-URL = "#contact"
+name = "Values"
+URL = "/values/"
 weight = 5
 
 [[languages.en.menus.footer]]
@@ -167,17 +162,21 @@ name = "Home"
 URL = "/"
 weight = 1
 [[languages.en.menus.footer]]
-name = "About"
-URL = "#about"
+name = "Services"
+URL = "/services/"
 weight = 2
 [[languages.en.menus.footer]]
-name = "Ventures"
-URL = "#client-and-work-section"
+name = "Case Studies"
+URL = "/case-studies/"
 weight = 3
 [[languages.en.menus.footer]]
-name = "Contact"
-URL = "#contact"
+name = "People"
+URL = "/people/"
 weight = 4
+[[languages.en.menus.footer]]
+name = "Values"
+URL = "/values/"
+weight = 5
 
 [build]
 writeStats = true

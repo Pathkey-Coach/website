@@ -1,0 +1,32 @@
+## Meta tags
+- id: "meta_title"
+  translation: "Pathkey | AI Advisory & Enablement for Founders"
+- id: "meta_description"
+  translation: "Pathkey partners with founders and decision-makers to turn AI ambition into execution. Strategy, implementation, enablement — whatever moves the needle."
+- id: "meta_keywords"
+  translation: "AI advisory, AI enablement, AI strategy, founders, Pathkey, Suyog Patki, Avani Patki"
+- id: "meta_author"
+  translation: "Pathkey"
+- id: "meta_image"
+  translation: "/images/pathkey_logo_transparent.png"
+
+## Header
+
+- id: "logo_alt"
+  translation: "Pathkey logo"
+
+- id: "logo_text1"
+  translation: "Path"
+
+- id: "logo_text2"
+  translation: "key"
+
+## General
+- id: "skipToMainContent"
+  translation: "Skip to main content"
+
+- id: "toggle_navigation"
+  translation: "Toggle navigation"
+
+- id: "primary_navigation"
+  translation: "Primary navigation"

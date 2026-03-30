@@ -1,0 +1,705 @@
+/* ============================================
+   Pathkey — Soft Sage Theme
+   ============================================ */
+
+/* --- Base Overrides --- */
+body {
+  background-color: var(--pk-bg) !important;
+  color: var(--pk-text) !important;
+  font-family: var(--pk-font-body) !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6,
+.display-1, .display-2, .display-3, .display-4, .display-5, .display-6 {
+  font-family: var(--pk-font-heading) !important;
+  color: var(--pk-primary) !important;
+}
+
+p, li, td, th, label, input, textarea, select {
+  font-family: var(--pk-font-body);
+}
+
+.lead {
+  color: var(--pk-text-secondary);
+}
+
+/* --- Navbar --- */
+.header {
+  background-color: var(--pk-bg) !important;
+  border-bottom: 1px solid var(--pk-border);
+}
+
+.navbar-brand span {
+  color: var(--pk-primary) !important;
+}
+
+.nav-link {
+  color: var(--pk-text) !important;
+  font-family: var(--pk-font-body) !important;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+}
+
+.nav-link:hover {
+  color: var(--pk-primary-light) !important;
+}
+
+.navbar-toggler-icon {
+  filter: none !important;
+}
+
+/* CTA button in nav */
+.nav-cta {
+  background-color: var(--pk-primary);
+  color: var(--pk-bg) !important;
+  padding: 10px 24px !important;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.82rem !important;
+  letter-spacing: 0.02em;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+  text-transform: none !important;
+}
+
+.nav-cta:hover {
+  background-color: var(--pk-primary-light);
+  color: var(--pk-bg) !important;
+  transform: translateY(-1px);
+}
+
+/* --- Buttons --- */
+.btn-primary {
+  background-color: var(--pk-primary) !important;
+  border-color: var(--pk-primary) !important;
+  color: var(--pk-bg) !important;
+  font-family: var(--pk-font-body);
+  font-weight: 700;
+  border-radius: 6px;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--pk-primary-light) !important;
+  border-color: var(--pk-primary-light) !important;
+  transform: translateY(-1px);
+}
+
+/* --- Sections --- */
+.section--border-bottom {
+  border-bottom-color: var(--pk-border) !important;
+}
+
+/* --- Cards & Surfaces --- */
+.pk-card {
+  background: var(--pk-surface);
+  border: 1px solid var(--pk-border);
+  border-radius: 12px;
+  padding: 28px 24px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pk-card:hover {
+  border-color: var(--pk-border-strong);
+  box-shadow: 0 4px 24px rgba(44, 62, 45, 0.06);
+}
+
+/* --- Homepage Sections --- */
+.pk-hero {
+  padding: 100px 0 80px;
+  text-align: center;
+}
+
+.pk-hero h1 {
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+
+.pk-hero .pk-accent {
+  color: var(--pk-primary-light);
+}
+
+.pk-hero .pk-subtitle {
+  font-family: var(--pk-font-body);
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  color: var(--pk-text-secondary);
+  line-height: 1.7;
+  max-width: 560px;
+  margin: 0 auto 32px;
+}
+
+.pk-hero .btn-primary {
+  padding: 14px 36px;
+  font-size: 0.95rem;
+}
+
+/* Problem section */
+.pk-problem {
+  padding: 80px 0;
+  background-color: var(--pk-bg-alt);
+}
+
+.pk-problem h2 {
+  text-align: center;
+  margin-bottom: 48px;
+  font-weight: 400;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+}
+
+.pk-problem-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.pk-problem-card {
+  background: var(--pk-surface);
+  border: 1px solid var(--pk-border);
+  border-radius: 12px;
+  padding: 28px 24px;
+}
+
+.pk-problem-card h3 {
+  font-family: var(--pk-font-body) !important;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--pk-primary) !important;
+  margin-bottom: 8px;
+}
+
+.pk-problem-card p {
+  font-size: 0.9rem;
+  color: var(--pk-text-secondary);
+  margin-bottom: 0;
+  line-height: 1.6;
+}
+
+/* Services overview */
+.pk-services-overview {
+  padding: 80px 0;
+}
+
+.pk-services-overview h2 {
+  text-align: center;
+  margin-bottom: 48px;
+  font-weight: 400;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+}
+
+.pk-services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+.pk-service-card {
+  background: var(--pk-surface);
+  border: 1px solid var(--pk-border);
+  border-radius: 12px;
+  padding: 32px 24px;
+  text-align: center;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pk-service-card:hover {
+  border-color: var(--pk-border-strong);
+  box-shadow: 0 4px 24px rgba(44, 62, 45, 0.06);
+}
+
+.pk-service-icon {
+  font-size: 2rem;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.pk-service-card h3 {
+  font-family: var(--pk-font-body) !important;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--pk-primary) !important;
+  margin-bottom: 10px;
+}
+
+.pk-service-card p {
+  font-size: 0.88rem;
+  color: var(--pk-text-secondary);
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+.pk-services-cta {
+  text-align: center;
+  margin-top: 40px;
+}
+
+/* Methodology */
+.pk-methodology {
+  padding: 80px 0;
+  background-color: var(--pk-bg-alt);
+}
+
+.pk-methodology h2 {
+  text-align: center;
+  margin-bottom: 48px;
+  font-weight: 400;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+}
+
+.pk-steps {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.pk-step {
+  flex: 1;
+  min-width: 200px;
+  max-width: 260px;
+  text-align: center;
+  padding: 16px;
+}
+
+.pk-step-number {
+  font-family: var(--pk-font-heading);
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--pk-primary-light);
+  margin-bottom: 8px;
+  line-height: 1;
+}
+
+.pk-step h3 {
+  font-family: var(--pk-font-body) !important;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--pk-primary) !important;
+  margin-bottom: 8px;
+}
+
+.pk-step p {
+  font-size: 0.88rem;
+  color: var(--pk-text-secondary);
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+.pk-step-arrow {
+  flex: 0 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--pk-text-muted);
+  font-size: 1.4rem;
+  padding-top: 24px;
+}
+
+@media (max-width: 768px) {
+  .pk-step-arrow { display: none; }
+  .pk-steps { flex-direction: column; align-items: center; }
+}
+
+/* Final CTA */
+.pk-final-cta {
+  padding: 80px 0;
+  text-align: center;
+}
+
+.pk-final-cta-inner {
+  background: var(--pk-primary);
+  border-radius: 16px;
+  padding: 60px 40px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.pk-final-cta h2 {
+  color: var(--pk-bg) !important;
+  font-weight: 400;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  margin-bottom: 12px;
+}
+
+.pk-final-cta p {
+  color: rgba(247, 245, 240, 0.75);
+  font-size: 1rem;
+  margin-bottom: 28px;
+}
+
+.pk-final-cta .btn {
+  background-color: var(--pk-bg) !important;
+  color: var(--pk-primary) !important;
+  border-color: var(--pk-bg) !important;
+  padding: 14px 36px;
+  font-size: 0.95rem;
+}
+
+.pk-final-cta .btn:hover {
+  background-color: var(--pk-bg-alt) !important;
+  transform: translateY(-1px);
+}
+
+/* --- Services Page --- */
+.pk-page-header {
+  padding: 60px 0 40px;
+  text-align: center;
+}
+
+.pk-page-header h1 {
+  font-weight: 400;
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 12px;
+}
+
+.pk-page-header .pk-subtitle {
+  font-family: var(--pk-font-body);
+  font-size: 1.05rem;
+  color: var(--pk-text-secondary);
+  max-width: 520px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.pk-service-detail {
+  padding: 48px 0;
+  border-bottom: 1px solid var(--pk-border);
+}
+
+.pk-service-detail:last-of-type {
+  border-bottom: none;
+}
+
+.pk-service-detail h2 {
+  font-size: 1.6rem;
+  font-weight: 400;
+  margin-bottom: 16px;
+}
+
+.pk-service-detail .pk-description {
+  font-size: 1rem;
+  color: var(--pk-text);
+  line-height: 1.8;
+  margin-bottom: 20px;
+  max-width: 640px;
+}
+
+.pk-service-detail .pk-audience {
+  font-size: 0.9rem;
+  color: var(--pk-text-secondary);
+  font-style: italic;
+}
+
+/* --- People Page --- */
+.pk-founder-profile {
+  padding: 48px 0;
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.pk-founder-profile:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.pk-founder-image {
+  flex: 0 0 200px;
+}
+
+.pk-founder-image img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--pk-border);
+}
+
+.pk-founder-bio {
+  flex: 1;
+  min-width: 280px;
+}
+
+.pk-founder-bio h2 {
+  font-size: 1.6rem;
+  font-weight: 400;
+  margin-bottom: 12px;
+}
+
+.pk-founder-bio p {
+  color: var(--pk-text);
+  line-height: 1.8;
+}
+
+.pk-founder-bio .pk-social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--pk-primary-light);
+  font-size: 0.9rem;
+  margin-top: 8px;
+}
+
+@media (max-width: 768px) {
+  .pk-founder-profile,
+  .pk-founder-profile:nth-child(even) {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* Portfolio grid */
+.pk-portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 24px;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 32px 0;
+}
+
+.pk-portfolio-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: var(--pk-surface);
+  border: 1px solid var(--pk-border);
+  border-radius: 8px;
+  transition: border-color 0.2s ease;
+}
+
+.pk-portfolio-item:hover {
+  border-color: var(--pk-border-strong);
+}
+
+.pk-portfolio-item img {
+  max-width: 100%;
+  max-height: 60px;
+  object-fit: contain;
+}
+
+/* Testimonials grid */
+.pk-testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  padding: 32px 0;
+}
+
+.pk-testimonial-card {
+  background: var(--pk-surface);
+  border: 1px solid var(--pk-border);
+  border-radius: 12px;
+  padding: 28px 24px;
+}
+
+.pk-testimonial-card blockquote {
+  font-size: 0.92rem;
+  color: var(--pk-text);
+  line-height: 1.7;
+  margin-bottom: 16px;
+  font-style: italic;
+}
+
+.pk-testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.pk-testimonial-author img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.pk-testimonial-author .pk-author-name {
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: var(--pk-primary);
+}
+
+.pk-testimonial-author .pk-author-position {
+  font-size: 0.8rem;
+  color: var(--pk-text-muted);
+}
+
+/* Blog cards on people page */
+.pk-blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  padding: 32px 0;
+}
+
+.pk-blog-card {
+  background: var(--pk-surface);
+  border: 1px solid var(--pk-border);
+  border-radius: 12px;
+  padding: 24px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pk-blog-card:hover {
+  border-color: var(--pk-border-strong);
+  box-shadow: 0 4px 24px rgba(44, 62, 45, 0.06);
+}
+
+.pk-blog-card h3 {
+  font-family: var(--pk-font-heading) !important;
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.pk-blog-card h3 a {
+  color: var(--pk-primary);
+  text-decoration: none;
+}
+
+.pk-blog-card .pk-blog-date {
+  font-size: 0.8rem;
+  color: var(--pk-text-muted);
+  margin-bottom: 8px;
+}
+
+.pk-blog-card p {
+  font-size: 0.88rem;
+  color: var(--pk-text-secondary);
+  line-height: 1.6;
+}
+
+/* --- Values Page --- */
+.pk-value-block {
+  padding: 48px 0;
+  border-bottom: 1px solid var(--pk-border);
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.pk-value-block:last-of-type {
+  border-bottom: none;
+}
+
+.pk-value-block h2 {
+  font-size: 1.8rem;
+  font-weight: 400;
+  margin-bottom: 16px;
+}
+
+.pk-value-block p {
+  font-size: 1.05rem;
+  line-height: 1.9;
+  color: var(--pk-text);
+}
+
+/* --- Case Studies Page --- */
+.pk-case-studies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  padding: 32px 0;
+}
+
+.pk-empty-state {
+  text-align: center;
+  padding: 80px 20px;
+  color: var(--pk-text-muted);
+  font-style: italic;
+}
+
+/* --- Section spacing --- */
+.pk-section {
+  padding: 80px 0;
+}
+
+.pk-section-alt {
+  background-color: var(--pk-bg-alt);
+}
+
+.pk-section h2.pk-section-title {
+  text-align: center;
+  font-weight: 400;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  margin-bottom: 48px;
+}
+
+/* --- Page CTA --- */
+.pk-page-cta {
+  text-align: center;
+  padding: 60px 0;
+}
+
+.pk-page-cta .btn-primary {
+  padding: 14px 36px;
+  font-size: 0.95rem;
+}
+
+/* --- Footer overrides --- */
+.footer {
+  background-color: var(--pk-bg-alt) !important;
+  border-top: 1px solid var(--pk-border);
+}
+
+.footer .nav-link {
+  color: var(--pk-text-secondary) !important;
+}
+
+.footer .nav-link:hover {
+  color: var(--pk-primary) !important;
+}
+
+/* --- Breadcrumb --- */
+.breadcrumb a {
+  color: var(--pk-primary-light);
+}
+
+/* --- Contact section overrides --- */
+.contact-form input,
+.contact-form textarea {
+  background-color: var(--pk-surface) !important;
+  border: 1px solid var(--pk-border) !important;
+  color: var(--pk-text) !important;
+  border-radius: 8px !important;
+  font-family: var(--pk-font-body);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--pk-primary-light) !important;
+  box-shadow: 0 0 0 3px rgba(90, 125, 94, 0.1) !important;
+}
+
+/* --- Smooth entry animation --- */
+@keyframes pk-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.pk-animate-in {
+  animation: pk-fade-up 0.6s ease-out both;
+}
+
+.pk-animate-delay-1 { animation-delay: 0.1s; }
+.pk-animate-delay-2 { animation-delay: 0.2s; }
+.pk-animate-delay-3 { animation-delay: 0.3s; }
+.pk-animate-delay-4 { animation-delay: 0.4s; }

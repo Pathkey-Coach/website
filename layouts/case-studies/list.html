@@ -1,0 +1,29 @@
+{{ define "main" }}
+
+<div class="pk-page-header">
+  <h1>{{ .Title }}</h1>
+  <p class="pk-subtitle">{{ .Params.tagline }}</p>
+</div>
+
+<div class="container">
+  {{ $caseStudies := .RegularPages }}
+  {{ if gt (len $caseStudies) 0 }}
+  <div class="pk-case-studies-grid">
+    {{ range $caseStudies }}
+    <a href="{{ .Permalink }}" class="pk-card" style="text-decoration:none;">
+      <h3 style="color:var(--pk-primary);">{{ .Title }}</h3>
+      {{ if .Description }}<p>{{ .Description }}</p>{{ end }}
+      <span style="color:var(--pk-primary-light); font-size:0.9rem;">Read more →</span>
+    </a>
+    {{ end }}
+  </div>
+  {{ else }}
+  {{/* Empty state — no "coming soon", just nothing. The page exists for nav consistency. */}}
+  {{ end }}
+</div>
+
+<div class="pk-page-cta">
+  <a href="{{ .Params.cta_url }}" class="btn btn-primary">{{ .Params.cta_text }} →</a>
+</div>
+
+{{ end }}

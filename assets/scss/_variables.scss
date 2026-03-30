@@ -1,0 +1,43 @@
+// Soft Sage Color Palette
+$base-color: #2c3e2d;
+$primary: $base-color;
+$dark-primary: #5a7d5e;
+
+// Link colors
+$link-color: $base-color;
+$link-hover-color: darken($base-color, 10%);
+$link-decoration: none;
+$sidebar-link-color: #2c3e2d;
+
+// Create CSS custom properties for Bootstrap
+:root {
+  --bs-link-color: #{$base-color};
+  --bs-link-color-rgb: #{red($base-color)}, #{green($base-color)}, #{blue($base-color)};
+  --bs-link-hover-color: #{darken($base-color, 10%)};
+  --bs-link-hover-color-rgb: #{red(darken($base-color, 10%))}, #{green(darken($base-color, 10%))}, #{blue(darken($base-color, 10%))};
+  --bs-link-decoration: none;
+
+  // Pathkey Soft Sage tokens
+  --pk-bg: #f7f5f0;
+  --pk-bg-alt: #edeae3;
+  --pk-primary: #2c3e2d;
+  --pk-primary-light: #5a7d5e;
+  --pk-text: #3a4a3b;
+  --pk-text-secondary: #6b7b6c;
+  --pk-text-muted: #8a9a8b;
+  --pk-border: rgba(90, 125, 94, 0.15);
+  --pk-border-strong: rgba(90, 125, 94, 0.3);
+  --pk-surface: #ffffff;
+  --pk-font-heading: 'Newsreader', Georgia, 'Times New Roman', serif;
+  --pk-font-body: 'Nunito Sans', 'Segoe UI', Tahoma, sans-serif;
+}
+
+// Explicit link override for all <a> tags
+a {
+  color: $base-color;
+  text-decoration: $link-decoration;
+
+  &:hover {
+    color: $link-hover-color;
+  }
+}
