@@ -5,7 +5,7 @@ weight: 7
 link: "https://www.bettrlabs.com/"
 params:
     logo:
-        src: ""
+        src: "images/logos/bettrlabs.png"
         scale: 0.5
 ---
 Revolutionary AI-powered CloudLabs for instant product formulation. Transform ideas into manufacturing-ready specs in minutes.

@@ -144,10 +144,11 @@ weight = 1
 name = "Services"
 URL = "/services/"
 weight = 2
-[[languages.en.menus.header]]
-name = "Case Studies"
-URL = "/case-studies/"
-weight = 3
+# Case Studies hidden until content is populated
+# [[languages.en.menus.header]]
+# name = "Case Studies"
+# URL = "/case-studies/"
+# weight = 3
 [[languages.en.menus.header]]
 name = "People"
 URL = "/people/"
@@ -165,10 +166,11 @@ weight = 1
 name = "Services"
 URL = "/services/"
 weight = 2
-[[languages.en.menus.footer]]
-name = "Case Studies"
-URL = "/case-studies/"
-weight = 3
+# Case Studies hidden until content is populated
+# [[languages.en.menus.footer]]
+# name = "Case Studies"
+# URL = "/case-studies/"
+# weight = 3
 [[languages.en.menus.footer]]
 name = "People"
 URL = "/people/"

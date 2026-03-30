@@ -30,3 +30,17 @@
 
 - id: "primary_navigation"
   translation: "Primary navigation"
+
+## Footer
+- id: "footer_notice"
+  translation: "© 2025 Pathkey. All rights reserved."
+
+## Homepage head title
+- id: "head_title"
+  translation: "Pathkey | AI Advisory & Enablement for Founders"
+
+- id: "head_description"
+  translation: "Pathkey partners with founders and decision-makers to turn AI ambition into execution. Strategy, implementation, enablement — whatever moves the needle."
+
+- id: "footer_navigation"
+  translation: "Footer navigation"

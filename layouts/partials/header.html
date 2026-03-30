@@ -29,14 +29,14 @@
           class="navbar-toggler collapsed"
           type="button"
           data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent, #header"
-          aria-controls="navbarSupportedContent header"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
           aria-expanded="false"
           aria-label='{{ i18n "toggle_navigation" }}'>
           <span class="navbar-toggler-icon"></span>
         </button>
         <!-- Mobile-only CTA (always visible, even when menu is collapsed) -->
-        <a class="nav-cta d-lg-none ms-auto me-2" href="https://outlook.office.com/bookwithme/user/763e021d35b74e1aacb90bdd154f3dc9@pathkey.in?anonymous&ismsaljsauthenabled&ep=plink" style="font-size:0.75rem; padding:8px 16px;">Book a Call</a>
+        <a class="nav-cta d-lg-none ms-auto me-2" href="https://outlook.office.com/bookwithme/user/763e021d35b74e1aacb90bdd154f3dc9@pathkey.in?anonymous&ismsaljsauthenabled&ep=plink" style="font-size:0.75rem; padding:8px 16px;">Book a Conversation</a>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-lg-auto align-items-center">
@@ -56,6 +56,3 @@
   </div>
 </header>
 
-{{- if not .IsHome }}
-  {{ partial "breadcrumb.html" . }}
-{{- end }}
