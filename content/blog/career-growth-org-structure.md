@@ -13,4 +13,4 @@ Originally published on [LinkedIn](https://www.linkedin.com/pulse/career-growth-
 
 <!--more-->
 
-The best organisational structures aren't the ones that look clean on a slide – they're the ones where people can see a path forward for themselves. Design for growth, not just for reporting lines.
+The best organisational structures aren't the ones that look clean on a slide. They're the ones where people can see a path forward for themselves. Design for growth, not just for reporting lines.

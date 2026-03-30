@@ -1,0 +1,156 @@
+{{ define "main" }}
+
+<div class="pk-page-header">
+  <h1>{{ .Title }}</h1>
+  <p class="pk-subtitle">{{ .Params.intro }}</p>
+</div>
+
+<div class="container" style="max-width: 880px;">
+
+  <!-- Founder Profiles -->
+  <div class="pk-founders-grid">
+    {{ range .Params.founders }}
+    <div class="pk-founder-card">
+      <div class="pk-founder-image">
+        <img src="{{ .image | relURL }}" alt="{{ .name }}" loading="lazy" />
+      </div>
+      <h3>{{ .name }}</h3>
+      {{ with .role }}<p class="pk-founder-role">{{ . }}</p>{{ end }}
+      <div class="pk-founder-links">
+        <a href="{{ .linkedin }}" target="_blank" class="pk-social-link">LinkedIn ↗</a>
+        &nbsp;&bull;&nbsp;
+        <a href="mailto:{{ .email }}" class="pk-social-link">{{ .email }}</a>
+      </div>
+    </div>
+    {{ end }}
+  </div>
+
+  <!-- About Section -->
+  {{ with .Params.about_heading }}
+  <div class="pk-about-section">
+    <div class="pk-about-kicker">{{ . }}</div>
+    <h2 class="pk-about-title">{{ $.Params.about_title }}</h2>
+    <p class="pk-about-subtitle">{{ $.Params.about_subtitle }}</p>
+    <div class="pk-about-body">
+      {{ $.Params.about_body | markdownify }}
+    </div>
+  </div>
+  {{ end }}
+
+  <!-- Good Fit -->
+  {{ with .Params.good_fit }}
+  <div class="pk-good-fit">
+    <h3 class="pk-good-fit-title">{{ $.Params.good_fit_title }}</h3>
+    <ul class="pk-good-fit-list">
+      {{ range . }}
+      <li>{{ . }}</li>
+      {{ end }}
+    </ul>
+  </div>
+  {{ end }}
+
+  <!-- Featured Talk -->
+  {{ with .Params.featured_talk }}
+  <div class="pk-section">
+    <a href="{{ .url }}" target="_blank" class="pk-talk-card">
+      <div class="pk-talk-content">
+        <div class="pk-talk-kicker">Featured Talk</div>
+        <h3 class="pk-talk-title">{{ .title }}</h3>
+        <p class="pk-talk-desc">{{ .description }}</p>
+        <span class="pk-talk-cta">Watch on YouTube →</span>
+      </div>
+      <div class="pk-talk-thumbnail" style="background-image: url('{{ .thumbnail }}');">
+        <div class="pk-talk-play"></div>
+      </div>
+    </a>
+  </div>
+  {{ end }}
+
+  <!-- Ventures & Portfolio -->
+  {{ $clients := where .Site.RegularPages "Type" "client-work" }}
+  {{ if gt (len $clients) 0 }}
+  <div class="pk-section">
+    <h2 class="pk-section-title">Ventures & Portfolio</h2>
+    <p class="pk-section-sub">The Patkis sit on top of a lived ecosystem, not a buzzword "network". These are the teams we have built or backed, where values, craft and responsible use of technology are non-negotiable.</p>
+    <div class="pk-ventures-grid">
+      {{ range $clients.ByWeight }}
+      <div class="pk-venture-card">
+        {{ if and .Params.logo .Params.logo.src }}
+        <div class="pk-venture-logo">
+          <img src="{{ .Params.logo.src | relURL }}" alt="{{ .Title }}" loading="lazy" />
+        </div>
+        {{ end }}
+        <div class="pk-venture-info">
+          <div class="pk-venture-name">{{ .Title }}</div>
+          {{ if .Params.link }}<a href="{{ .Params.link }}" target="_blank" rel="noreferrer" class="pk-venture-link">{{ .Params.link | replaceRE "^https?://(www\\.)?" "" | replaceRE "/$" "" }}</a>{{ end }}
+          {{ if .Content }}<p class="pk-venture-desc">{{ .Content }}</p>{{ end }}
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+  {{ end }}
+
+  <!-- Advisory Pillars -->
+  {{ with .Params.advisory_pillars }}
+  <div class="pk-section">
+    <div class="pk-advisory-header">
+      <div class="pk-advisory-kicker">{{ $.Params.advisory_heading }}</div>
+      <h2 class="pk-section-title">{{ $.Params.advisory_title }}</h2>
+      <p class="pk-section-sub">{{ $.Params.advisory_subtitle }}</p>
+    </div>
+    <div class="pk-pillars-grid">
+      {{ range $i, $p := . }}
+      <div class="pk-pillar-card">
+        <div class="pk-pillar-title">{{ add $i 1 }}. {{ $p.title }}</div>
+        <p class="pk-pillar-body">{{ $p.body }}</p>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+  {{ end }}
+
+  <!-- Testimonials -->
+  {{ $testimonials := where .Site.RegularPages "Type" "testimonial" }}
+  {{ if gt (len $testimonials) 0 }}
+  <div class="pk-section">
+    <h2 class="pk-section-title">What Others Say</h2>
+    <div class="pk-testimonials-grid">
+      {{ range $testimonials.ByWeight }}
+      <div class="pk-testimonial-card">
+        <blockquote>{{ .Content }}</blockquote>
+        <div class="pk-testimonial-author">
+          <div>
+            <div class="pk-author-name">{{ .Title }}</div>
+            {{ if .Params.name }}
+            <div class="pk-author-position">{{ .Params.name }}</div>
+            {{ end }}
+          </div>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+  {{ end }}
+
+  <!-- Leadership Blog -->
+  {{ $blogPosts := where .Site.RegularPages "Section" "blog" }}
+  {{ if gt (len $blogPosts) 0 }}
+  <div class="pk-section">
+    <h2 class="pk-section-title">Leadership Blog</h2>
+    <div class="pk-blog-grid">
+      {{ range $blogPosts.ByDate.Reverse }}
+      <div class="pk-blog-card">
+        <div class="pk-blog-date">{{ .Date.Format "January 2, 2006" }}</div>
+        <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+        {{ if .Description }}<p>{{ .Description }}</p>{{ end }}
+      </div>
+      {{ end }}
+    </div>
+  </div>
+  {{ end }}
+
+
+</div>
+
+{{ end }}

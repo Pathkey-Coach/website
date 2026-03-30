@@ -152,6 +152,10 @@ weight = 2
 [[languages.en.menus.header]]
 name = "People"
 URL = "/people/"
+weight = 3
+[[languages.en.menus.header]]
+name = "The Patkis"
+URL = "/the-patkis/"
 weight = 4
 [[languages.en.menus.header]]
 name = "Values"
@@ -174,6 +178,10 @@ weight = 2
 [[languages.en.menus.footer]]
 name = "People"
 URL = "/people/"
+weight = 3
+[[languages.en.menus.footer]]
+name = "The Patkis"
+URL = "/the-patkis/"
 weight = 4
 [[languages.en.menus.footer]]
 name = "Values"

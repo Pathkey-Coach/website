@@ -15,8 +15,29 @@
   {{ end }}
 </div>
 
-<div class="pk-page-cta">
-  <a href="{{ .Params.cta_url }}" class="btn btn-primary">{{ .Params.cta_text }} →</a>
+<!-- Contact -->
+{{ with .Params.contact_title }}
+<div class="container" style="max-width: 780px;">
+  <div class="pk-section pk-contact-section">
+    <h2 class="pk-section-title">{{ . }}</h2>
+    <p class="pk-section-sub">{{ $.Params.contact_subtitle }}</p>
+    <div class="pk-contact-card">
+      <div class="pk-contact-row">
+        <div class="pk-contact-pill">
+          <strong>Email</strong> &nbsp;
+          <a href="mailto:{{ $.Params.contact_email }}">{{ $.Params.contact_email }}</a>
+        </div>
+        <div class="pk-contact-pill">
+          <strong>Location</strong> &nbsp; Pune • Bengaluru • remote-friendly
+        </div>
+      </div>
+      <div class="pk-contact-cta-row">
+        <a href="{{ $.Params.contact_booking_url }}" target="_blank" class="btn btn-primary">Book a 30-minute conversation →</a>
+        <a href="mailto:{{ $.Params.contact_email }}?subject=Pathkey%20inquiry" class="btn btn-outline-secondary">Email us</a>
+      </div>
+    </div>
+  </div>
 </div>
+{{ end }}
 
 {{ end }}

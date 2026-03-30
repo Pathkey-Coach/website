@@ -29,6 +29,8 @@ p, li, td, th, label, input, textarea, select {
 .header {
   background-color: var(--pk-bg) !important;
   border-bottom: 1px solid var(--pk-border);
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
 }
 
 .navbar-brand span {
@@ -435,7 +437,106 @@ p, li, td, th, label, input, textarea, select {
   font-style: italic;
 }
 
-/* --- People Page --- */
+/* --- People Page (3-partner intro) --- */
+.pk-partners-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  padding: 0 0 48px;
+}
+
+.pk-partner-card {
+  text-align: center;
+  padding: 32px 20px;
+  background: var(--pk-surface);
+  border: 1px solid var(--pk-border);
+  border-radius: 12px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pk-partner-card:hover {
+  border-color: var(--pk-border-strong);
+  box-shadow: 0 4px 24px rgba(44, 62, 45, 0.06);
+}
+
+.pk-partner-image {
+  margin-bottom: 16px;
+}
+
+.pk-partner-image img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--pk-border);
+}
+
+.pk-partner-card h3 {
+  font-family: var(--pk-font-heading) !important;
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin-bottom: 2px;
+}
+
+.pk-partner-role {
+  font-size: 0.82rem;
+  color: var(--pk-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 8px;
+}
+
+.pk-partner-bio {
+  font-size: 0.85rem;
+  color: var(--pk-text-secondary);
+  line-height: 1.65;
+  margin-bottom: 12px;
+  text-align: left;
+}
+
+.pk-partner-links {
+  margin-top: 4px;
+}
+
+.pk-partner-links .pk-social-link {
+  color: var(--pk-primary-light);
+  font-size: 0.85rem;
+}
+
+@media (max-width: 768px) {
+  .pk-partners-grid {
+    grid-template-columns: 1fr;
+    max-width: 360px;
+    margin: 0 auto;
+  }
+}
+
+/* Patkis link card */
+.pk-patkis-link-card {
+  display: block;
+  text-align: center;
+  padding: 28px 32px;
+  background: var(--pk-surface);
+  border: 1px solid var(--pk-border);
+  border-radius: 12px;
+  font-family: var(--pk-font-heading);
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--pk-primary);
+  text-decoration: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+  margin-bottom: 48px;
+}
+
+.pk-patkis-link-card:hover {
+  border-color: var(--pk-primary-light);
+  box-shadow: 0 4px 24px rgba(44, 62, 45, 0.08);
+  background: var(--pk-bg-alt);
+  color: var(--pk-primary);
+  text-decoration: none;
+}
+
+/* --- The Patkis Page (founders detail) --- */
 .pk-founders-grid {
   display: flex;
   justify-content: center;
@@ -1082,8 +1183,17 @@ p, li, td, th, label, input, textarea, select {
 /* Ensure footer body text is readable */
 .footer p,
 .footer .text-section p,
+.footer .text-section__content p,
 .footer span {
   color: var(--pk-text) !important;
+}
+
+.footer .section__title {
+  color: var(--pk-primary) !important;
+}
+
+.footer .text-section__content {
+  color: var(--pk-text-secondary) !important;
 }
 
 .footer .footer__copy span {

@@ -13,4 +13,4 @@ Originally published on [LinkedIn](https://www.linkedin.com/pulse/evolution-work
 
 <!--more-->
 
-Communication in the modern workplace isn't about more channels or more meetings – it's about fewer, better ones. Structure your communication for clarity, not volume. Your team will thank you.
+Communication in the modern workplace isn't about more channels or more meetings. It's about fewer, better ones. Structure your communication for clarity, not volume. Your team will thank you.

@@ -13,6 +13,6 @@ Originally published on [LinkedIn](https://www.linkedin.com/pulse/value-first-bu
 
 <!--more-->
 
-Building a value-first business isn't about sacrificing growth – it's about redefining what growth means. When you lead with values, you attract the right people, retain them longer, and build something that compounds trust over time.
+Building a value-first business isn't about sacrificing growth. It's about redefining what growth means. When you lead with values, you attract the right people, retain them longer, and build something that compounds trust over time.
 
 The question every founder should ask isn't "How fast can we grow?" but "What kind of organisation are we building, and will it still be standing in ten years?"
