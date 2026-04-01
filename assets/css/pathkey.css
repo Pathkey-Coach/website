@@ -197,6 +197,34 @@ p, li, td, th, label, input, textarea, select {
   line-height: 1.6;
 }
 
+/* Why section */
+.pk-why {
+  padding: 80px 0;
+}
+
+.pk-why h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-weight: 400;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+}
+
+.pk-why-content {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.pk-why-content p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--pk-text-secondary);
+  margin-bottom: 20px;
+}
+
+.pk-why-content p:last-child {
+  margin-bottom: 0;
+}
+
 /* Services overview */
 .pk-services-overview {
   padding: 80px 0;
@@ -1233,6 +1261,184 @@ p, li, td, th, label, input, textarea, select {
 .contact-form textarea:focus {
   border-color: var(--pk-primary-light) !important;
   box-shadow: 0 0 0 3px rgba(90, 125, 94, 0.1) !important;
+}
+
+/* --- Products Page --- */
+.pk-products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 24px;
+  padding: 32px 0 64px;
+}
+
+.pk-product-card {
+  background: var(--pk-surface);
+  border: 1px solid var(--pk-border);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pk-product-card:hover {
+  border-color: var(--pk-border-strong);
+  box-shadow: 0 4px 24px rgba(44, 62, 45, 0.06);
+}
+
+.pk-product-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 28px 24px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.pk-product-name {
+  font-family: var(--pk-font-heading) !important;
+  font-size: 1.3rem;
+  font-weight: 400;
+  margin-bottom: 4px;
+}
+
+.pk-product-tagline {
+  font-size: 0.9rem;
+  color: var(--pk-text-secondary);
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+
+.pk-product-chevron {
+  font-size: 1.2rem;
+  color: var(--pk-text-muted);
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+  margin-left: 16px;
+  margin-top: 4px;
+}
+
+.pk-product-card.expanded .pk-product-chevron {
+  transform: rotate(180deg);
+}
+
+.pk-product-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+.pk-product-card.expanded .pk-product-body {
+  max-height: 2000px;
+}
+
+.pk-product-journey {
+  padding: 0 24px 28px;
+}
+
+.pk-product-journey p {
+  font-size: 0.95rem;
+  color: var(--pk-text);
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+.pk-product-journey p:last-child {
+  margin-bottom: 0;
+}
+
+/* Screenshot Slider */
+.pk-product-slider {
+  position: relative;
+  margin: 0 24px 24px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--pk-bg-alt);
+}
+
+.pk-slider-track {
+  display: flex;
+  transition: transform 0.3s ease;
+}
+
+.pk-slider-slide {
+  flex: 0 0 100%;
+}
+
+.pk-slider-slide img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+}
+
+.pk-slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(44, 62, 45, 0.7);
+  color: var(--pk-bg);
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+}
+
+.pk-slider-arrow:hover {
+  background: rgba(44, 62, 45, 0.9);
+}
+
+.pk-slider-prev {
+  left: 8px;
+}
+
+.pk-slider-next {
+  right: 8px;
+}
+
+.pk-slider-dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.pk-slider-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(44, 62, 45, 0.3);
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.pk-slider-dot.active {
+  background: var(--pk-primary);
+}
+
+.pk-slider-placeholder {
+  aspect-ratio: 16 / 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--pk-text-muted);
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .pk-products-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* --- Smooth entry animation --- */
