@@ -1,0 +1,90 @@
+{{ define "main" }}
+
+<div class="pk-page-header">
+  <h1>{{ .Title }}</h1>
+  <p class="pk-subtitle">{{ .Params.intro }}</p>
+</div>
+
+<div class="container" style="max-width: 960px;">
+  <div class="pk-products-grid">
+    {{ range $index, $product := .Params.products }}
+    <div class="pk-product-card pk-animate-in pk-animate-delay-{{ add (mod $index 4) 1 }}" data-product="{{ $product.slug }}">
+      <div class="pk-product-header" onclick="toggleProduct(this)">
+        <div>
+          <h3 class="pk-product-name">{{ $product.name }}</h3>
+          <p class="pk-product-tagline">{{ $product.tagline }}</p>
+        </div>
+        <span class="pk-product-chevron">&#9662;</span>
+      </div>
+      <div class="pk-product-body">
+        <!-- Screenshot Slider -->
+        <div class="pk-product-slider">
+          {{ if $product.screenshots }}
+          <div class="pk-slider-track">
+            {{ range $product.screenshots }}
+            <div class="pk-slider-slide">
+              <img src="{{ printf "/images/products/%s/%s" $product.slug . | relURL }}" alt="{{ $product.name }} screenshot" loading="lazy">
+            </div>
+            {{ end }}
+          </div>
+          <button class="pk-slider-arrow pk-slider-prev" onclick="slideProduct(this, -1)" aria-label="Previous screenshot">&lsaquo;</button>
+          <button class="pk-slider-arrow pk-slider-next" onclick="slideProduct(this, 1)" aria-label="Next screenshot">&rsaquo;</button>
+          <div class="pk-slider-dots">
+            {{ range $i, $s := $product.screenshots }}
+            <span class="pk-slider-dot{{ if eq $i 0 }} active{{ end }}" onclick="goToSlide(this, {{ $i }})"></span>
+            {{ end }}
+          </div>
+          {{ else }}
+          <div class="pk-slider-placeholder">
+            <span>Screenshots coming soon</span>
+          </div>
+          {{ end }}
+        </div>
+        <!-- Journey -->
+        <div class="pk-product-journey">
+          {{ $product.journey | markdownify }}
+        </div>
+      </div>
+    </div>
+    {{ end }}
+  </div>
+</div>
+
+<script>
+function toggleProduct(header) {
+  const card = header.closest('.pk-product-card');
+  card.classList.toggle('expanded');
+}
+
+function slideProduct(btn, direction) {
+  const slider = btn.closest('.pk-product-slider');
+  const track = slider.querySelector('.pk-slider-track');
+  const slides = track.querySelectorAll('.pk-slider-slide');
+  const dots = slider.querySelectorAll('.pk-slider-dot');
+  if (slides.length === 0) return;
+
+  let current = parseInt(track.dataset.current || '0', 10);
+  current = (current + direction + slides.length) % slides.length;
+  track.dataset.current = current;
+  track.style.transform = 'translateX(-' + (current * 100) + '%)';
+
+  dots.forEach(function(dot, i) {
+    dot.classList.toggle('active', i === current);
+  });
+}
+
+function goToSlide(dot, index) {
+  const slider = dot.closest('.pk-product-slider');
+  const track = slider.querySelector('.pk-slider-track');
+  const dots = slider.querySelectorAll('.pk-slider-dot');
+
+  track.dataset.current = index;
+  track.style.transform = 'translateX(-' + (index * 100) + '%)';
+
+  dots.forEach(function(d, i) {
+    d.classList.toggle('active', i === index);
+  });
+}
+</script>
+
+{{ end }}
