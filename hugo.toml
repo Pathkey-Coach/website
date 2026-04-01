@@ -144,6 +144,10 @@ weight = 1
 name = "Services"
 URL = "/services/"
 weight = 2
+[[languages.en.menus.header]]
+name = "Products"
+URL = "/products/"
+weight = 2.5
 # Case Studies hidden until content is populated
 # [[languages.en.menus.header]]
 # name = "Case Studies"
@@ -170,6 +174,10 @@ weight = 1
 name = "Services"
 URL = "/services/"
 weight = 2
+[[languages.en.menus.footer]]
+name = "Products"
+URL = "/products/"
+weight = 2.5
 # Case Studies hidden until content is populated
 # [[languages.en.menus.footer]]
 # name = "Case Studies"
