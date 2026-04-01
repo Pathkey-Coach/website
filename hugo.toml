@@ -147,24 +147,24 @@ weight = 2
 [[languages.en.menus.header]]
 name = "Products"
 URL = "/products/"
-weight = 2.5
+weight = 3
 # Case Studies hidden until content is populated
 # [[languages.en.menus.header]]
 # name = "Case Studies"
 # URL = "/case-studies/"
-# weight = 3
+# weight = 4
 [[languages.en.menus.header]]
 name = "People"
 URL = "/people/"
-weight = 3
+weight = 4
 [[languages.en.menus.header]]
 name = "The Patkis"
 URL = "/the-patkis/"
-weight = 4
+weight = 5
 [[languages.en.menus.header]]
 name = "Values"
 URL = "/values/"
-weight = 5
+weight = 6
 
 [[languages.en.menus.footer]]
 name = "Home"
@@ -177,24 +177,24 @@ weight = 2
 [[languages.en.menus.footer]]
 name = "Products"
 URL = "/products/"
-weight = 2.5
+weight = 3
 # Case Studies hidden until content is populated
 # [[languages.en.menus.footer]]
 # name = "Case Studies"
 # URL = "/case-studies/"
-# weight = 3
+# weight = 4
 [[languages.en.menus.footer]]
 name = "People"
 URL = "/people/"
-weight = 3
+weight = 4
 [[languages.en.menus.footer]]
 name = "The Patkis"
 URL = "/the-patkis/"
-weight = 4
+weight = 5
 [[languages.en.menus.footer]]
 name = "Values"
 URL = "/values/"
-weight = 5
+weight = 6
 
 [build]
 writeStats = true
