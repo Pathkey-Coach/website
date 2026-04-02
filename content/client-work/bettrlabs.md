@@ -8,4 +8,4 @@ params:
         src: "images/logos/bettrlabs.png"
         scale: 0.5
 ---
-Revolutionary AI-powered CloudLabs for instant product formulation. Transform ideas into manufacturing-ready specs in minutes.
+AI-powered CloudLabs for product formulation. Pathkey helped shape the early AI architecture and product direction.

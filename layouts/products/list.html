@@ -5,44 +5,58 @@
   <p class="pk-subtitle">{{ .Params.intro }}</p>
 </div>
 
-<div class="container" style="max-width: 960px;">
-  <div class="pk-products-grid">
-    {{ range $index, $product := .Params.products }}
-    <div class="pk-product-card pk-animate-in pk-animate-delay-{{ add (mod $index 4) 1 }}" data-product="{{ $product.slug }}">
-      <div class="pk-product-header" onclick="toggleProduct(this)">
-        <div>
-          <h3 class="pk-product-name">{{ $product.name }}</h3>
-          <p class="pk-product-tagline">{{ $product.tagline }}</p>
-        </div>
-        <span class="pk-product-chevron">&#9662;</span>
-      </div>
-      <div class="pk-product-body">
-        <!-- Screenshot Slider -->
-        <div class="pk-product-slider">
-          {{ if $product.screenshots }}
-          <div class="pk-slider-track">
-            {{ range $product.screenshots }}
-            <div class="pk-slider-slide">
-              <img src="{{ printf "/images/products/%s/%s" $product.slug . | relURL }}" alt="{{ $product.name }} screenshot" loading="lazy">
-            </div>
-            {{ end }}
-          </div>
-          <button class="pk-slider-arrow pk-slider-prev" onclick="slideProduct(this, -1)" aria-label="Previous screenshot">&lsaquo;</button>
-          <button class="pk-slider-arrow pk-slider-next" onclick="slideProduct(this, 1)" aria-label="Next screenshot">&rsaquo;</button>
-          <div class="pk-slider-dots">
-            {{ range $i, $s := $product.screenshots }}
-            <span class="pk-slider-dot{{ if eq $i 0 }} active{{ end }}" onclick="goToSlide(this, {{ $i }})"></span>
-            {{ end }}
-          </div>
-          {{ else }}
-          <div class="pk-slider-placeholder">
-            <span>Screenshots coming soon</span>
+<!-- Modal Container Overlay -->
+<div id="pk-product-modal-backdrop" class="pk-modal-backdrop" onclick="closeProductModal()"></div>
+
+{{ range $index, $product := .Params.products }}
+<div id="modal-{{ $product.slug }}" class="pk-product-modal">
+  <div class="pk-modal-content">
+    <button class="pk-modal-close" onclick="closeProductModal()">&times;</button>
+    <div class="pk-modal-header">
+      <h2 class="pk-product-name">{{ $product.name }}</h2>
+      <p class="pk-product-tagline">{{ $product.tagline }}</p>
+    </div>
+    <div class="pk-modal-body">
+      <!-- Screenshot Slider -->
+      <div class="pk-product-slider">
+        {{ if $product.screenshots }}
+        <div class="pk-slider-track">
+          {{ range $product.screenshots }}
+          <div class="pk-slider-slide">
+            <img src="{{ printf "/images/products/%s/%s" $product.slug . | relURL }}" alt="{{ $product.name }} screenshot" loading="lazy">
           </div>
           {{ end }}
         </div>
-        <!-- Journey -->
-        <div class="pk-product-journey">
-          {{ $product.journey | markdownify }}
+        <button class="pk-slider-arrow pk-slider-prev" onclick="slideProduct(this, -1)" aria-label="Previous screenshot">&lsaquo;</button>
+        <button class="pk-slider-arrow pk-slider-next" onclick="slideProduct(this, 1)" aria-label="Next screenshot">&rsaquo;</button>
+        <div class="pk-slider-dots">
+          {{ range $i, $s := $product.screenshots }}
+          <span class="pk-slider-dot{{ if eq $i 0 }} active{{ end }}" onclick="goToSlide(this, {{ $i }})"></span>
+          {{ end }}
+        </div>
+        {{ else }}
+        <div class="pk-slider-placeholder">
+          <span>Screenshots coming soon</span>
+        </div>
+        {{ end }}
+      </div>
+      <!-- Journey -->
+      <div class="pk-product-journey">
+        {{ $product.journey | markdownify }}
+      </div>
+    </div>
+  </div>
+</div>
+{{ end }}
+
+<div class="container" style="max-width: 960px;">
+  <div class="pk-products-grid">
+    {{ range $index, $product := .Params.products }}
+    <div class="pk-product-card pk-animate-in pk-animate-delay-{{ add (mod $index 4) 1 }}" data-product="{{ $product.slug }}" onclick="openProductModal('{{ $product.slug }}')">
+      <div class="pk-product-header">
+        <div>
+          <h3 class="pk-product-name">{{ $product.name }}</h3>
+          <p class="pk-product-tagline">{{ $product.tagline }}</p>
         </div>
       </div>
     </div>
@@ -51,9 +65,42 @@
 </div>
 
 <script>
-function toggleProduct(header) {
-  const card = header.closest('.pk-product-card');
-  card.classList.toggle('expanded');
+document.addEventListener('DOMContentLoaded', () => {
+  const backdrop = document.getElementById('pk-product-modal-backdrop');
+  if (backdrop) document.body.appendChild(backdrop);
+  
+  const modals = document.querySelectorAll('.pk-product-modal');
+  modals.forEach(m => document.body.appendChild(m));
+});
+
+function openProductModal(slug) {
+  const backdrop = document.getElementById('pk-product-modal-backdrop');
+  const modal = document.getElementById('modal-' + slug);
+  if (!backdrop || !modal) return;
+  
+  backdrop.classList.add('show');
+  modal.classList.add('show');
+  document.body.style.overflow = 'hidden';
+  
+  // force layout
+  void modal.offsetWidth;
+  
+  backdrop.classList.add('active');
+  modal.classList.add('active');
+}
+
+function closeProductModal() {
+  const backdrop = document.getElementById('pk-product-modal-backdrop');
+  const modals = document.querySelectorAll('.pk-product-modal.show');
+  
+  backdrop.classList.remove('active');
+  modals.forEach(m => m.classList.remove('active'));
+  document.body.style.overflow = '';
+  
+  setTimeout(() => {
+    backdrop.classList.remove('show');
+    modals.forEach(m => m.classList.remove('show'));
+  }, 300);
 }
 
 function slideProduct(btn, direction) {

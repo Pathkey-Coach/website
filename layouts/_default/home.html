@@ -17,6 +17,20 @@
   </div>
 </section>
 
+<!-- Why -->
+{{ if .Params.why }}
+<section class="pk-why">
+  <div class="container">
+    <h2>{{ .Params.why.headline }}</h2>
+    <div class="pk-why-content">
+      {{ range .Params.why.paragraphs }}
+      <p>{{ . }}</p>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+
 <!-- Problem Acknowledgment -->
 <section class="pk-problem">
   <div class="container">

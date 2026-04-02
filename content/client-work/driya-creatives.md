@@ -8,4 +8,4 @@ params:
         src: "images/logos/driya-creatives.png"
         scale: 0.5
 ---
-A creative studio for education films, impact stories and brand narratives. Cinema and communication used carefully, to inform, not manipulate.
+Avani's creative studio. Education films, impact stories, and brand narratives. The team behind several of Pathkey's communication and storytelling work.

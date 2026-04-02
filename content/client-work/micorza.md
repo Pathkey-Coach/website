@@ -8,4 +8,4 @@ params:
         src: "images/logos/micorza.svg"
         scale: 0.5
 ---
-Empowering customer-centric product development through AI-driven insights. Transforming qualitative user feedback into actionable strategies across Product, UX, and Marketing to drive engagement and growth.
+AI-driven product insights. Turns qualitative user feedback into actionable strategies for Product, UX, and Marketing teams.

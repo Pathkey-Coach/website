@@ -8,4 +8,4 @@ params:
         src: "images/logos/rapid-circle.jpg"
         scale: 0.5
 ---
-Microsoft Cloud, Modern Work and AI transformations for enterprises. Designing digital workplaces that respect security, people and productivity, in that order.
+Co-founded by Suyog and Avani. Grew from zero to a 200+ person Microsoft cloud and AI consultancy. This is where Pathkey's DNA comes from.

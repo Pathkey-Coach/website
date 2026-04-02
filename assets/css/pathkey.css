@@ -1307,27 +1307,73 @@ p, li, td, th, label, input, textarea, select {
   margin-bottom: 0;
 }
 
-.pk-product-chevron {
-  font-size: 1.2rem;
+/* --- Product Modals --- */
+.pk-modal-backdrop {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.pk-product-modal {
+  position: fixed;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%) scale(0.95);
+  background: var(--pk-surface);
+  border-radius: 12px;
+  width: 90%;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow-y: auto;
+  z-index: 1001;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+}
+
+.pk-product-modal.show, .pk-modal-backdrop.show {
+  display: block;
+}
+
+.pk-product-modal.active, .pk-modal-backdrop.active {
+  opacity: 1;
+}
+
+.pk-product-modal.active {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.pk-modal-content {
+  position: relative;
+}
+
+.pk-modal-close {
+  position: absolute;
+  top: 24px; right: 24px;
+  background: transparent;
+  border: none;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
   color: var(--pk-text-muted);
-  transition: transform 0.3s ease;
-  flex-shrink: 0;
-  margin-left: 16px;
-  margin-top: 4px;
+  transition: color 0.2s ease;
+  padding: 0;
 }
 
-.pk-product-card.expanded .pk-product-chevron {
-  transform: rotate(180deg);
+.pk-modal-close:hover {
+  color: var(--pk-text);
 }
 
-.pk-product-body {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease;
+.pk-modal-header {
+  padding: 32px 32px 24px;
 }
 
-.pk-product-card.expanded .pk-product-body {
-  max-height: 2000px;
+.pk-modal-body {
+  padding: 0;
 }
 
 .pk-product-journey {
