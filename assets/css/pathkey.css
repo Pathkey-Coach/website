@@ -1486,8 +1486,13 @@ p, li, td, th, label, input, textarea, select {
   border-top: 1px solid var(--pk-border);
 }
 
+.footer .navbar-nav {
+  flex-wrap: nowrap !important;
+}
+
 .footer .nav-link {
   color: var(--pk-text-secondary) !important;
+  white-space: nowrap;
 }
 
 .footer .nav-link:hover {
