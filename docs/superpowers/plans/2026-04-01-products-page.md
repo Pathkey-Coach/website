@@ -70,12 +70,12 @@ description: "Things we've built — some for clients, some for ourselves."
 draft: false
 intro: "Things we've built — some for clients, some for ourselves."
 products:
-  - name: "Kodeskan"
+  - name: "ShieldEaze"
     tagline: "Unified code security scanning CLI"
-    slug: "kodeskan"
+    slug: "ShieldEaze"
     screenshots: []
     journey: |
-      Kodeskan was born from a recurring frustration: every security engagement meant stitching together half a dozen tools, each with its own output format and quirks. We wanted one command that could run SAST, SCA, secrets detection, IaC scanning, and license compliance — and produce a single, self-contained HTML report you could hand to a client.
+      ShieldEaze was born from a recurring frustration: every security engagement meant stitching together half a dozen tools, each with its own output format and quirks. We wanted one command that could run SAST, SCA, secrets detection, IaC scanning, and license compliance — and produce a single, self-contained HTML report you could hand to a client.
 
       We built it in Go because the tool needed to run on air-gapped Linux VMs where installing dependencies was not an option. A single binary, no runtime, no internet required. Under the hood it orchestrates Opengrep, Nuclei, Trivy, and Syft, but the user never has to think about that.
 
@@ -494,7 +494,7 @@ git commit -m "feat: add product card, slider, and expand/collapse styles"
 ### Task 5: Create screenshot image directories
 
 **Files:**
-- Create: `static/images/products/kodeskan/.gitkeep`
+- Create: `static/images/products/ShieldEaze/.gitkeep`
 - Create: `static/images/products/fpaos/.gitkeep`
 - Create: `static/images/products/speceaze/.gitkeep`
 - Create: `static/images/products/talenteaze/.gitkeep`
@@ -505,7 +505,7 @@ git commit -m "feat: add product card, slider, and expand/collapse styles"
 - [ ] **Step 1: Create directories with .gitkeep files**
 
 ```bash
-for slug in kodeskan fpaos speceaze talenteaze sapos catalogeaze auditeaze; do
+for slug in ShieldEaze fpaos speceaze talenteaze sapos catalogeaze auditeaze; do
   mkdir -p static/images/products/$slug
   touch static/images/products/$slug/.gitkeep
 done

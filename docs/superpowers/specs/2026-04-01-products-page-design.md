@@ -56,9 +56,9 @@ Add a "Products" page to the Pathkey website showcasing 7 products built by the 
 
 7 products in this order, defined in `content/products/_index.md` frontmatter:
 
-### 1. Kodeskan
+### 1. ShieldEaze
 - **Tagline:** Unified code security scanning CLI
-- **Slug:** kodeskan
+- **Slug:** ShieldEaze
 - **Placeholder journey:** ~150-200 words about building a Go CLI that unifies SAST, SCA, secrets scanning, IaC scanning, and code quality checks with self-contained HTML reporting. Designed for client-site deployment on Linux VMs.
 
 ### 2. FP&Aos
