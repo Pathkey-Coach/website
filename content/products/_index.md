@@ -8,7 +8,7 @@ products:
     tagline: "Unified code security scanning package"
     slug: "ShieldEaze"
     screenshots: []
-    report_url: "/reports/ShieldEaze/sample-report.html"
+    report_url: "/reports/shieldeaze/sample-report.html"
     report_label: "View Sample Scan Report"
     journey: |
       Enterprise code security is a fragmented space. Organizations enforce strict code-review policies, but doing so typically means stitching together expensive, overlapping tools: separate products for SAST, SCA, secrets detection, license compliance, and IaC security. ShieldEaze unifies these essentials into a single package. ShieldEaze runs 5 scanner types: SAST, SCA, Secrets Detection, License Compliance, and IaC Security. It ships as a tar archive, so it runs practically anywhere (developer machines, VMs, self-hosted CI/CD pipelines) with no external network access. This makes it reliable and safe for processing confidential codebases.
