@@ -6,7 +6,7 @@ intro: "Pathkey is three people. We've worked together, learned from each other,
 partners:
   - name: "Suyog Patki"
     role: "Partner"
-    bio: "Co-founded Rapid Circle India and built it into a 200+ person Microsoft cloud and AI consultancy over two decades. Along the way, figured out that the companies worth building are the ones people don't want to leave, which became the subject of his TEDx talk on next-gen work culture. Active angel investor and mentor to early-stage founders. Believes the most valuable thing he can offer a leader is an honest perspective with no product attached."
+    bio: "Co-founded Rapid Circle India and built it into a 200+ person Microsoft cloud consultancy over two decades. Along the way, figured out that the companies worth building are the ones people don't want to leave, which became the subject of his TEDx talk on next-gen work culture. Active angel investor and mentor to early-stage founders. Believes the most valuable thing he can offer a leader is an honest perspective with no product attached."
     image: "images/about/suyog_dp_v3.jpg"
     linkedin: "https://www.linkedin.com/in/suyogpatki"
   - name: "Avani Patki"

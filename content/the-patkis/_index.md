@@ -6,20 +6,10 @@ intro: "Pathkey started as Avani and Suyog's personal advisory practice. Two fou
 founders:
   - name: "Suyog Patki"
     image: "images/about/suyog_dp_v3.jpg"
-    bio: "Co-founded Rapid Circle India in 2010 and has spent over two decades across the Microsoft Enterprise ecosystem. Co-founder & Partner at Driya Creatives, Suyog blends analytical rigour and storytelling to advise founders and boards, as an angel investor and mentor who backs people as much as ideas."
-    meta:
-      - label: "Focus Areas"
-        content: "Helping founders navigate the intersection of Strategy, AI integration, and Work Culture. Advocate for servant leadership and psychological safety."
-      - label: "Beyond Business"
-        content: "Guided by Vedantic wisdom, tuned by music. Practices leadership as service, awareness, and restraint."
+    bio: "Co-founded Rapid Circle India and Driya Creatives. I help founders navigate strategy, AI integration, and work culture, blending analytical rigour with storytelling. Angel investor and mentor who backs people as much as ideas. I advocate for servant leadership and psychological safety. Guided by Vedantic wisdom, tuned by music."
   - name: "Avani Patki"
     image: "images/about/avani_dp.jpg"
-    bio: "Co-founded software company, Rapid Circle India, with my husband, Suyog in 2010. Also, co-founder and partner at Driya Creatives, a film production house. Our first film (a 30 min short film) almost made it to Oscars in 2020."
-    meta:
-      - label: "Focus Areas"
-        content: "Identifying problems, finding solutions, and converting them into processes. I love the continuous improvement game with a human touch and exploring tools for maximum efficiency."
-      - label: "Beyond Business"
-        content: "An old soul drawn to Upanishads. Associated with Go-Wild since 2011, I've explored most national parks in India as a volunteer and wildlife guide."
+    bio: "Co-founded Rapid Circle India and Driya Creatives. Our debut short film almost made it to the Oscars in 2020. I love identifying problems, finding solutions, and converting them into processes, continuous improvement with a human touch. An old soul drawn to the Upanishads. I've been a wildlife volunteer and guide with Go-Wild since 2011, having explored most national parks in India."
 
 
 about_heading: "About The Patkis"
