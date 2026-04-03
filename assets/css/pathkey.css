@@ -1512,11 +1512,21 @@ p, li, td, th, label, input, textarea, select {
 }
 
 .footer .navbar-nav {
-  flex-wrap: nowrap !important;
+  flex-wrap: wrap !important;
+  justify-content: center;
+}
+
+@media (max-width: 767px) {
+  .footer .navbar-nav {
+    flex-direction: column !important;
+    align-items: center;
+    gap: 4px;
+  }
 }
 
 .footer .nav-link {
   color: var(--pk-text-secondary) !important;
+  font-size: 0.85rem !important;
   white-space: nowrap;
 }
 
