@@ -25,6 +25,7 @@ body {
 h1, h2, h3, h4, h5, h6,
 .display-1, .display-2, .display-3, .display-4, .display-5, .display-6 {
   font-family: var(--pk-font-heading) !important;
+  font-weight: 400 !important;
   color: var(--pk-primary) !important;
 }
 
@@ -196,9 +197,9 @@ p, li, td, th, label, input, textarea, select {
 }
 
 .pk-problem-card h3 {
-  font-family: var(--pk-font-body) !important;
+  font-family: var(--pk-font-heading) !important;
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 400;
   color: var(--pk-primary) !important;
   margin-bottom: 8px;
 }
@@ -274,9 +275,9 @@ p, li, td, th, label, input, textarea, select {
 }
 
 .pk-service-card h3 {
-  font-family: var(--pk-font-body) !important;
+  font-family: var(--pk-font-heading) !important;
   font-size: 1.05rem;
-  font-weight: 700;
+  font-weight: 400;
   color: var(--pk-primary) !important;
   margin-bottom: 10px;
 }
@@ -327,16 +328,16 @@ p, li, td, th, label, input, textarea, select {
 .pk-step-number {
   font-family: var(--pk-font-heading);
   font-size: 2.4rem;
-  font-weight: 700;
+  font-weight: 400;
   color: var(--pk-primary-light);
   margin-bottom: 8px;
   line-height: 1;
 }
 
 .pk-step h3 {
-  font-family: var(--pk-font-body) !important;
+  font-family: var(--pk-font-heading) !important;
   font-size: 1.1rem;
-  font-weight: 700;
+  font-weight: 400;
   color: var(--pk-primary) !important;
   margin-bottom: 8px;
 }
@@ -759,7 +760,7 @@ p, li, td, th, label, input, textarea, select {
 .pk-founder-name {
   font-family: var(--pk-font-heading) !important;
   font-size: 1.2rem;
-  font-weight: 500;
+  font-weight: 400;
   margin-bottom: 2px;
 }
 
@@ -828,6 +829,7 @@ p, li, td, th, label, input, textarea, select {
 .pk-philosophy strong {
   font-family: var(--pk-font-heading);
   font-size: 1rem;
+  font-weight: 400;
   color: var(--pk-primary);
 }
 
@@ -892,7 +894,7 @@ p, li, td, th, label, input, textarea, select {
 .pk-good-fit-title {
   font-family: var(--pk-font-heading) !important;
   font-size: 1.1rem !important;
-  font-weight: 500 !important;
+  font-weight: 400 !important;
   color: var(--pk-primary) !important;
   margin-bottom: 16px;
 }
@@ -1055,7 +1057,7 @@ p, li, td, th, label, input, textarea, select {
 .pk-venture-name {
   font-family: var(--pk-font-heading);
   font-size: 1.05rem;
-  font-weight: 500;
+  font-weight: 400;
   color: var(--pk-primary);
   margin-bottom: 2px;
 }
@@ -1137,7 +1139,7 @@ p, li, td, th, label, input, textarea, select {
 .pk-pillar-title {
   font-family: var(--pk-font-heading);
   font-size: 1.05rem;
-  font-weight: 500;
+  font-weight: 400;
   color: var(--pk-primary);
   margin-bottom: 12px;
 }
@@ -1165,7 +1167,7 @@ p, li, td, th, label, input, textarea, select {
 .pk-contact-heading {
   font-family: var(--pk-font-heading);
   font-size: 1.15rem;
-  font-weight: 500;
+  font-weight: 400;
   color: var(--pk-primary);
   margin-bottom: 12px;
 }
@@ -1414,7 +1416,7 @@ p, li, td, th, label, input, textarea, select {
 .pk-blog-title {
   font-family: var(--pk-font-heading) !important;
   font-size: 1.1rem;
-  font-weight: 500;
+  font-weight: 400;
   color: var(--pk-primary);
   margin-bottom: 8px;
 }
