@@ -62,6 +62,7 @@ target = "assets/css/bootstrap-print.css"
 title = "Pathkey – AI Advisory & Enablement"
 description = "Pathkey partners with founders and decision-makers to turn AI ambition into execution. Strategy, implementation, enablement — whatever moves the needle."
 themeColor = "#2c3e2d"
+logo = "/images/pathkey_logo_transparent.png"
 images = ["/images/pathkey_logo_transparent.png"]
 
 [params.seo]
@@ -73,9 +74,6 @@ siteImage = "/images/pathkey_logo_transparent.png"
 name = "Pathkey"
 url = "https://pathkey-coach.github.io/"
 sameAs = ["https://www.linkedin.com/in/suyogpatki", "https://www.linkedin.com/in/avanipatki"]
-
-# Logo in header
-# logo = "/images/pathkey_logo_transparent.png"
 
 homepageExperienceCount = 6
 

@@ -15,10 +15,11 @@
   <div class="container">
     <nav class="navbar bd-navbar navbar-expand-lg navbar-light p-0" role="navigation" aria-label='{{ i18n "primary_navigation" }}'>
       <div class="container-fluid">
+        {{ $basePath := strings.TrimRight "/" (urls.Parse site.BaseURL).Path }}
         <a class="navbar-brand mx-auto" href="{{ .Site.BaseURL | relLangURL }}">
           {{ if .Site.Params.logo }}
           <img
-            src="{{ .Site.Params.logo | absURL }}"
+            src="{{ printf "%s%s" $basePath .Site.Params.logo }}"
             alt="{{ i18n "logo_alt" }}"
             class="logo" />
           {{ end }}
