@@ -1654,6 +1654,7 @@ p, li, td, th, label, input, textarea, select {
   width: 90%;
   max-width: 800px;
   max-height: 90vh;
+  overflow-x: hidden;
   overflow-y: auto;
   z-index: 1001;
   display: none;
@@ -1676,6 +1677,8 @@ p, li, td, th, label, input, textarea, select {
 
 .pk-modal-content {
   position: relative;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .pk-modal-close {
@@ -1701,6 +1704,8 @@ p, li, td, th, label, input, textarea, select {
 
 .pk-modal-body {
   padding: 0;
+  overflow: hidden;
+  width: 100%;
 }
 
 .pk-product-journey {
@@ -1724,6 +1729,8 @@ p, li, td, th, label, input, textarea, select {
   border-radius: 8px;
   overflow: hidden;
   background: var(--pk-bg-alt);
+  width: calc(100% - 48px);
+  box-sizing: border-box;
 }
 
 .pk-product-report iframe {
@@ -1757,19 +1764,24 @@ p, li, td, th, label, input, textarea, select {
   border-radius: 8px;
   overflow: hidden;
   background: var(--pk-bg-alt);
+  width: calc(100% - 48px);
+  box-sizing: border-box;
 }
 
 .pk-slider-track {
   display: flex;
   transition: transform 0.3s ease;
+  width: 100%;
 }
 
 .pk-slider-slide {
   flex: 0 0 100%;
+  min-width: 0;
 }
 
 .pk-slider-slide img {
   width: 100%;
+  max-width: 100%;
   aspect-ratio: 16 / 9;
   object-fit: contain;
   display: block;
