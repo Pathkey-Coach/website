@@ -69,7 +69,7 @@ p, li, td, th, label, input, textarea, select {
   color: var(--pk-text) !important;
   font-family: var(--pk-font-body) !important;
   font-weight: 600;
-  font-size: 0.85rem;
+  font-size: 0.85rem !important;
   letter-spacing: 0.04em;
 }
 
