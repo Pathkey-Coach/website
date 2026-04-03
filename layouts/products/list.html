@@ -14,6 +14,7 @@
   <img id="pk-lightbox-img" src="" alt="Screenshot full view">
 </div>
 
+{{ $basePath := strings.TrimRight "/" (urls.Parse site.BaseURL).Path }}
 {{ range $index, $product := .Params.products }}
 <div id="modal-{{ $product.slug }}" class="pk-product-modal">
   <div class="pk-modal-content">
@@ -26,8 +27,8 @@
       <!-- Report Embed or Screenshot Slider -->
       {{ if $product.report_url }}
       <div class="pk-product-report">
-        <iframe src="{{ $product.report_url | relURL }}" sandbox="allow-scripts allow-same-origin" loading="lazy"></iframe>
-        <a href="{{ $product.report_url | relURL }}" target="_blank" rel="noopener noreferrer" class="pk-report-link">
+        <iframe src="{{ printf "%s%s" $basePath $product.report_url }}" sandbox="allow-scripts allow-same-origin" loading="lazy"></iframe>
+        <a href="{{ printf "%s%s" $basePath $product.report_url }}" target="_blank" rel="noopener noreferrer" class="pk-report-link">
           {{ with $product.report_label }}{{ . }}{{ else }}Open Full Report{{ end }} &rsaquo;
         </a>
       </div>
@@ -37,7 +38,7 @@
         <div class="pk-slider-track">
           {{ range $product.screenshots }}
           <div class="pk-slider-slide">
-            <img src="{{ printf "/images/products/%s/%s" $product.slug . | relURL }}" alt="{{ $product.name }} screenshot" loading="lazy" onclick="event.stopPropagation(); openLightbox(this)">
+            <img src="{{ printf "%s/images/products/%s/%s" $basePath $product.slug . }}" alt="{{ $product.name }} screenshot" loading="lazy" onclick="event.stopPropagation(); openLightbox(this)">
           </div>
           {{ end }}
         </div>

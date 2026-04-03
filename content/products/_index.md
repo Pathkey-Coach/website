@@ -1,8 +1,8 @@
 ---
 title: "Products"
-description: "Built to bring our innovation partners' ideas to life, and a few of our own."
+description: "Shaped by our experiences and real conversations, built as micro-SaaS products anyone can use."
 draft: false
-intro: "Built to bring our innovation partners' ideas to life, and a few of our own."
+intro: "Shaped by our experiences and real conversations, built as micro-SaaS products anyone can use."
 products:
   - name: "Kodeskan"
     tagline: "Unified code security scanning package"
@@ -11,18 +11,19 @@ products:
     report_url: "/reports/kodeskan/sample-report.html"
     report_label: "View Sample Scan Report"
     journey: |
-      Kodeskan came from an innovation partnership with a founder running an IT GRC cybersecurity services business. He told us about the strict code-review policies enterprises follow and the expensive tools they rely on. Within a day of our first meeting, we designed and prototyped a tool with 5 scanner types: SAST, SCA, Secrets Detection, License Compliance, and IaC Security. Over the next week, we worked closely with our founder partner to refine the rules and make it customer-ready. The tool ships as a tar archive, so it runs practically anywhere (developer machines, VMs, self-hosted CI/CD pipelines) with no external network access. This makes it reliable and safe for processing confidential codebases.
+      Kodeskan was born from our conversations with people in the IT GRC and cybersecurity space. We kept hearing the same pain points: enterprises follow strict code-review policies but rely on expensive, fragmented tools to enforce them. We saw an opportunity to unify the essentials into a single package. Kodeskan runs 5 scanner types: SAST, SCA, Secrets Detection, License Compliance, and IaC Security. It ships as a tar archive, so it runs practically anywhere (developer machines, VMs, self-hosted CI/CD pipelines) with no external network access. This makes it reliable and safe for processing confidential codebases.
       
-      Kodeskan is a great example of AI delivering value without any AI in the final product. An AI-based scanner would have meant opening up the network, fielding security questions, or running local LLMs that limit hosting options and scan quality. Instead, we built the tool from scratch using Claude Code. With our experience of engineering Claude Code to its best, innovation partners can see their ideas come to life in hours or days.
+      Kodeskan is a great example of AI delivering value without any AI in the final product. An AI-based scanner would have meant opening up the network, fielding security questions, or running local LLMs that limit hosting options and scan quality. Instead, we built the tool from scratch using Claude Code. With our experience of engineering Claude Code to its best, ideas like these come to life in hours or days.
 
-  - name: "FP&Aos"
-    tagline: "Indian Transfer Pricing compliance OS"
-    slug: "fpaos"
-    screenshots: []
-    journey: |
-      FP&Aos is an umbrella product for everything related to Financial Planning and Analysis. This topic is close to Suyog's experience handling financial and compliance operations at Rapid Circle. Since Rapid Circle's parent company is based in the Netherlands, Rapid Circle India was always under regulatory scrutiny due to Transfer Pricing (TP) regulations. TP, combined with day-to-day financial operations, made Suyog realize how fragile this space is. Many tools exist, but none handle things end to end. So he took it on himself to bring all of his experience into action.
-      
-      He started with TP-related features: entity setup, questionnaire responses, Safe Harbor eligibility, benchmarking, markup selection, invoice generation, and filing. After showing his work to CAs, he realized that even with TP solved, many gaps remain across FP&A. As of today, FP&Aos is one of the products Suyog is actively expanding into other financial processes, working closely with CAs and financial firms for continuous feedback.
+  # HIDDEN: FP&Aos - temporarily hidden, may re-enable soon
+  # - name: "FP&Aos"
+  #   tagline: "Indian Transfer Pricing compliance OS"
+  #   slug: "fpaos"
+  #   screenshots: []
+  #   journey: |
+  #     FP&Aos is an umbrella product for everything related to Financial Planning and Analysis. This topic is close to Suyog's experience handling financial and compliance operations at Rapid Circle. Since Rapid Circle's parent company is based in the Netherlands, Rapid Circle India was always under regulatory scrutiny due to Transfer Pricing (TP) regulations. TP, combined with day-to-day financial operations, made Suyog realize how fragile this space is. Many tools exist, but none handle things end to end. So he took it on himself to bring all of his experience into action.
+  #     
+  #     He started with TP-related features: entity setup, questionnaire responses, Safe Harbor eligibility, benchmarking, markup selection, invoice generation, and filing. After showing his work to CAs, he realized that even with TP solved, many gaps remain across FP&A. As of today, FP&Aos is one of the products Suyog is actively expanding into other financial processes, working closely with CAs and financial firms for continuous feedback.
 
   - name: "SpecEaze"
     tagline: "PRD preparation tool for business experts"
@@ -65,12 +66,13 @@ products:
 
       We showed this to friends running a travel agency and got a positive response, along with more use cases to explore. This is a great example of how proactively solving a small problem can help founders and decision-makers think about what else is biting them that can be solved quickly with partners like us.
 
-  - name: "TalentEaze"
-    tagline: "Talent discovery and outreach automation"
-    slug: "talenteaze"
-    screenshots: []
-    journey: |
-      Another high-impact use case born from Suyog's years of pain: high-quality recruitment. When delegated to agencies, recruitment often becomes just a numbers game. Suyog wanted to build a tool that finds candidates the way a startup founder would. Not by titles or resumes, but based on skills and existing work. Behind the scenes, TalentEaze is a smart browser automation that looks up information across multiple sources to find high-quality candidates against a given job description.
+  # HIDDEN: TalentEaze - temporarily hidden, may re-enable soon
+  # - name: "TalentEaze"
+  #   tagline: "Talent discovery and outreach automation"
+  #   slug: "talenteaze"
+  #   screenshots: []
+  #   journey: |
+  #     Another high-impact use case born from Suyog's years of pain: high-quality recruitment. When delegated to agencies, recruitment often becomes just a numbers game. Suyog wanted to build a tool that finds candidates the way a startup founder would. Not by titles or resumes, but based on skills and existing work. Behind the scenes, TalentEaze is a smart browser automation that looks up information across multiple sources to find high-quality candidates against a given job description.
 
   - name: "CatalogEaze"
     tagline: "Effortless Shopify catalog management"
