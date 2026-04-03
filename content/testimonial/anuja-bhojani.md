@@ -1,7 +1,7 @@
 ---
 title: "Anuja Bhojani"
 draft: false
-weight: 12
+weight: 15
 name: "Senior Consultant"
 position: ""
 params:

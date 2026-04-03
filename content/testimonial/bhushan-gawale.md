@@ -1,7 +1,7 @@
 ---
 title: "Bhushan Gawale"
 draft: false
-weight: 5
+weight: 8
 name: "Head Of AI"
 position: ""
 params:

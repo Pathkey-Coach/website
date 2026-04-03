@@ -1,7 +1,7 @@
 ---
 title: "Tejas Shirgaonkar"
 draft: false
-weight: 17
+weight: 20
 name: "Capability Lead"
 position: ""
 params:

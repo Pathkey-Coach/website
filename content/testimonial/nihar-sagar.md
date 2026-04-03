@@ -1,7 +1,7 @@
 ---
 title: "Nihar Sagar"
 draft: false
-weight: 2
+weight: 3
 name: "Head of Capability"
 position: ""
 params:

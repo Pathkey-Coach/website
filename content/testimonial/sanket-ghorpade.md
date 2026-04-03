@@ -1,7 +1,7 @@
 ---
 title: "Sanket Ghorpade"
 draft: false
-weight: 3
+weight: 4
 name: "Architect - Artificial Intelligence"
 position: ""
 params:

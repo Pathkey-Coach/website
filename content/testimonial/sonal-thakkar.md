@@ -1,7 +1,7 @@
 ---
 title: "Sonal Thakkar"
 draft: false
-weight: 4
+weight: 6
 name: "Director - Product Programs"
 position: ""
 params:

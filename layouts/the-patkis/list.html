@@ -8,14 +8,26 @@
 <div class="container" style="max-width: 880px;">
 
   <!-- Founder Profiles -->
-  <div class="pk-founders-grid">
+  <div class="pk-founder-entries">
     {{ range .Params.founders }}
-    <div class="pk-founder-card">
-      <div class="pk-founder-image">
-        <img src="{{ .image | relURL }}" alt="{{ .name }}" loading="lazy" />
+    <div class="pk-founder-entry">
+      <div class="pk-founder-header">
+        <img src="{{ .image | relURL }}" alt="{{ .name }}" class="pk-founder-photo" loading="lazy" />
+        <div class="pk-founder-info">
+          <h3 class="pk-founder-name">{{ .name }}</h3>
+        </div>
       </div>
-      <h3>{{ .name }}</h3>
-      {{ with .role }}<p class="pk-founder-role">{{ . }}</p>{{ end }}
+      {{ with .bio }}<p class="pk-founder-bio">{{ . | markdownify }}</p>{{ end }}
+      {{ with .meta }}
+      <div class="pk-founder-meta-grid">
+        {{ range . }}
+        <div class="pk-founder-meta-item">
+          <div class="pk-founder-meta-label">{{ .label }}</div>
+          <p class="pk-founder-meta-content">{{ .content | markdownify }}</p>
+        </div>
+        {{ end }}
+      </div>
+      {{ end }}
       {{ if .linkedin }}
       <div class="pk-founder-links">
         <a href="{{ .linkedin }}" target="_blank" class="pk-social-link">LinkedIn ↗</a>
@@ -34,6 +46,13 @@
     <div class="pk-about-body">
       {{ $.Params.about_body | markdownify }}
     </div>
+
+    {{ with $.Params.philosophy }}
+    <div class="pk-philosophy">
+      <strong>{{ .title }}</strong>
+      <p>{{ .body | markdownify }}</p>
+    </div>
+    {{ end }}
   </div>
   {{ end }}
 
@@ -115,20 +134,26 @@
   {{ if gt (len $testimonials) 0 }}
   <div class="pk-section">
     <h2 class="pk-section-title">What Others Say</h2>
-    <div class="pk-testimonials-grid">
-      {{ range $testimonials.ByWeight }}
-      <div class="pk-testimonial-card">
-        <blockquote>{{ .Content }}</blockquote>
-        <div class="pk-testimonial-author">
-          <div>
-            <div class="pk-author-name">{{ .Title }}</div>
-            {{ if .Params.name }}
-            <div class="pk-author-position">{{ .Params.name }}</div>
-            {{ end }}
+    <div class="pk-testimonials-slider">
+      <div class="pk-testimonials-track">
+        {{ range $testimonials.ByWeight }}
+        <div class="pk-testimonial-card">
+          <blockquote>{{ .Content }}</blockquote>
+          <div class="pk-testimonial-author">
+            <div>
+              <div class="pk-author-name">{{ .Title }}</div>
+              {{ if .Params.name }}
+              <div class="pk-author-position">{{ .Params.name }}</div>
+              {{ end }}
+            </div>
           </div>
         </div>
+        {{ end }}
       </div>
-      {{ end }}
+      <div class="pk-slider-nav">
+        <button class="pk-slider-btn pk-slider-prev" aria-label="Previous">&larr;</button>
+        <button class="pk-slider-btn pk-slider-next" aria-label="Next">&rarr;</button>
+      </div>
     </div>
   </div>
   {{ end }}
@@ -152,5 +177,33 @@
 
 
 </div>
+
+<script>
+(function() {
+  var track = document.querySelector('.pk-testimonials-track');
+  if (!track) return;
+  var prev = document.querySelector('.pk-slider-prev');
+  var next = document.querySelector('.pk-slider-next');
+  var card = track.querySelector('.pk-testimonial-card');
+  if (!card) return;
+  function scrollAmount() {
+    return card.offsetWidth + 20;
+  }
+  prev.addEventListener('click', function() {
+    if (track.scrollLeft <= 5) {
+      track.scrollTo({ left: track.scrollWidth, behavior: 'smooth' });
+    } else {
+      track.scrollBy({ left: -scrollAmount(), behavior: 'smooth' });
+    }
+  });
+  next.addEventListener('click', function() {
+    if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 10) {
+      track.scrollTo({ left: 0, behavior: 'smooth' });
+    } else {
+      track.scrollBy({ left: scrollAmount(), behavior: 'smooth' });
+    }
+  });
+})();
+</script>
 
 {{ end }}

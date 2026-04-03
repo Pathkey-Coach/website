@@ -1,7 +1,7 @@
 ---
 title: "Sayali Shitole"
 draft: false
-weight: 8
+weight: 11
 name: "Senior QA Engineer"
 position: ""
 params:

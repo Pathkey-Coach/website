@@ -1,7 +1,7 @@
 ---
 title: "Dev Chaudhari"
 draft: false
-weight: 9
+weight: 12
 name: "Head of IT"
 position: ""
 params:

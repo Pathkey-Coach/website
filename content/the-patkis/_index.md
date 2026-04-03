@@ -6,8 +6,20 @@ intro: "Pathkey started as Avani and Suyog's personal advisory practice. Two fou
 founders:
   - name: "Suyog Patki"
     image: "images/about/suyog_dp_v3.jpg"
+    bio: "Co-founded Rapid Circle India in 2010 and has spent over two decades across the Microsoft Enterprise ecosystem. Co-founder & Partner at Driya Creatives, Suyog blends analytical rigour and storytelling to advise founders and boards, as an angel investor and mentor who backs people as much as ideas."
+    meta:
+      - label: "Focus Areas"
+        content: "Helping founders navigate the intersection of Strategy, AI integration, and Work Culture. Advocate for servant leadership and psychological safety."
+      - label: "Beyond Business"
+        content: "Guided by Vedantic wisdom, tuned by music. Practices leadership as service, awareness, and restraint."
   - name: "Avani Patki"
     image: "images/about/avani_dp.jpg"
+    bio: "Co-founded software company, Rapid Circle India, with my husband, Suyog in 2010. Also, co-founder and partner at Driya Creatives, a film production house. Our first film (a 30 min short film) almost made it to Oscars in 2020."
+    meta:
+      - label: "Focus Areas"
+        content: "Identifying problems, finding solutions, and converting them into processes. I love the continuous improvement game with a human touch and exploring tools for maximum efficiency."
+      - label: "Beyond Business"
+        content: "An old soul drawn to Upanishads. Associated with Go-Wild since 2011, I've explored most national parks in India as a volunteer and wildlife guide."
 
 
 about_heading: "About The Patkis"
@@ -19,6 +31,10 @@ about_body: |
   We approach leadership as stewardship. That means asking "what is the right next move for this organisation and its people?" and then using strategy, technology, and narrative to get there.
 
   We work with a small number of leaders at a time. We help them make fewer, better bets, bring AI in thoughtfully, and build cultures where high performance and psychological safety aren't at odds with each other.
+
+philosophy:
+  title: "Our Philosophy: The Triangle Framework"
+  body: "We believe sustainable profit follows value-creation. We help leaders balance the competing interests of People, Customers, and Profit through a \"Value-First\" lens — nurturing relationships before extracting gains."
 
 good_fit_title: "When The Patkis tend to be a good fit"
 good_fit:

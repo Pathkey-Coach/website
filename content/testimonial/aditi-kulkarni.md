@@ -1,7 +1,7 @@
 ---
 title: "Aditi Kulkarni"
 draft: false
-weight: 16
+weight: 19
 name: "Solutions Specialist"
 position: ""
 params:

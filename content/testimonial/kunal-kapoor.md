@@ -1,7 +1,7 @@
 ---
 title: "Kunal Kapoor"
 draft: false
-weight: 6
+weight: 9
 name: "Cloud Practice Head"
 position: ""
 params:

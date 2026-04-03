@@ -1,7 +1,7 @@
 ---
 title: "Ankit Girgas"
 draft: false
-weight: 10
+weight: 13
 name: "Solutions Architect"
 position: ""
 params:

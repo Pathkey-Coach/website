@@ -1,7 +1,7 @@
 ---
 title: "Subhash Dike"
 draft: false
-weight: 20
+weight: 23
 name: "Sr Cloud Application Architect"
 position: ""
 params:

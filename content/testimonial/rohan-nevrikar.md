@@ -1,7 +1,7 @@
 ---
 title: "Rohan Nevrikar"
 draft: false
-weight: 7
+weight: 10
 name: "Head of Technology"
 position: ""
 params:

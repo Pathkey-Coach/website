@@ -44,12 +44,10 @@ p, li, td, th, label, input, textarea, select {
   padding-bottom: 0 !important;
 }
 
-.navbar-brand span {
-  color: var(--pk-primary) !important;
-}
-
-.header .navbar-brand span:nth-child(2) {
-  font-family: 'AutumnMoon', cursive, sans-serif;
+.header .navbar-brand img {
+  width: 275px !important;
+  max-height: 90px !important;
+  object-fit: contain;
 }
 
 .navbar {
@@ -381,7 +379,7 @@ p, li, td, th, label, input, textarea, select {
 
 /* --- Services Page --- */
 .pk-page-header {
-  padding: 110px 0 40px;
+  padding: 160px 0 40px;
   text-align: center;
 }
 
@@ -723,6 +721,122 @@ p, li, td, th, label, input, textarea, select {
 .pk-founder-links .pk-social-link {
   color: var(--pk-primary-light);
   font-size: 0.85rem;
+}
+
+/* Founder detailed entries */
+.pk-founder-entries {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 32px;
+  padding: 0 0 40px;
+}
+
+.pk-founder-entry {
+  background: var(--pk-surface);
+  border: 1px solid var(--pk-border);
+  border-radius: 12px;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.pk-founder-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.pk-founder-photo {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--pk-border);
+  flex-shrink: 0;
+}
+
+.pk-founder-name {
+  font-family: var(--pk-font-heading) !important;
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+
+.pk-founder-tagline {
+  font-size: 0.82rem;
+  color: var(--pk-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.pk-founder-bio {
+  font-size: 0.92rem;
+  color: var(--pk-text);
+  line-height: 1.7;
+  margin-bottom: 16px;
+  flex: 1;
+}
+
+.pk-founder-meta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  align-items: start;
+}
+
+.pk-founder-meta-item {
+  padding: 12px;
+  background: var(--pk-bg);
+  border-radius: 8px;
+}
+
+.pk-founder-meta-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--pk-primary-light);
+  margin-bottom: 6px;
+}
+
+.pk-founder-meta-content {
+  font-size: 0.85rem;
+  color: var(--pk-text-secondary);
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+@media (max-width: 480px) {
+  .pk-founder-meta-grid {
+    grid-template-columns: 1fr;
+  }
+  .pk-founder-entries {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Philosophy / Triangle Framework */
+.pk-philosophy {
+  margin-top: 24px;
+  padding: 20px 24px;
+  background: var(--pk-surface);
+  border: 1px solid var(--pk-border);
+  border-radius: 10px;
+}
+
+.pk-philosophy strong {
+  font-family: var(--pk-font-heading);
+  font-size: 1rem;
+  color: var(--pk-primary);
+}
+
+.pk-philosophy p {
+  margin-top: 8px;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--pk-text-secondary);
+  margin-bottom: 0;
 }
 
 /* About section */
@@ -1107,6 +1221,9 @@ p, li, td, th, label, input, textarea, select {
     align-items: center;
     gap: 32px;
   }
+  .pk-founder-entries {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Portfolio grid */
@@ -1148,19 +1265,37 @@ p, li, td, th, label, input, textarea, select {
   text-align: center;
 }
 
-/* Testimonials grid */
-.pk-testimonials-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 24px;
-  padding: 32px 0;
+/* Testimonials horizontal slider */
+.pk-testimonials-slider {
+  position: relative;
+  padding: 32px 0 16px;
+}
+
+.pk-testimonials-track {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: 8px;
+}
+
+.pk-testimonials-track::-webkit-scrollbar {
+  display: none;
 }
 
 .pk-testimonial-card {
+  flex: 0 0 calc(25% - 15px);
+  min-width: 260px;
+  scroll-snap-align: start;
   background: var(--pk-surface);
   border: 1px solid var(--pk-border);
   border-radius: 12px;
   padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
 }
 
 .pk-testimonial-card blockquote {
@@ -1169,19 +1304,13 @@ p, li, td, th, label, input, textarea, select {
   line-height: 1.7;
   margin-bottom: 16px;
   font-style: italic;
+  flex: 1;
 }
 
 .pk-testimonial-author {
   display: flex;
   align-items: center;
   gap: 12px;
-}
-
-.pk-testimonial-author img {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  object-fit: cover;
 }
 
 .pk-testimonial-author .pk-author-name {
@@ -1193,6 +1322,51 @@ p, li, td, th, label, input, textarea, select {
 .pk-testimonial-author .pk-author-position {
   font-size: 0.8rem;
   color: var(--pk-text-muted);
+}
+
+.pk-slider-nav {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.pk-slider-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--pk-border);
+  background: var(--pk-surface);
+  color: var(--pk-text);
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.pk-slider-btn:hover {
+  border-color: var(--pk-border-strong);
+  background: var(--pk-bg-alt);
+}
+
+@media (max-width: 1024px) {
+  .pk-testimonial-card {
+    flex: 0 0 calc(33.333% - 14px);
+  }
+}
+
+@media (max-width: 768px) {
+  .pk-testimonial-card {
+    flex: 0 0 calc(50% - 10px);
+  }
+}
+
+@media (max-width: 480px) {
+  .pk-testimonial-card {
+    flex: 0 0 85%;
+  }
 }
 
 /* Blog cards on people page */

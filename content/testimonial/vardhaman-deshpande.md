@@ -1,7 +1,7 @@
 ---
 title: "Vardhaman Deshpande"
 draft: false
-weight: 15
+weight: 18
 name: "AI Architect"
 position: ""
 params:

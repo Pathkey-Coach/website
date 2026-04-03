@@ -1,7 +1,7 @@
 ---
 title: "Shrikant Datke"
 draft: false
-weight: 18
+weight: 21
 name: "Service Delivery Manager"
 position: ""
 params:

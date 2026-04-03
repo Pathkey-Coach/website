@@ -1,7 +1,7 @@
 ---
 title: "Tanmay Shahane"
 draft: false
-weight: 21
+weight: 24
 name: "Chief Technology Officer"
 position: ""
 params:
