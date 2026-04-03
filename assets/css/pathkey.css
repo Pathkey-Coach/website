@@ -1639,7 +1639,7 @@ p, li, td, th, label, input, textarea, select {
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
   background: rgba(0, 0, 0, 0.6);
-  z-index: 1000;
+  z-index: 1040;
   display: none;
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -1651,12 +1651,13 @@ p, li, td, th, label, input, textarea, select {
   transform: translate(-50%, -50%) scale(0.95);
   background: var(--pk-surface);
   border-radius: 12px;
-  width: 90%;
+  width: min(90vw, 800px);
+  min-width: min(90vw, 800px);
   max-width: 800px;
   max-height: 90vh;
   overflow-x: hidden;
   overflow-y: auto;
-  z-index: 1001;
+  z-index: 1041;
   display: none;
   opacity: 0;
   transition: opacity 0.3s ease, transform 0.3s ease;
