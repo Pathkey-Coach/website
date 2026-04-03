@@ -16,17 +16,9 @@
       </div>
       <h3>{{ .name }}</h3>
       {{ with .role }}<p class="pk-founder-role">{{ . }}</p>{{ end }}
-      {{ if or .linkedin .email }}
+      {{ if .linkedin }}
       <div class="pk-founder-links">
-        {{ if .linkedin }}
         <a href="{{ .linkedin }}" target="_blank" class="pk-social-link">LinkedIn ↗</a>
-        {{ end }}
-        {{ if and .linkedin .email }}
-        &nbsp;&bull;&nbsp;
-        {{ end }}
-        {{ if .email }}
-        <a href="mailto:{{ .email }}" class="pk-social-link">{{ .email }}</a>
-        {{ end }}
       </div>
       {{ end }}
     </div>

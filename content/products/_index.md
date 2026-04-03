@@ -1,67 +1,89 @@
 ---
 title: "Products"
-description: "Things we've built — some for clients, some for ourselves."
+description: "Built to bring our innovation partners' ideas to life, and a few of our own."
 draft: false
-intro: "Things we've built — some for clients, some for ourselves."
+intro: "Built to bring our innovation partners' ideas to life, and a few of our own."
 products:
   - name: "Kodeskan"
     tagline: "Unified code security scanning package"
     slug: "kodeskan"
     screenshots: []
+    report_url: "/reports/kodeskan/sample-report.html"
+    report_label: "View Sample Scan Report"
     journey: |
-      Kodeskan was developed as a result of innovation partnership with a founder who runs an IT GRC cyber security services business. We got to know from his about strict code-review policies of enterprises and existing expensive tools for the same in the market. We were able to design and develop a prototype a tool containing 5 types of scanners (SAST, SCA, Secrets Detection, License Compliance, and IaC security) within a day of the meeting. Over a week, we worked closely with the founder partner to improve the rules and make it ready for his customers. The tool is a tar archive, which allows is to run practically anywhere (Developer machines, VMs, Self-hosted CI/CD pipelines etc.) with no access to the external network, hence making it reliable and safe to process confidential codebases. 
+      Kodeskan came from an innovation partnership with a founder running an IT GRC cybersecurity services business. He told us about the strict code-review policies enterprises follow and the expensive tools they rely on. Within a day of our first meeting, we designed and prototyped a tool with 5 scanner types: SAST, SCA, Secrets Detection, License Compliance, and IaC Security. Over the next week, we worked closely with our founder partner to refine the rules and make it customer-ready. The tool ships as a tar archive, so it runs practically anywhere (developer machines, VMs, self-hosted CI/CD pipelines) with no external network access. This makes it reliable and safe for processing confidential codebases.
       
-      Kodeskan is a great example of AI delivering value, without actually having any AI in the final product. Having an AI-based code scanner tool would have meant either opening up the network, dealing with security questions, or consider some local LLMs which could limit hosting options and/or quality of the scan. Instead, we just built the tool from scratch rapidly using Claude Code. With our experience of engineering Claude Code to its best, our innovation partners can see their ideas coming to life in a matter of hours or days.
+      Kodeskan is a great example of AI delivering value without any AI in the final product. An AI-based scanner would have meant opening up the network, fielding security questions, or running local LLMs that limit hosting options and scan quality. Instead, we built the tool from scratch using Claude Code. With our experience of engineering Claude Code to its best, innovation partners can see their ideas come to life in hours or days.
 
   - name: "FP&Aos"
     tagline: "Indian Transfer Pricing compliance OS"
     slug: "fpaos"
     screenshots: []
     journey: |
-      FP&Aos is an umbrella product for everything related to Financial Planning and Analysis processes. This specific topic is close to Suyog's experience of handling financial and compliance operations of Rapid Circle. As Rapid Circle's parent company is based in the Netherlands, Rapid Circle India, and hence Suyog, was always subject to scrutiny from the regulators due to Transfer Pricing (TP) regulations. TP, combined with other day to day financial operations, made Suyog realize how fragile this space is due to presence of so many tools but nothing still helps handle things 100%. Suyog, then took it on himself, to bring all of his experience into action. 
+      FP&Aos is an umbrella product for everything related to Financial Planning and Analysis. This topic is close to Suyog's experience handling financial and compliance operations at Rapid Circle. Since Rapid Circle's parent company is based in the Netherlands, Rapid Circle India was always under regulatory scrutiny due to Transfer Pricing (TP) regulations. TP, combined with day-to-day financial operations, made Suyog realize how fragile this space is. Many tools exist, but none handle things end to end. So he took it on himself to bring all of his experience into action.
       
-      He first started with TP related features (from entity setup through questionnaire responses, Safe Harbor eligibility, benchmarking, markup selection, invoice generation, and filing). Upon showing his work to some CAs, he realized even though he solved just one problem, there are still many gaps in FP&A. At of today, FP&Aos is one of the products Suyog is actively working on to expand into other financial processes while working closely with CAs and financial firms for continuous feedback.
+      He started with TP-related features: entity setup, questionnaire responses, Safe Harbor eligibility, benchmarking, markup selection, invoice generation, and filing. After showing his work to CAs, he realized that even with TP solved, many gaps remain across FP&A. As of today, FP&Aos is one of the products Suyog is actively expanding into other financial processes, working closely with CAs and financial firms for continuous feedback.
 
   - name: "SpecEaze"
     tagline: "PRD preparation tool for business experts"
     slug: "speceaze"
-    screenshots: []
+    screenshots:
+      - "screenshot-1.png"
+      - "screenshot-2.png"
     journey: |
-      SpecEaze started as an internal tool for Rohan and Suyog to help them bridge the gap between requirements and implementation. The vision was, you give Claude Code a document, and ask it to start working. At the end of it, whatever Claude Code builds, should run as expected in the first shot without needing any iterations. But this means that the requirements of the product needs to be very thorough, well-thought, inclusive of inputs of various domains at various levels, and the output should be an AI-friendly document. SpecEaze asks the user for what they're trying to build, and then takes them through a journey of pointed questions to, first, make the user think thoroughly, and second, to structure the requirements well. One thing at a time, but in the end, everything comes together. 
+      SpecEaze started as an internal tool for Rohan and Suyog to bridge the gap between requirements and implementation. The vision was simple: give Claude Code a document and ask it to build. Whatever it builds should run as expected on the first shot, without needing iterations. But this demands requirements that are thorough, well-thought-out, inclusive of inputs across domains and levels, and structured in an AI-friendly format. SpecEaze asks the user what they're trying to build, then walks them through pointed questions. First, to make the user think thoroughly. Second, to structure the requirements well. One thing at a time, but in the end, everything comes together.
       
-      Upon showing this to friends and innovation partners, we realized this tool can take various shapes due to its innate nature of asking high quality questions. An innovation partner wants it to use as a requirement-screening chatbot on websites so that it saves his team and his customers from the first "discovery call" with the customers. As of today, we have given this tool to our friends to help them optimize their AI-development workflows, while we continue to build domain specific versions of this for innovation partners.
+      After showing this to friends and innovation partners, we realized the tool can take various shapes due to its innate nature of asking high-quality questions. One innovation partner wants to use it as a requirement-screening chatbot on his website, saving his team and customers from the initial discovery call. As of today, we have given this tool to friends to help them optimize their AI-development workflows, while we continue building domain-specific versions for innovation partners.
 
   - name: "AuditEaze"
     tagline: "Automated compliance auditing against any framework"
     slug: "auditeaze"
-    screenshots: []
+    screenshots:
+      - "screenshot-1.png"
+      - "screenshot-2.png"
+      - "screenshot-3.png"
+      - "screenshot-4.png"
+      - "screenshot-5.png"
+      - "screenshot-6.png"
+      - "screenshot-7.png"
     journey: |
-      AuditEaze started as a potential partnership opportunity with friends and partners working in GRC domain. Upon hearing their inputs about how a typical audit looks like, we thought building a prototype while working closely with the partners to include domain-specific operations in the tool. We learnt that compliance audits are tedious by nature. An auditor collects documents, maps them to controls, evaluates each one, writes up findings, and produces a report. It is important work, but the mechanical parts of it. The mapping and the initial evaluation are exactly the kind of thing AI should handle.
+      AuditEaze started as a potential partnership opportunity with friends and partners working in the GRC domain. After hearing their inputs on what a typical audit looks like, we built a prototype while working closely with them to include domain-specific operations. We learnt that compliance audits are tedious by nature. An auditor collects documents, maps them to controls, evaluates each one, writes up findings, and produces a report. It is important work, but the mechanical parts of it (the mapping and initial evaluation) are exactly what AI should handle.
 
-      AuditEaze is framework-agnostic by design. We started with NGO compliance (106 controls across 8 categories), but the same engine works for any control set. You define the framework, upload the documents, and let the system do the first pass. The auditor's job shifts from grunt work to judgement. Auditors get to review a detailed PDF report generated by AuditEaze. It is not just a tool for auditors, but can be run by internal operations teams or founders for continuous posture monitoring. If an external audit comes up by regulators, an organization will be always prepared for it. As of today, it comes with the following preset frameworks: ISO 27k1, ISO 42k1, NGO compliance, GST Operational Compliance, Labour Law Compliance, DPDPA 2023, POSH, and Companies Act.
+      AuditEaze is framework-agnostic by design. We started with NGO compliance (106 controls across 8 categories), but the same engine works for any control set. You define the framework, upload the documents, and let the system do the first pass. The auditor's job shifts from grunt work to judgement. They review a detailed PDF report generated by AuditEaze. It is not just a tool for auditors. Internal operations teams or founders can run it for continuous posture monitoring. When regulators call for an external audit, the organization is always prepared. Preset frameworks include: ISO 27k1, ISO 42k1, NGO compliance, GST Operational Compliance, Labour Law Compliance, DPDPA 2023, POSH, and Companies Act.
 
   - name: "FAQEaze"
     tagline: "Turn your own website's content into knowledge source for your chatbot"
     slug: "faqeaze"
-    screenshots: []
+    screenshots:
+      - "screenshot-1.png"
+      - "screenshot-2.png"
+      - "screenshot-3.png"
+      - "screenshot-4.png"
+      - "screenshot-5.png"
     journey: |
-      Inspired from a known problem in the travel industry - All the itineraries and details are in the website, yet people reach out to the agency to ask the same questions. The problem is not with the people, but its more about website content being spread across many pages. Our idea was to just simply turn the existing website content into the knowledge source for a bot. This bot can be then used as a widget in your own website. Your bot, your existing content as knowledge source. 
+      FAQEaze was inspired by a known problem in the travel industry. All the itineraries and details are on the website, yet people still reach out to the agency to ask the same questions. The problem is not with the people. It is about website content being spread across too many pages. Our idea was simple: turn existing website content into the knowledge source for a bot. This bot can be used as a widget on the website itself. Your bot, your content, your knowledge source.
 
-      We showed this to our friends running a travel agency, and got positive response, as well as more use cases from them to work on. This is a great example of how proactively solving a small problem can help founders and decision makers think what else is biting them which can solved quickly with partners like us.
+      We showed this to friends running a travel agency and got a positive response, along with more use cases to explore. This is a great example of how proactively solving a small problem can help founders and decision-makers think about what else is biting them that can be solved quickly with partners like us.
 
   - name: "TalentEaze"
     tagline: "Talent discovery and outreach automation"
     slug: "talenteaze"
     screenshots: []
     journey: |
-      Another high-impact use case that came out of Suyog's experience and years of pain - High quality recruitment. Recruitment, when delegated to agencies, often become just a numbers game. Suyog wanted to build a tool that can find candidates like how a startup founder would - Not just by titles or resumes, but based on skills and existing work. TalenEaze behind the scenes is a smart browser automation, which looks up information across multiple sources, to find high quality candiates against a given job description.
+      Another high-impact use case born from Suyog's years of pain: high-quality recruitment. When delegated to agencies, recruitment often becomes just a numbers game. Suyog wanted to build a tool that finds candidates the way a startup founder would. Not by titles or resumes, but based on skills and existing work. Behind the scenes, TalentEaze is a smart browser automation that looks up information across multiple sources to find high-quality candidates against a given job description.
 
   - name: "CatalogEaze"
     tagline: "Effortless Shopify catalog management"
     slug: "catalogeaze"
-    screenshots: []
+    screenshots:
+      - "screenshot-1.png"
+      - "screenshot-2.png"
+      - "screenshot-3.png"
+      - "screenshot-4.png"
+      - "screenshot-5.png"
+      - "screenshot-6.png"
     journey: |
-      While chatting with one of the relatives who runs a BPO business, we got to know that many E-Commerce sellers struggle with maintaining their catalog data, specially before and after a sale or another big event. This is because they are expected to work within the restrictions of schema laid by the platforms like Shopify, and also ensure that the data itself is accurate.
+      While chatting with a relative who runs a BPO business, we learned that many e-commerce sellers struggle with maintaining their catalog data, especially before and after sales or other big events. They are expected to work within the schema restrictions set by platforms like Shopify while ensuring the data itself is accurate.
       
-      For example, starting a clearance sale (20% off on "Winter Collection", 40% off on "Kids Collection" and so on) requires careful data manipulation in the CSV which Shopify expects. To see what we can do about this, we built a quick prototype for Shopify businesses to simply upload their CSVs, choose an option about what they want to do- Start a Sale, Round off prices, Increase prices etc. while always staying compliant to Shopify's schema rules.
+      For example, starting a clearance sale (20% off on "Winter Collection", 40% off on "Kids Collection", and so on) requires careful data manipulation in Shopify's expected CSV format. To help with this, we built a quick prototype for Shopify businesses. They simply upload their CSVs, choose what they want to do (start a sale, round off prices, increase prices, etc.), and the tool handles it while staying compliant with Shopify's schema rules.
 ---

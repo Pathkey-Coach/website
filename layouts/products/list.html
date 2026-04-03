@@ -8,6 +8,12 @@
 <!-- Modal Container Overlay -->
 <div id="pk-product-modal-backdrop" class="pk-modal-backdrop" onclick="closeProductModal()"></div>
 
+<!-- Lightbox -->
+<div id="pk-lightbox" class="pk-lightbox" onclick="closeLightbox()">
+  <button class="pk-lightbox-close" aria-label="Close lightbox">&times;</button>
+  <img id="pk-lightbox-img" src="" alt="Screenshot full view">
+</div>
+
 {{ range $index, $product := .Params.products }}
 <div id="modal-{{ $product.slug }}" class="pk-product-modal">
   <div class="pk-modal-content">
@@ -17,13 +23,21 @@
       <p class="pk-product-tagline">{{ $product.tagline }}</p>
     </div>
     <div class="pk-modal-body">
-      <!-- Screenshot Slider -->
+      <!-- Report Embed or Screenshot Slider -->
+      {{ if $product.report_url }}
+      <div class="pk-product-report">
+        <iframe src="{{ $product.report_url | relURL }}" sandbox="allow-scripts allow-same-origin" loading="lazy"></iframe>
+        <a href="{{ $product.report_url | relURL }}" target="_blank" rel="noopener noreferrer" class="pk-report-link">
+          {{ with $product.report_label }}{{ . }}{{ else }}Open Full Report{{ end }} &rsaquo;
+        </a>
+      </div>
+      {{ else }}
       <div class="pk-product-slider">
         {{ if $product.screenshots }}
         <div class="pk-slider-track">
           {{ range $product.screenshots }}
           <div class="pk-slider-slide">
-            <img src="{{ printf "/images/products/%s/%s" $product.slug . | relURL }}" alt="{{ $product.name }} screenshot" loading="lazy">
+            <img src="{{ printf "/images/products/%s/%s" $product.slug . | relURL }}" alt="{{ $product.name }} screenshot" loading="lazy" onclick="event.stopPropagation(); openLightbox(this)">
           </div>
           {{ end }}
         </div>
@@ -40,6 +54,7 @@
         </div>
         {{ end }}
       </div>
+      {{ end }}
       <!-- Journey -->
       <div class="pk-product-journey">
         {{ $product.journey | markdownify }}
@@ -71,6 +86,9 @@ document.addEventListener('DOMContentLoaded', () => {
   
   const modals = document.querySelectorAll('.pk-product-modal');
   modals.forEach(m => document.body.appendChild(m));
+
+  const lightbox = document.getElementById('pk-lightbox');
+  if (lightbox) document.body.appendChild(lightbox);
 });
 
 function openProductModal(slug) {
@@ -132,6 +150,22 @@ function goToSlide(dot, index) {
     d.classList.toggle('active', i === index);
   });
 }
+
+function openLightbox(img) {
+  var lightbox = document.getElementById('pk-lightbox');
+  var lightboxImg = document.getElementById('pk-lightbox-img');
+  lightboxImg.src = img.src;
+  lightboxImg.alt = img.alt;
+  lightbox.classList.add('active');
+}
+
+function closeLightbox() {
+  document.getElementById('pk-lightbox').classList.remove('active');
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeLightbox();
+});
 </script>
 
 {{ end }}

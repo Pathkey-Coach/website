@@ -2,6 +2,17 @@
    Pathkey — Soft Sage Theme
    ============================================ */
 
+/* --- Font Faces --- */
+@font-face {
+  font-family: 'AutumnMoon';
+  src: url('/fonts/autumn-moon/AutumnMoon.woff2') format('woff2'),
+       url('/fonts/autumn-moon/AutumnMoon.woff') format('woff'),
+       url('/fonts/autumn-moon/AutumnMoon.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* --- Base Overrides --- */
 body {
   background-color: var(--pk-bg) !important;
@@ -35,6 +46,10 @@ p, li, td, th, label, input, textarea, select {
 
 .navbar-brand span {
   color: var(--pk-primary) !important;
+}
+
+.header .navbar-brand span:nth-child(2) {
+  font-family: 'AutumnMoon', cursive, sans-serif;
 }
 
 .navbar {
@@ -124,7 +139,7 @@ p, li, td, th, label, input, textarea, select {
 
 /* --- Homepage Sections --- */
 .pk-hero {
-  padding: 160px 0 80px;
+  padding: 160px 0 40px;
   text-align: center;
 }
 
@@ -239,8 +254,8 @@ p, li, td, th, label, input, textarea, select {
 
 .pk-services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
   max-width: 1040px;
   margin: 0 auto;
 }
@@ -252,11 +267,6 @@ p, li, td, th, label, input, textarea, select {
   padding: 32px 24px;
   text-align: center;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.pk-service-card:hover {
-  border-color: var(--pk-border-strong);
-  box-shadow: 0 4px 24px rgba(44, 62, 45, 0.06);
 }
 
 .pk-service-icon {
@@ -280,26 +290,6 @@ p, li, td, th, label, input, textarea, select {
   margin-bottom: 0;
 }
 
-.pk-service-card::after {
-  content: "→";
-  display: block;
-  margin-top: 14px;
-  font-size: 1.1rem;
-  color: var(--pk-primary-light);
-  opacity: 0;
-  transform: translateX(-4px);
-  transition: opacity 0.2s ease, transform 0.2s ease;
-}
-
-.pk-service-card:hover::after {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.pk-service-card:hover {
-  cursor: pointer;
-}
-
 .pk-services-cta {
   text-align: center;
   margin-top: 40px;
@@ -307,7 +297,7 @@ p, li, td, th, label, input, textarea, select {
 
 /* Methodology */
 .pk-methodology {
-  padding: 80px 0;
+  padding: 80px 0 100px;
   background-color: var(--pk-bg-alt);
 }
 
@@ -375,44 +365,18 @@ p, li, td, th, label, input, textarea, select {
   .pk-steps { flex-direction: column; align-items: center; }
 }
 
-/* Final CTA */
-.pk-final-cta {
-  padding: 80px 0;
+/* Closing line */
+.pk-closing {
+  padding: 64px 0 80px;
   text-align: center;
 }
 
-.pk-final-cta-inner {
-  background: var(--pk-primary);
-  border-radius: 16px;
-  padding: 60px 40px;
-  max-width: 720px;
+.pk-closing p {
+  font-size: 1.05rem;
+  color: var(--pk-text-secondary);
+  max-width: 520px;
   margin: 0 auto;
-}
-
-.pk-final-cta h2 {
-  color: var(--pk-bg) !important;
-  font-weight: 400;
-  font-size: clamp(1.6rem, 3vw, 2.2rem);
-  margin-bottom: 12px;
-}
-
-.pk-final-cta p {
-  color: rgba(247, 245, 240, 0.75);
-  font-size: 1rem;
-  margin-bottom: 28px;
-}
-
-.pk-final-cta .btn {
-  background-color: var(--pk-bg) !important;
-  color: var(--pk-primary) !important;
-  border-color: var(--pk-bg) !important;
-  padding: 14px 36px;
-  font-size: 0.95rem;
-}
-
-.pk-final-cta .btn:hover {
-  background-color: var(--pk-bg-alt) !important;
-  transform: translateY(-1px);
+  line-height: 1.7;
 }
 
 /* --- Services Page --- */
@@ -436,33 +400,181 @@ p, li, td, th, label, input, textarea, select {
   line-height: 1.7;
 }
 
-.pk-service-detail {
-  padding: 48px 0;
-  border-bottom: 1px solid var(--pk-border);
-}
+/* --- Services Page (tabbed card panels) --- */
 
-.pk-service-detail:last-of-type {
-  border-bottom: none;
-}
-
-.pk-service-detail h2 {
-  font-size: 1.6rem;
-  font-weight: 400;
-  margin-bottom: 16px;
-}
-
-.pk-service-detail .pk-description {
-  font-size: 1rem;
-  color: var(--pk-text);
-  line-height: 1.8;
+/* Tab bar: row of clickable cards */
+.pk-tabs-bar {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
   margin-bottom: 20px;
-  max-width: 640px;
 }
 
-.pk-service-detail .pk-audience {
-  font-size: 0.9rem;
+.pk-tab-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 6px;
+  padding: 22px 10px 18px;
+  background: var(--pk-surface);
+  border: 1.5px solid var(--pk-border);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pk-tab-card:hover {
+  border-color: var(--pk-border-strong);
+  box-shadow: 0 2px 12px rgba(44, 62, 45, 0.06);
+}
+
+.pk-tab-card.active {
+  background: var(--pk-bg-alt);
+  border-color: var(--pk-primary-light);
+  box-shadow: 0 3px 16px rgba(44, 62, 45, 0.08);
+}
+
+.pk-tab-icon {
+  color: var(--pk-text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease;
+}
+
+.pk-tab-card.active .pk-tab-icon {
+  color: var(--pk-primary);
+}
+
+.pk-tab-title {
+  font-family: var(--pk-font-body);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--pk-primary);
+  line-height: 1.3;
+}
+
+.pk-tab-tagline {
+  font-size: 0.72rem;
+  color: var(--pk-text-muted);
+  line-height: 1.4;
+}
+
+.pk-tab-card.active .pk-tab-tagline {
   color: var(--pk-text-secondary);
-  font-style: italic;
+}
+
+/* Tab panels */
+.pk-tab-panel {
+  display: none;
+  background: var(--pk-surface);
+  border: 1px solid var(--pk-border);
+  border-radius: 12px;
+  box-shadow: 0 2px 16px rgba(44, 62, 45, 0.05);
+}
+
+.pk-tab-panel.active {
+  display: block;
+}
+
+.pk-panel-body {
+  padding: 40px 44px 40px;
+}
+
+.pk-panel-desc {
+  font-size: 1.02rem;
+  color: var(--pk-text);
+  line-height: 1.85;
+  margin-bottom: 32px;
+  max-width: 680px;
+}
+
+.pk-panel-meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.pk-meta-label {
+  display: inline-block;
+  font-family: var(--pk-font-body);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--pk-primary-light);
+  margin-bottom: 6px;
+}
+
+.pk-panel-audience p {
+  font-size: 0.92rem;
+  color: var(--pk-text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.pk-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pk-pill {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--pk-primary);
+  background: var(--pk-bg);
+  border: 1px solid var(--pk-border);
+  border-radius: 20px;
+  padding: 5px 14px;
+  white-space: nowrap;
+}
+
+.pk-panel-cta {
+  padding-top: 8px;
+}
+
+.pk-panel-cta .btn {
+  font-size: 0.88rem;
+}
+
+/* Mobile: 2x2 grid then stack */
+@media (max-width: 768px) {
+  .pk-tabs-bar {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .pk-tab-card {
+    padding: 20px 12px 18px;
+  }
+
+  .pk-panel-body {
+    padding: 28px 24px 32px;
+  }
+
+  .pk-panel-meta {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .pk-tabs-bar {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .pk-tab-tagline {
+    display: none;
+  }
+
+  .pk-tab-icon svg {
+    width: 22px;
+    height: 22px;
+  }
 }
 
 /* --- People Page (3-partner intro) --- */
@@ -1391,6 +1503,38 @@ p, li, td, th, label, input, textarea, select {
   margin-bottom: 0;
 }
 
+/* Report Embed */
+.pk-product-report {
+  margin: 0 24px 24px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--pk-bg-alt);
+}
+
+.pk-product-report iframe {
+  width: 100%;
+  height: 420px;
+  border: none;
+  display: block;
+}
+
+.pk-report-link {
+  display: block;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--pk-primary);
+  text-decoration: none;
+  border-top: 1px solid rgba(44, 62, 45, 0.1);
+  transition: background 0.2s ease;
+}
+
+.pk-report-link:hover {
+  background: rgba(44, 62, 45, 0.05);
+  color: var(--pk-primary-light);
+}
+
 /* Screenshot Slider */
 .pk-product-slider {
   position: relative;
@@ -1412,9 +1556,58 @@ p, li, td, th, label, input, textarea, select {
 .pk-slider-slide img {
   width: 100%;
   aspect-ratio: 16 / 9;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
+  background: #1a1a1a;
+  cursor: zoom-in;
 }
+
+/* Full-screen lightbox */
+.pk-lightbox {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.92);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+  cursor: zoom-out;
+}
+
+.pk-lightbox.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.pk-lightbox img {
+  max-width: 92vw;
+  max-height: 92vh;
+  object-fit: contain;
+  border-radius: 6px;
+  box-shadow: 0 4px 40px rgba(0, 0, 0, 0.5);
+}
+
+.pk-lightbox-close {
+  position: absolute;
+  top: 16px; right: 20px;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 32px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+  line-height: 1;
+  padding: 4px 8px;
+}
+
+.pk-lightbox-close:hover {
+  opacity: 1;
+}
+
 
 .pk-slider-arrow {
   position: absolute;

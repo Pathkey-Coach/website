@@ -6,8 +6,8 @@ hero:
   headline_1: "Every person can be"
   headline_2: "an AI builder"
   subheadline: "We believe AI should make people more capable, not more replaceable. That belief shapes everything we do."
-  cta_text: "Book a Conversation"
-  cta_url: "https://outlook.office.com/bookwithme/user/763e021d35b74e1aacb90bdd154f3dc9@pathkey.in?anonymous&ismsaljsauthenabled&ep=plink"
+  cta_text: "See what we do"
+  cta_url: "services/"
 why:
   headline: "Why we started Pathkey"
   paragraphs:
@@ -34,7 +34,10 @@ services:
       description: "Turn a napkin-sketch idea into something you can build, test, and learn from."
     - icon: "wrench"
       title: "Hands-on Implementation"
-      description: "We write code, train models, and ship. We're in the codebase with your team."
+      description: "We write code, integrate AI, and ship. We're in the codebase with your team."
+    - icon: "layers"
+      title: "Customise a Product"
+      description: "We've built tools across domains. If your problem is close, we adapt instead of starting from scratch."
     - icon: "graduation-cap"
       title: "Team Enablement"
       description: "Turn experts with more ideas than time into AI builders. That's the whole point."
@@ -50,9 +53,5 @@ methodology:
     - number: "03"
       title: "Hand you the keys"
       description: "The goal is always that you carry this forward without us. Capability, not dependency."
-final_cta:
-  headline: "Curious? Let's just talk."
-  subheadline: "Tell us what you're working on. We'll be honest about whether we can help."
-  cta_text: "Book a Conversation"
-  cta_url: "https://outlook.office.com/bookwithme/user/763e021d35b74e1aacb90bdd154f3dc9@pathkey.in?anonymous&ismsaljsauthenabled&ep=plink"
+closing: "If any of this resonates, we're easy to reach. Say <a class=\"pk-email\" data-u=\"hello\" data-d=\"pathkey.in\">hello<span class=\"pk-at\">[at]</span>pathkey.in</a>"
 ---

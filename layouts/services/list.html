@@ -5,39 +5,103 @@
   <p class="pk-subtitle">{{ .Params.intro }}</p>
 </div>
 
-<div class="container" style="max-width: 780px;">
-  {{ range .Params.services }}
-  <div class="pk-service-detail">
-    <h2>{{ .title }}</h2>
-    <p class="pk-description">{{ .description }}</p>
-    <p class="pk-audience">{{ .audience }}</p>
+<div class="container" style="max-width: 960px;">
+
+  <!-- Tab cards -->
+  <div class="pk-tabs-bar" role="tablist">
+    {{ range $i, $s := .Params.services }}
+    <button class="pk-tab-card{{ if eq $i 0 }} active{{ end }}"
+            role="tab"
+            aria-selected="{{ if eq $i 0 }}true{{ else }}false{{ end }}"
+            aria-controls="pk-panel-{{ $i }}"
+            data-tab="{{ $i }}">
+      <span class="pk-tab-icon">
+        {{ if eq $s.icon "compass" }}
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+        {{ else if eq $s.icon "lightbulb" }}
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></svg>
+        {{ else if eq $s.icon "code" }}
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        {{ else if eq $s.icon "layers" }}
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+        {{ else if eq $s.icon "users" }}
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        {{ end }}
+      </span>
+      <span class="pk-tab-title">{{ $s.title }}</span>
+      <span class="pk-tab-tagline">{{ $s.tagline }}</span>
+    </button>
+    {{ end }}
+  </div>
+
+  <!-- Tab panels -->
+  {{ range $i, $s := .Params.services }}
+  <div class="pk-tab-panel{{ if eq $i 0 }} active{{ end }}"
+       id="pk-panel-{{ $i }}"
+       role="tabpanel"
+       data-panel="{{ $i }}">
+    <div class="pk-panel-body">
+      <p class="pk-panel-desc">{{ $s.description }}</p>
+      <div class="pk-panel-meta">
+        <div class="pk-panel-audience">
+          <span class="pk-meta-label">Best for</span>
+          <p>{{ $s.audience }}</p>
+        </div>
+        {{ with $s.examples }}
+        <div class="pk-panel-examples">
+          <span class="pk-meta-label">Examples</span>
+          <div class="pk-pills">
+            {{ range split . ", " }}
+            <span class="pk-pill">{{ . }}</span>
+            {{ end }}
+          </div>
+        </div>
+        {{ end }}
+      </div>
+      {{ with $s.panel_link_url }}
+      <div class="pk-panel-cta">
+        <a href="{{ . }}" class="btn btn-outline-secondary">{{ $s.panel_link_text }} →</a>
+      </div>
+      {{ end }}
+    </div>
   </div>
   {{ end }}
+
 </div>
 
 <!-- Contact -->
 {{ with .Params.contact_title }}
-<div class="container" style="max-width: 780px;">
-  <div class="pk-section pk-contact-section">
+<div class="container" style="max-width: 960px;">
+  <div class="pk-section pk-contact-section" id="contact">
     <h2 class="pk-section-title">{{ . }}</h2>
-    <p class="pk-section-sub">{{ $.Params.contact_subtitle }}</p>
-    <div class="pk-contact-card">
-      <div class="pk-contact-row">
-        <div class="pk-contact-pill">
-          <strong>Email</strong> &nbsp;
-          <a href="mailto:{{ $.Params.contact_email }}">{{ $.Params.contact_email }}</a>
-        </div>
-        <div class="pk-contact-pill">
-          <strong>Location</strong> &nbsp; Pune • Bengaluru • remote-friendly
-        </div>
-      </div>
-      <div class="pk-contact-cta-row">
-        <a href="{{ $.Params.contact_booking_url }}" target="_blank" class="btn btn-primary">Book a 30-minute conversation →</a>
-        <a href="mailto:{{ $.Params.contact_email }}?subject=Pathkey%20inquiry" class="btn btn-outline-secondary">Email us</a>
-      </div>
-    </div>
+    <p class="pk-section-sub">{{ $.Params.contact_subtitle | safeHTML }}</p>
   </div>
 </div>
 {{ end }}
+
+<script>
+(function() {
+  var tabs = document.querySelectorAll('.pk-tab-card');
+  var panels = document.querySelectorAll('.pk-tab-panel');
+
+  tabs.forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      var target = this.getAttribute('data-tab');
+
+      tabs.forEach(function(t) {
+        t.classList.remove('active');
+        t.setAttribute('aria-selected', 'false');
+      });
+      panels.forEach(function(p) {
+        p.classList.remove('active');
+      });
+
+      this.classList.add('active');
+      this.setAttribute('aria-selected', 'true');
+      document.getElementById('pk-panel-' + target).classList.add('active');
+    });
+  });
+})();
+</script>
 
 {{ end }}

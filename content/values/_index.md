@@ -16,6 +16,4 @@ values:
   - name: "Responsibility"
     content: |
       When something doesn't work, we say so. When we've made a mistake, we fix it. And if the honest answer is "you don't need us for this," we'll tell you that too. We have turned down work because it wasn't right for the client. We'd rather have that reputation than a bigger invoice.
-cta_text: "Book a Conversation"
-cta_url: "https://outlook.office.com/bookwithme/user/763e021d35b74e1aacb90bdd154f3dc9@pathkey.in?anonymous&ismsaljsauthenabled&ep=plink"
 ---
