@@ -166,11 +166,16 @@
     <h2 class="pk-section-title">Leadership Blog</h2>
     <div class="pk-blog-grid">
       {{ range $blogPosts.ByDate.Reverse }}
-      <div class="pk-blog-card">
-        <div class="pk-blog-date">{{ .Date.Format "January 2, 2006" }}</div>
-        <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
-        {{ if .Description }}<p>{{ .Description }}</p>{{ end }}
-      </div>
+      {{ $link := .Params.link | default .Permalink }}
+      <a href="{{ $link }}" target="_blank" rel="noreferrer" class="pk-blog-card pk-blog-card--link">
+        <div class="pk-blog-meta">
+          <span class="pk-blog-date">{{ .Date.Format "Jan 2, 2006" }}</span>
+          {{ with .Params.author }}<span class="pk-blog-author">· {{ . }}</span>{{ end }}
+        </div>
+        <h3 class="pk-blog-title">{{ .Title }}</h3>
+        {{ if .Description }}<p class="pk-blog-desc">{{ .Description }}</p>{{ end }}
+        {{ with .Params.source }}<span class="pk-blog-source">{{ . }} ↗</span>{{ end }}
+      </a>
       {{ end }}
     </div>
   </div>

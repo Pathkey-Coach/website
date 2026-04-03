@@ -1,16 +1,9 @@
 ---
-title: "Career Growth & Organizational Structure"
-date: 2025-03-20
+title: "Career Growth and Organizational Structure"
+date: 2025-04-08
 draft: false
-tags: ["leadership", "people", "org-design"]
-categories: ["Article Series"]
-description: "Designing roles and structures that enable people to grow with the company, not out of it."
+description: "A value-driven career framework combining simplified ladders, mentorship-driven development, and transparent progression."
+link: "https://www.linkedin.com/pulse/career-growth-organizational-structure-suyog-patki-5bwuf"
+source: "LinkedIn"
+author: "Suyog Patki"
 ---
-
-Designing roles and structures that enable people to grow with the company, not out of it.
-
-Originally published on [LinkedIn](https://www.linkedin.com/pulse/career-growth-organizational-structure-suyog-patki-5bwuf).
-
-<!--more-->
-
-The best organisational structures aren't the ones that look clean on a slide. They're the ones where people can see a path forward for themselves. Design for growth, not just for reporting lines.
