@@ -1,4 +1,4 @@
-baseURL = "https://pathkey-coach.github.io/website/"
+baseURL = "https://pathkey.in/"
 title = "Pathkey | AI Advisory & Enablement for Founders"
 languageCode = "en"
 theme = "adritian-free-hugo-theme"
@@ -72,7 +72,7 @@ siteImage = "/images/pathkey_logo_transparent.png"
 
 [params.seo.person]
 name = "Pathkey"
-url = "https://pathkey-coach.github.io/"
+url = "https://pathkey.in/"
 sameAs = ["https://www.linkedin.com/in/suyogpatki", "https://www.linkedin.com/in/avanipatki"]
 
 homepageExperienceCount = 6
