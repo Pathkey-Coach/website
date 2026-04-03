@@ -6,7 +6,7 @@ intro: "We don't have these framed on a wall. But they show up in every engageme
 values:
   - name: "Stewardship"
     content: |
-      We treat your business like it matters to us, because it does. Every recommendation we make, every line of code we write, gets weighed against a simple question: is this genuinely good for the organisation and the people in it? We learned this building Rapid Circle over twenty years. The work that lasts is the work you do with care. And the goal is always that you walk away more capable, not more dependent on us.
+      We treat your business like it matters to us, because it does. Every recommendation we make, every line of code we write, gets weighed against a simple question: is this genuinely good for the organisation and the people in it? We learned this while building our organization over twenty years. The work that lasts is the work you do with care. And the goal is always that you walk away more capable, not more dependent on us.
   - name: "Clarity"
     content: |
       AI is drowning in hype right now. Buzzwords, vendor pitches, breathless posts about how everything is about to change. We don't add to that. We say what we mean, we tell you what we don't know, and we help you see your options clearly enough to make decisions with confidence. If we're using a word you haven't heard before, that's our fault, not yours.

@@ -21,7 +21,7 @@ products:
   #   slug: "fpaos"
   #   screenshots: []
   #   journey: |
-  #     FP&Aos is an umbrella product for everything related to Financial Planning and Analysis. This topic is close to Suyog's experience handling financial and compliance operations at Rapid Circle. Since Rapid Circle's parent company is based in the Netherlands, Rapid Circle India was always under regulatory scrutiny due to Transfer Pricing (TP) regulations. TP, combined with day-to-day financial operations, made Suyog realize how fragile this space is. Many tools exist, but none handle things end to end. So he took it on himself to bring all of his experience into action.
+  #     FP&Aos is an umbrella product for everything related to Financial Planning and Analysis. This topic is close to Suyog's experience handling financial and compliance operations. TP, combined with day-to-day financial operations, made Suyog realize how fragile this space is. Many tools exist, but none handle things end to end. So he took it on himself to bring all of his experience into action.
   #     
   #     He started with TP-related features: entity setup, questionnaire responses, Safe Harbor eligibility, benchmarking, markup selection, invoice generation, and filing. After showing his work to CAs, he realized that even with TP solved, many gaps remain across FP&A. As of today, FP&Aos is one of the products Suyog is actively expanding into other financial processes, working closely with CAs and financial firms for continuous feedback.
 

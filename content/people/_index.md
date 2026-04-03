@@ -11,7 +11,7 @@ partners:
     linkedin: "https://www.linkedin.com/in/suyogpatki"
   - name: "Avani Patki"
     role: "Partner"
-    bio: "Co-founded Rapid Circle India alongside Suyog and spent over a decade shaping the culture that made it a Great Place to Work. As the driving force behind the culture, she spent most of her time solving people problems and building the kind of transparent, non-hierarchical environment where people thrive. As a producer for the short-films at Driya Creatives, she worked closely with the director to help them solve day to day problems."
+    bio: "Co-founded Rapid Circle India alongside Suyog and spent over a decade shaping the culture that made it a Great Place to Work. As the driving force behind the culture, she spent most of her time solving people problems and building the kind of transparent, non-hierarchical environment where people thrive."
     image: "images/about/avani_dp.jpg"
     linkedin: "https://www.linkedin.com/in/avanipatki"
   - name: "Rohan Nevrikar"
