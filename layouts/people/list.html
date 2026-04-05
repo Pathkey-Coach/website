@@ -5,7 +5,7 @@
   <p class="pk-subtitle">{{ .Params.intro }}</p>
 </div>
 
-<div class="container" style="max-width: 960px;">
+<div class="container" style="max-width: 1060px;">
 
   <!-- Partner Cards -->
   <div class="pk-partners-grid">
@@ -14,11 +14,13 @@
       <div class="pk-partner-image">
         <img src="{{ .image | relURL }}" alt="{{ .name }}" loading="lazy" />
       </div>
-      <h3>{{ .name }}</h3>
-      <p class="pk-partner-role">{{ .role }}</p>
-      {{ with .bio }}<p class="pk-partner-bio">{{ . }}</p>{{ end }}
-      <div class="pk-partner-links">
-        <a href="{{ .linkedin }}" target="_blank" class="pk-social-link">LinkedIn ↗</a>
+      <div class="pk-partner-info">
+        <h3>{{ .name }}</h3>
+        <p class="pk-partner-role">{{ .role }}</p>
+        {{ with .bio }}<p class="pk-partner-bio">{{ . }}</p>{{ end }}
+        <div class="pk-partner-links">
+          <a href="{{ .linkedin }}" target="_blank" class="pk-social-link">LinkedIn ↗</a>
+        </div>
       </div>
     </div>
     {{ end }}

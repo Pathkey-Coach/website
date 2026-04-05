@@ -1,8 +1,8 @@
 ---
 title: "People"
-description: "Meet the three partners behind Pathkey."
+description: "Meet the four partners behind Pathkey."
 draft: false
-intro: "Pathkey is three people. We've worked together, learned from each other, and now we help founders do more with AI than they thought possible."
+intro: "Pathkey is four people. We've worked together, learned from each other, and now we help founders do more with AI than they thought possible."
 partners:
   - name: "Suyog Patki"
     role: "Partner"
@@ -19,5 +19,10 @@ partners:
     bio: "Proud product of Rapid Circle and its culture, where he started his career right out of college. Spent 5+ years working with startups and enterprises on Azure at Rapid Circle, then led the 0-to-1 journey for two AI products as Head of Technology at PANTA for about a year. Joined Pathkey to use his AI and tech experience to help founders and decision-makers with more ideas than time build AI products and processes that work for them. "
     image: "images/about/rohan_dp.jpg"
     linkedin: "https://www.linkedin.com/in/rohannevrikar"
+  - name: "Amol Patki"
+    role: "Partner"
+    bio: "TOGAF certified Architect, Data Professional and Strategist with over 20 years of experience in IT consulting, specializing in SAP solutions across multiple industry sectors such as Market Research, Retail and CPG, Oil and Gas, Public Sector, Manufacturing, Pharmaceuticals, Energy and Utilities and Telecom. Looking forward to help enterprises to integrate AI-driven insights into traditional data strategies helping them enhance data quality, automate governance, and unlock new efficiencies."
+    image: "images/about/amol_dp.jpg"
+    linkedin: "https://www.linkedin.com/in/amol-patki-0980a516/"
 patkis_cta: "Want to know the story behind Pathkey? Meet The Patkis →"
 ---
