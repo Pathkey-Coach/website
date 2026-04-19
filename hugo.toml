@@ -65,6 +65,11 @@ themeColor = "#2c3e2d"
 logo = "/images/pathkey_logo_transparent.png"
 images = ["/images/pathkey_logo_transparent.png"]
 
+homepageExperienceCount = 6
+
+# Cloudflare Web Analytics — set token from dash.cloudflare.com → Web Analytics
+cloudflareAnalyticsToken = "479ece13f46e4ef6ba71ad6dd50d350c"
+
 [params.seo]
 siteName = "Pathkey"
 siteDescription = "Pathkey partners with founders and decision-makers to turn AI ambition into execution. Strategy, implementation, enablement — whatever moves the needle."
@@ -74,8 +79,6 @@ siteImage = "/images/pathkey_logo_transparent.png"
 name = "Pathkey"
 url = "https://pathkey.in/"
 sameAs = ["https://www.linkedin.com/in/suyogpatki", "https://www.linkedin.com/in/avanipatki"]
-
-homepageExperienceCount = 6
 
 [params.colorTheme]
 [params.colorTheme.auto]
@@ -142,10 +145,11 @@ weight = 1
 name = "Services"
 URL = "/services/"
 weight = 2
-[[languages.en.menus.header]]
-name = "Products"
-URL = "/products/"
-weight = 3
+# Products hidden — page still buildable at /products/, just unlinked from nav
+# [[languages.en.menus.header]]
+# name = "Products"
+# URL = "/products/"
+# weight = 3
 # Case Studies hidden until content is populated
 # [[languages.en.menus.header]]
 # name = "Case Studies"
@@ -172,10 +176,11 @@ weight = 1
 name = "Services"
 URL = "/services/"
 weight = 2
-[[languages.en.menus.footer]]
-name = "Products"
-URL = "/products/"
-weight = 3
+# Products hidden — page still buildable at /products/, just unlinked from nav
+# [[languages.en.menus.footer]]
+# name = "Products"
+# URL = "/products/"
+# weight = 3
 # Case Studies hidden until content is populated
 # [[languages.en.menus.footer]]
 # name = "Case Studies"

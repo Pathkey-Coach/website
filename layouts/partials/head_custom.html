@@ -1,3 +1,8 @@
+{{/* Cloudflare Web Analytics — only in production builds when token is configured */}}
+{{ if and hugo.IsProduction .Site.Params.cloudflareAnalyticsToken }}
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "{{ .Site.Params.cloudflareAnalyticsToken }}"}'></script>
+{{ end }}
+
 <!-- Google Fonts: DM Serif Display (headlines) + Nunito Sans (body) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
