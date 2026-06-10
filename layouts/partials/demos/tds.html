@@ -1,0 +1,22 @@
+{{/* TDS Audit — live reconcile table demo. Driven by static/js/pk-demos.js (#demo). */}}
+<div class="demo" id="demo">
+  <div class="demo-head">
+    <span class="dots"><i></i><i></i><i></i></span>
+    <span class="title">TDS Audit <span>· Acme Group · FY 2024–25</span></span>
+    <span class="status" id="demoStatus"><span class="spin"></span><span id="demoStatusText">Matching…</span></span>
+  </div>
+  <div class="demo-grid" id="demoGrid">
+    <div class="demo-row head">
+      <div>Party · Section</div>
+      <div class="r">Return</div>
+      <div class="r books-col">Books</div>
+      <div class="s">Status</div>
+    </div>
+  </div>
+  <div class="demo-foot">
+    <div class="bar"><i id="demoBar"></i></div>
+    <div class="sum" id="demoSum"><b>0</b> of 583 entries</div>
+    <div class="time" id="demoTime"><span class="old">≈ 4 days by hand</span>—</div>
+  </div>
+</div>
+<div class="demo-cap">Illustrative — sample entries from a live reconciliation.</div>

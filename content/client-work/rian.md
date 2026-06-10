@@ -8,4 +8,4 @@ params:
         src: "images/logos/rian.svg"
         scale: 0.5
 ---
-AI-powered video localisation and document translation, helping creators and brands adapt content globally while keeping cultural authenticity.
+AI-powered video localisation and document translation, so creators and brands can reach new markets without losing the original meaning and cultural nuance.

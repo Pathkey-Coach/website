@@ -6,7 +6,7 @@ intro: "Pathkey started as Avani and Suyog's personal advisory practice. Two fou
 founders:
   - name: "Suyog Patki"
     image: "images/about/suyog_dp_v3.jpg"
-    bio: "Co-founded Rapid Circle India and Driya Creatives. I help founders navigate strategy, AI integration, and work culture, blending analytical rigour with storytelling. Angel investor and mentor who backs people as much as ideas. I advocate for servant leadership and psychological safety. Guided by Vedantic wisdom, tuned by music."
+    bio: "Co-founded Rapid Circle India and Driya Creatives. I help founders on strategy, AI integration, and work culture, pairing analytical rigour with storytelling. Angel investor and mentor who backs people as much as ideas. I advocate for servant leadership and psychological safety. Guided by Vedantic wisdom, tuned by music."
   - name: "Avani Patki"
     image: "images/about/avani_dp.jpg"
     bio: "Co-founded Rapid Circle India and Driya Creatives. Our debut short film almost made it to the Oscars in 2020. I love identifying problems, finding solutions, and converting them into processes, continuous improvement with a human touch. An old soul drawn to the Upanishads. I've been a wildlife volunteer and guide with Go-Wild since 2011, having explored most national parks in India."

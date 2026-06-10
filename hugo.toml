@@ -1,5 +1,5 @@
 baseURL = "https://pathkey.in/"
-title = "Pathkey | AI Advisory & Enablement for Founders"
+title = "Pathkey – AI-native software studio"
 languageCode = "en"
 theme = "adritian-free-hugo-theme"
 
@@ -59,10 +59,10 @@ source = "node_modules/bootstrap-print-css/css/bootstrap-print.css"
 target = "assets/css/bootstrap-print.css"
 
 [params]
-title = "Pathkey – AI Advisory & Enablement"
-description = "Pathkey partners with founders and decision-makers to turn AI ambition into execution. Strategy, implementation, enablement — whatever moves the needle."
+title = "Pathkey – AI-native software studio"
+description = "An AI-native software studio. We go deep into a domain and ship our own tools, and partner with founders and teams to build, advise, and teach. Honest pricing, AI only where it earns its keep."
 themeColor = "#2c3e2d"
-logo = "/images/pathkey_logo_transparent.png"
+logo = "/images/pathkey_logo.png"
 images = ["/images/pathkey_logo_transparent.png"]
 
 homepageExperienceCount = 6
@@ -72,7 +72,7 @@ cloudflareAnalyticsToken = "479ece13f46e4ef6ba71ad6dd50d350c"
 
 [params.seo]
 siteName = "Pathkey"
-siteDescription = "Pathkey partners with founders and decision-makers to turn AI ambition into execution. Strategy, implementation, enablement — whatever moves the needle."
+siteDescription = "An AI-native software studio. We go deep into a domain and ship our own tools, and partner with founders and teams to build, advise, and teach. Honest pricing, AI only where it earns its keep."
 siteImage = "/images/pathkey_logo_transparent.png"
 
 [params.seo.person]
@@ -143,22 +143,21 @@ URL = "/"
 weight = 1
 [[languages.en.menus.header]]
 name = "Services"
-URL = "/services/"
+URL = "/#services"
 weight = 2
-# Products hidden — page still buildable at /products/, just unlinked from nav
-# [[languages.en.menus.header]]
-# name = "Products"
-# URL = "/products/"
-# weight = 3
+[[languages.en.menus.header]]
+name = "Products"
+URL = "/products/"
+weight = 3
+[[languages.en.menus.header]]
+name = "People"
+URL = "/#people"
+weight = 4
 # Case Studies hidden until content is populated
 # [[languages.en.menus.header]]
 # name = "Case Studies"
 # URL = "/case-studies/"
-# weight = 4
-[[languages.en.menus.header]]
-name = "People"
-URL = "/people/"
-weight = 4
+# weight = 5
 [[languages.en.menus.header]]
 name = "The Patkis"
 URL = "/the-patkis/"
@@ -174,22 +173,21 @@ URL = "/"
 weight = 1
 [[languages.en.menus.footer]]
 name = "Services"
-URL = "/services/"
+URL = "/#services"
 weight = 2
-# Products hidden — page still buildable at /products/, just unlinked from nav
-# [[languages.en.menus.footer]]
-# name = "Products"
-# URL = "/products/"
-# weight = 3
+[[languages.en.menus.footer]]
+name = "Products"
+URL = "/products/"
+weight = 3
+[[languages.en.menus.footer]]
+name = "People"
+URL = "/#people"
+weight = 4
 # Case Studies hidden until content is populated
 # [[languages.en.menus.footer]]
 # name = "Case Studies"
 # URL = "/case-studies/"
-# weight = 4
-[[languages.en.menus.footer]]
-name = "People"
-URL = "/people/"
-weight = 4
+# weight = 5
 [[languages.en.menus.footer]]
 name = "The Patkis"
 URL = "/the-patkis/"

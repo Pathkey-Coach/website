@@ -38,7 +38,13 @@ p, li, td, th, label, input, textarea, select {
 }
 
 /* --- Navbar --- */
-.header {
+/* The theme sticks a 20–35px top padding on .header at various breakpoints,
+   which left a big empty gap above the bar. Neutralise it at high
+   specificity so the navbar height is driven only by its own padding. */
+.header,
+.header.fixed-top,
+.header.header--sticky,
+.header.header--sticky-triggered {
   background-color: var(--pk-bg) !important;
   border-bottom: 1px solid var(--pk-border);
   padding-top: 0 !important;
@@ -46,14 +52,17 @@ p, li, td, th, label, input, textarea, select {
 }
 
 .header .navbar-brand img {
-  width: 275px !important;
-  max-height: 90px !important;
+  width: auto !important;
+  height: 34px !important;
+  max-height: 34px !important;
   object-fit: contain;
 }
 
-.navbar {
-  padding-top: 12px !important;
-  padding-bottom: 12px !important;
+/* Higher specificity than Bootstrap's .p-0 so the navbar owns its height.
+   ~10px padding + the centered link row gives a balanced ~70px bar. */
+.header .navbar {
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
 }
 
 .navbar-nav {
@@ -69,8 +78,10 @@ p, li, td, th, label, input, textarea, select {
   color: var(--pk-text) !important;
   font-family: var(--pk-font-body) !important;
   font-weight: 600;
-  font-size: 0.85rem !important;
-  letter-spacing: 0.04em;
+  font-size: 0.9rem !important;
+  letter-spacing: 0.01em;
+  padding-left: 0.9rem !important;
+  padding-right: 0.9rem !important;
 }
 
 .nav-link:hover {
@@ -166,6 +177,45 @@ p, li, td, th, label, input, textarea, select {
 .pk-hero .btn-primary {
   padding: 14px 36px;
   font-size: 0.95rem;
+}
+
+/* Secondary hero CTA (outline) + spacing between the two buttons */
+.pk-hero .btn-primary + .btn-outline-primary {
+  margin-left: 12px;
+}
+
+.pk-hero .btn-outline-primary {
+  padding: 14px 36px;
+  font-size: 0.95rem;
+  background: transparent;
+  color: var(--pk-primary) !important;
+  border: 1px solid var(--pk-border-strong);
+  border-radius: 6px;
+  font-weight: 700;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+}
+
+.pk-hero .btn-outline-primary:hover {
+  background: var(--pk-bg-alt);
+  border-color: var(--pk-primary-light);
+  color: var(--pk-primary) !important;
+  transform: translateY(-1px);
+}
+
+/* Hero routing hint under the CTAs */
+.pk-hero-hint {
+  font-size: 0.85rem;
+  color: var(--pk-text-muted);
+  max-width: 540px;
+  margin: 22px auto 0;
+  line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+  .pk-hero .btn-primary + .btn-outline-primary {
+    margin-left: 0;
+    margin-top: 12px;
+  }
 }
 
 /* Problem section */
@@ -473,6 +523,22 @@ p, li, td, th, label, input, textarea, select {
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--pk-primary-light);
+  padding-bottom: 16px;
+  margin-bottom: 22px;
+  border-bottom: 1px solid var(--pk-border);
+}
+
+/* When a card has a lead line, move the divider below it */
+.pk-audience-label:has(+ .pk-audience-desc) {
+  padding-bottom: 12px;
+  margin-bottom: 0;
+  border-bottom: none;
+}
+
+.pk-audience-desc {
+  font-size: 0.9rem;
+  color: var(--pk-text-secondary);
+  line-height: 1.6;
   padding-bottom: 16px;
   margin-bottom: 22px;
   border-bottom: 1px solid var(--pk-border);
@@ -1867,3 +1933,510 @@ p, li, td, th, label, input, textarea, select {
 .pk-animate-delay-2 { animation-delay: 0.2s; }
 .pk-animate-delay-3 { animation-delay: 0.3s; }
 .pk-animate-delay-4 { animation-delay: 0.4s; }
+
+/* ============================================
+   Products — Audit Suite (pricing storefront)
+   Reuses pk-steps / pk-pillars-grid / pk-section;
+   net-new CSS below is for the pricing cards,
+   the suite band and the eyebrow.
+   ============================================ */
+
+.pk-products-eyebrow {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--pk-primary-light);
+  margin-bottom: 14px;
+}
+
+/* Tighten the rhythm between the stacked product sections */
+.pk-section.pk-howitworks { padding: 24px 0 16px; }
+.pk-section.pk-tools-section { padding: 24px 0; }
+.pk-section.pk-trust-section { padding: 32px 0 16px; }
+.pk-section.pk-products-cta { padding: 24px 0 56px; text-align: center; }
+
+/* Pricing cards: two side-by-side tool cards */
+.pk-tools-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.pk-tool-card {
+  background: var(--pk-surface);
+  border: 1px solid var(--pk-border);
+  border-radius: 14px;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.pk-tool-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--pk-border-strong);
+  box-shadow: 0 18px 40px -28px rgba(44, 62, 45, 0.5);
+}
+
+.pk-tool-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.pk-tool-name {
+  font-family: var(--pk-font-heading) !important;
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--pk-primary) !important;
+  margin: 0;
+}
+
+.pk-tool-state {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--pk-primary-light);
+  background: var(--pk-bg-alt);
+  border-radius: 999px;
+  padding: 5px 12px;
+  white-space: nowrap;
+}
+
+.pk-tool-does {
+  font-size: 0.95rem;
+  color: var(--pk-text-secondary);
+  line-height: 1.65;
+  margin-bottom: 16px;
+}
+
+.pk-tool-detail {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 4px;
+  flex: 1;
+}
+
+.pk-tool-detail li {
+  position: relative;
+  padding-left: 22px;
+  font-size: 0.86rem;
+  color: var(--pk-text-secondary);
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.pk-tool-detail li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--pk-primary-light);
+  font-weight: 700;
+}
+
+.pk-tool-price {
+  border-top: 1px solid var(--pk-border);
+  padding-top: 16px;
+  margin-top: 8px;
+}
+
+.pk-tool-price-main {
+  font-family: var(--pk-font-heading);
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--pk-primary);
+  line-height: 1.1;
+}
+
+.pk-tool-price-alt {
+  font-size: 0.85rem;
+  color: var(--pk-text-muted);
+  margin-top: 4px;
+}
+
+.pk-tool-free {
+  margin-top: 14px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--pk-primary);
+  background: var(--pk-bg-alt);
+  border: 1px solid var(--pk-border);
+  border-radius: 8px;
+  padding: 10px 14px;
+}
+
+/* Suite note — quiet full-width band */
+.pk-suite-band {
+  background: var(--pk-primary);
+  border-radius: 14px;
+  padding: 28px 32px;
+  margin: 8px 0 24px;
+}
+
+.pk-suite-band-title {
+  font-family: var(--pk-font-heading);
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.pk-suite-band-body {
+  font-size: 0.92rem;
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.7;
+  max-width: 620px;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .pk-tools-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================
+   Blue re-skin tweaks (color + font only)
+   Fraunces carries less weight than DM Serif at 400,
+   so headings move to ~600. CTAs use electric blue while
+   headings stay navy (mirrors the reference pricing page).
+   ============================================ */
+h1, h2, h3, h4, h5, h6,
+.display-1, .display-2, .display-3, .display-4, .display-5, .display-6 {
+  font-optical-sizing: auto;
+  font-weight: 600 !important;
+  letter-spacing: -0.01em;
+}
+
+.btn-primary, .nav-cta {
+  background-color: #3e66c6 !important;
+  border-color: #3e66c6 !important;
+  color: #fff !important;
+}
+.btn-primary:hover, .nav-cta:hover {
+  background-color: #3354a2 !important;
+  border-color: #3354a2 !important;
+  color: #fff !important;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #3e66c6 !important;
+  box-shadow: 0 0 0 3px rgba(62,102,198, .12) !important;
+}
+
+/* ============================================================
+   Product demos + reference polish (from the Audit Suite page)
+   ============================================================ */
+
+/* Demo-scoped palette vars (navy + electric blue, sampled from logo) */
+:root {
+  --navy:#0a1931; --navy-2:#11233f;
+  --blue:#3e66c6; --blue-2:#6f93dc; --blue-ink:#1d2740;
+  --blue-soft:#e9eefb; --blue-tint:#f0f4fd;
+  --ink:#1d2740; --slate:#55617c; --faint:#8a93a8;
+  --paper:#ffffff; --line:#e1e7f3; --line-soft:#eef2fa;
+  --serif:'Fraunces',Georgia,serif;
+  --sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --shadow:0 22px 60px -30px rgba(10,25,49,.45);
+}
+
+/* ---- TDS Audit live demo ---- */
+.demo{margin-top:24px;background:var(--paper);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);overflow:hidden;text-align:left}
+.demo-head{display:flex;align-items:center;gap:10px;padding:14px 18px;border-bottom:1px solid var(--line-soft);background:linear-gradient(180deg,#fbfcff,#f1f5fd)}
+.demo-head .dots{display:flex;gap:6px}
+.demo-head .dots i{width:10px;height:10px;border-radius:50%;background:#d4dcec;display:block}
+.demo-head .title{font-size:13px;font-weight:700;color:var(--navy)}
+.demo-head .title span{color:var(--faint);font-weight:500}
+.demo-head .status{margin-left:auto;font-size:12px;font-weight:700;padding:5px 12px;border-radius:999px;background:var(--blue-soft);color:var(--blue);display:inline-flex;align-items:center;gap:7px;transition:.3s}
+.demo-head .status.done{background:#e3f6ea;color:#1f8a4d}
+.demo-head .status .spin{width:11px;height:11px;border:2px solid rgba(62,102,198,.3);border-top-color:var(--blue);border-radius:50%;animation:dspin .7s linear infinite}
+.demo-head .status.done .spin{display:none}
+@keyframes dspin{to{transform:rotate(360deg)}}
+.demo-grid{padding:2px 0}
+.demo-row{display:grid;grid-template-columns:1.7fr 1fr 1fr 102px;gap:8px;align-items:center;padding:11px 18px;border-bottom:1px solid var(--line-soft)}
+.demo-row:not(.head){opacity:0;transform:translateY(8px);transition:opacity .35s ease,transform .35s ease}
+.demo-row.show{opacity:1;transform:none}
+.demo-row.head{font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--faint);font-weight:700;background:#fbfcff}
+.demo-row.head .r{text-align:right}
+.demo-row.head .s{justify-self:end}
+.demo-row .party{font-size:13px;color:var(--navy);font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.demo-row .party small{display:block;color:var(--faint);font-weight:500;font-size:11px}
+.demo-row .amt{font-size:13px;color:var(--ink);font-variant-numeric:tabular-nums;text-align:right}
+.demo-row .amt.mis{color:#c2410c;font-weight:700}
+.demo-row .stat{justify-self:end;font-size:11.5px;font-weight:700;display:inline-flex;align-items:center;gap:5px;padding:4px 9px;border-radius:999px;opacity:0;transform:scale(.9);transition:opacity .3s,transform .3s}
+.demo-row .stat.in{opacity:1;transform:none}
+.demo-row .stat.ok{background:#e3f6ea;color:#1f8a4d}
+.demo-row .stat.flag{background:#fdeede;color:#c2410c}
+.demo-row .stat .ic{width:13px;height:13px}
+.demo-foot{display:flex;align-items:center;gap:14px;padding:14px 18px;border-top:1px solid var(--line-soft);background:#fbfcff;flex-wrap:wrap}
+.demo-foot .bar{flex:1;min-width:130px;height:7px;background:#e7edf8;border-radius:999px;overflow:hidden}
+.demo-foot .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--blue-2),var(--blue));border-radius:999px;transition:width .35s ease}
+.demo-foot .sum{font-size:12.5px;color:var(--slate);font-weight:600}
+.demo-foot .sum b{color:var(--navy)}
+.demo-foot .time{font-size:12.5px;font-weight:700;color:var(--blue);background:var(--blue-soft);padding:5px 12px;border-radius:999px;white-space:nowrap}
+.demo-foot .time .old{color:var(--faint);text-decoration:line-through;font-weight:600;margin-right:6px}
+.demo-cap{font-size:11px;color:var(--faint);margin-top:9px;text-align:left}
+@media(max-width:560px){
+  .demo-row{grid-template-columns:1.5fr 1fr 78px}
+  .demo-row .books-col{display:none}
+}
+
+/* ---- Schedule III classify-once fan-out ---- */
+.s3p-stage{position:relative;padding:24px 18px 20px}
+.s3p-grid{display:grid;grid-template-columns:minmax(0,.92fr) 1.15fr;gap:34px;align-items:center;position:relative;z-index:2}
+.s3p-links{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1;overflow:visible}
+.s3p-link{fill:none;stroke:var(--blue-2);stroke-width:2;stroke-linecap:round;opacity:0;transition:opacity .3s}
+.s3p-link.on{opacity:.85}
+.s3p-src{background:linear-gradient(180deg,#fbfcff,#f3f6fd);border:1px solid var(--line);border-radius:14px;padding:16px 16px 15px;box-shadow:0 12px 30px -22px rgba(10,25,49,.5)}
+.s3p-src .tag{font-size:10px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--faint)}
+.s3p-src .grp{font-family:var(--serif);font-size:18px;color:var(--navy);font-weight:600;margin-top:3px}
+.s3p-src .grp small{display:block;font-family:var(--sans);font-size:11.5px;color:var(--faint);font-weight:500;margin-top:1px}
+.s3p-src .amt{font-size:15px;color:var(--ink);font-weight:700;font-variant-numeric:tabular-nums;margin-top:9px}
+.s3p-src .amt span{font-size:11px;color:var(--faint);font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-right:5px}
+.s3p-field{margin-top:13px;border:1.5px solid var(--line);border-radius:10px;background:#fff;padding:9px 12px;display:flex;align-items:center;justify-content:space-between;gap:8px;transition:border-color .25s,box-shadow .25s;position:relative}
+.s3p-field .lbl{font-size:9.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);position:absolute;top:-7px;left:10px;background:#fff;padding:0 5px}
+.s3p-field .val{font-size:13px;font-weight:600;color:var(--faint);font-style:italic}
+.s3p-field .car{color:var(--faint);font-size:11px;flex:0 0 auto}
+.s3p-field.open{border-color:var(--blue-2);box-shadow:0 0 0 3px rgba(92,131,237,.16)}
+.s3p-field.filled{border-color:var(--blue);box-shadow:0 0 0 3px rgba(62,102,198,.14)}
+.s3p-field.filled .val{color:var(--blue);font-style:normal;font-weight:700}
+.s3p-field.filled .car{color:var(--blue)}
+.s3p-menu{position:absolute;top:calc(100% + 6px);left:0;right:0;background:#fff;border:1px solid var(--line);border-radius:10px;box-shadow:0 18px 40px -18px rgba(10,25,49,.5);padding:5px;z-index:5;opacity:0;transform:translateY(-4px);pointer-events:none;transition:opacity .18s,transform .18s}
+.s3p-menu.show{opacity:1;transform:none}
+.s3p-menu .opt{font-size:12.5px;color:var(--slate);padding:7px 9px;border-radius:7px;font-weight:500}
+.s3p-menu .opt.sel{background:var(--blue-soft);color:var(--blue);font-weight:700}
+.s3p-cursor{position:absolute;width:17px;height:17px;z-index:8;left:0;top:0;opacity:0;transition:transform .5s cubic-bezier(.4,.1,.2,1),opacity .25s;filter:drop-shadow(0 2px 3px rgba(10,25,49,.35))}
+.s3p-cursor.show{opacity:1}
+.s3p-dests{display:flex;flex-direction:column;gap:10px}
+.s3p-dest{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:11px 13px 11px 15px;position:relative;overflow:hidden;opacity:.55;transform:translateX(6px);transition:opacity .4s,transform .4s,box-shadow .4s,border-color .4s}
+.s3p-dest::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--line);transition:background .4s}
+.s3p-dest.on{opacity:1;transform:none;border-color:rgba(62,102,198,.28);box-shadow:0 12px 26px -20px rgba(62,102,198,.6)}
+.s3p-dest.on::before{background:linear-gradient(180deg,var(--blue-2),var(--blue))}
+.s3p-dest .top{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.s3p-dest .tabnm{font-size:12px;font-weight:700;color:var(--navy);display:flex;align-items:center;gap:7px}
+.s3p-dest .tabnm .ico{width:14px;height:14px;color:var(--blue);flex:0 0 auto}
+.s3p-dest .badge{font-size:9.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:#1f8a4d;background:#e3f6ea;border-radius:999px;padding:3px 8px;display:inline-flex;align-items:center;gap:4px;opacity:0;transform:scale(.85);transition:opacity .3s,transform .3s}
+.s3p-dest .badge.recalc{color:#3e66c6;background:var(--blue-soft)}
+.s3p-dest.on .badge{opacity:1;transform:none}
+.s3p-dest .badge svg{width:10px;height:10px}
+.s3p-dest .line{font-size:11.5px;color:var(--slate);margin-top:4px}
+.s3p-dest .fig{font-size:14px;font-weight:700;color:var(--blue-ink);font-variant-numeric:tabular-nums;margin-top:3px;opacity:0;transform:translateY(3px);transition:opacity .35s,transform .35s}
+.s3p-dest.on .fig{opacity:1;transform:none}
+.s3p-cap-row{display:flex;align-items:center;gap:10px;padding:13px 18px;border-top:1px solid var(--line-soft);background:#fbfcff;flex-wrap:wrap}
+.s3p-cap-row .sum{font-size:12.5px;color:var(--slate);font-weight:600}
+.s3p-cap-row .sum b{color:var(--navy)}
+.s3p-cap-row .once{margin-left:auto;font-size:11.5px;font-weight:700;color:var(--blue);background:var(--blue-soft);padding:5px 12px;border-radius:999px}
+@media(max-width:680px){
+  .s3p-grid{grid-template-columns:1fr;gap:16px}
+  .s3p-links{display:none}
+  .s3p-dest{transform:none;opacity:.6}
+}
+
+/* Demo section eyebrow centered */
+.pk-demo-eyebrow{text-align:center}
+
+/* ---- Reference polish, site-wide ---- */
+
+/* Soft radial blue glows behind the page */
+body{
+  background-image:
+    radial-gradient(1100px 560px at 82% -8%, rgba(92,131,237,.13), transparent 60%),
+    radial-gradient(820px 460px at -8% 14%, rgba(62,102,198,.07), transparent 55%) !important;
+  background-attachment: fixed !important;
+  background-repeat: no-repeat !important;
+}
+
+/* Gradient accent bar on pricing tool cards */
+.pk-tool-card{position:relative;overflow:hidden}
+.pk-tool-card::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--blue-2),var(--blue))}
+
+/* Card hover-lift to match the reference's motion */
+.pk-service-card,.pk-problem-card,.pk-pillar-card{transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}
+.pk-service-card:hover,.pk-problem-card:hover,.pk-pillar-card:hover{
+  transform:translateY(-4px);
+  border-color:var(--pk-border-strong);
+  box-shadow:0 18px 40px -28px rgba(10,25,49,.45);
+}
+
+/* Navy suite band: radial glow accent */
+.pk-suite-band{position:relative;overflow:hidden}
+.pk-suite-band::after{content:"";position:absolute;right:-50px;bottom:-60px;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(92,131,237,.35),transparent 65%);pointer-events:none}
+.pk-suite-band-title,.pk-suite-band-body{position:relative}
+
+/* ============================================
+   Products — profession-grouped storefront
+   audiences → products, each product a side-by-side
+   copy/demo row that alternates sides. Built to
+   scale: add an audience block or a product entry.
+   ============================================ */
+
+.pk-products-wrap{max-width:1120px;margin-left:auto;margin-right:auto}
+
+/* One profession block */
+.pk-audience{padding:56px 0}
+.pk-audience + .pk-audience{border-top:1px solid var(--pk-border)}
+.pk-audience:first-of-type{padding-top:24px}
+
+.pk-audience-head{max-width:720px;margin:0 auto 40px;text-align:center}
+.pk-audience-chip{
+  display:inline-block;font-size:0.72rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:0.12em;color:var(--blue);background:var(--blue-soft);
+  border-radius:999px;padding:5px 14px;margin-bottom:14px;
+}
+.pk-audience-title{
+  font-family:var(--pk-font-heading) !important;font-weight:400;
+  color:var(--pk-primary) !important;font-size:2rem;margin:0 0 12px;
+}
+.pk-audience-intro{font-size:1rem;color:var(--pk-text-secondary);line-height:1.65;margin:0}
+
+/* Stack of product rows */
+.pk-products-list{display:flex;flex-direction:column;gap:64px}
+
+.pk-product-row{
+  display:flex;align-items:center;gap:48px;
+}
+/* Alternate: even product → demo on the left, copy on the right */
+.pk-product-row:nth-child(even){flex-direction:row-reverse}
+
+.pk-product-copy{flex:1 1 42%;min-width:0}
+.pk-product-demo{flex:1 1 58%;min-width:0}
+.pk-product-demo .demo{margin-top:0}
+
+/* Copy side */
+.pk-product-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.pk-product-name{
+  font-family:var(--pk-font-heading) !important;font-size:1.7rem;font-weight:400;
+  color:var(--pk-primary) !important;margin:0;
+}
+.pk-product-state{
+  font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;
+  color:var(--pk-primary-light);background:var(--pk-bg-alt);border-radius:999px;
+  padding:5px 12px;white-space:nowrap;
+}
+.pk-product-does{font-size:1rem;color:var(--pk-text-secondary);line-height:1.65;margin:0 0 18px}
+.pk-product-detail{list-style:none;padding:0;margin:0 0 22px}
+.pk-product-detail li{
+  position:relative;padding-left:24px;font-size:0.9rem;color:var(--pk-text-secondary);
+  line-height:1.6;margin-bottom:13px;
+}
+.pk-product-detail li::before{content:"✓";position:absolute;left:0;top:0;color:var(--blue);font-weight:700}
+.pk-product-price{border-top:1px solid var(--pk-border);padding-top:16px;display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.pk-product-price-main{font-family:var(--pk-font-heading);font-size:1.5rem;font-weight:400;color:var(--pk-primary);line-height:1.1}
+.pk-product-price-alt{font-size:0.9rem;color:var(--pk-text-secondary)}
+.pk-product-free{font-size:0.85rem;color:var(--pk-text-secondary);line-height:1.6;margin-top:14px}
+
+/* Demo side — flexible slot: component / image / video / placeholder */
+.pk-product-demo-img,.pk-product-demo-video{width:100%;border-radius:18px;border:1px solid var(--line);box-shadow:var(--shadow);display:block}
+.pk-product-demo-placeholder{
+  display:flex;align-items:center;justify-content:center;min-height:260px;
+  border:1.5px dashed var(--pk-border-strong);border-radius:18px;
+  color:var(--pk-text-secondary);font-size:0.95rem;font-weight:600;
+  background:var(--pk-bg-alt);text-align:center;padding:24px;
+}
+
+/* Roadmap state for professions without products yet */
+.pk-audience-roadmap{
+  max-width:760px;margin:0 auto;text-align:center;
+  background:var(--pk-surface);border:1px solid var(--pk-border);
+  border-radius:18px;padding:36px 32px;
+}
+.pk-roadmap-body{font-size:1rem;color:var(--pk-text-secondary);line-height:1.7;margin:0 0 18px}
+.pk-roadmap-cta-line{font-size:0.9rem;color:var(--pk-primary);font-weight:600;line-height:1.6}
+
+@media(max-width:900px){
+  .pk-product-row,.pk-product-row:nth-child(even){flex-direction:column;gap:24px}
+  .pk-product-copy,.pk-product-demo{flex:1 1 auto;width:100%}
+  .pk-products-list{gap:48px}
+  .pk-audience-title{font-size:1.7rem}
+}
+
+/* --- Home: folded-in Services detail + Team --- */
+
+/* Fixed-header offset so in-page anchor links don't hide behind the header */
+#services, #people { scroll-margin-top: 90px; }
+
+.pk-services-detail { padding: 0 0 8px; }
+.pk-services-detail .pk-section { margin-top: 0; }
+
+/* Team section (home) */
+.pk-team { padding: 80px 0 90px; background-color: var(--pk-bg-alt); }
+.pk-team .pk-section-title { text-align: center; font-weight: 400; font-size: clamp(1.6rem, 3vw, 2.2rem); margin-bottom: 48px; }
+.pk-team .pk-section-sub { text-align: center; max-width: 720px; margin-left: auto; margin-right: auto; }
+
+.pk-team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin: 40px 0 40px;
+}
+
+.pk-team-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 32px 24px;
+  background: var(--pk-surface);
+  border: 1px solid var(--pk-border);
+  border-radius: 12px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pk-team-card:hover {
+  border-color: var(--pk-border-strong);
+  box-shadow: 0 4px 24px rgba(44, 62, 45, 0.06);
+}
+
+.pk-team-card .pk-partner-image { margin-bottom: 18px; }
+
+.pk-team-card .pk-partner-image img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--pk-border);
+}
+
+.pk-team-card h3 {
+  font-family: var(--pk-font-heading) !important;
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin-bottom: 2px;
+}
+
+.pk-team-card .pk-partner-role {
+  font-size: 0.82rem;
+  color: var(--pk-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 14px;
+}
+
+.pk-team-card .pk-partner-bio {
+  font-size: 0.85rem;
+  color: var(--pk-text-secondary);
+  line-height: 1.65;
+  margin-bottom: 14px;
+  text-align: left;
+}
+
+.pk-team-card .pk-partner-links { margin-top: auto; }
+
+.pk-team-card .pk-partner-links .pk-social-link {
+  color: var(--pk-primary-light);
+  font-size: 0.85rem;
+}
+
+.pk-team .pk-patkis-link-card { margin-bottom: 0; }
+
+@media (max-width: 900px) {
+  .pk-team-grid { grid-template-columns: 1fr; max-width: 520px; margin-left: auto; margin-right: auto; }
+  .pk-team-card .pk-partner-bio { text-align: center; }
+}

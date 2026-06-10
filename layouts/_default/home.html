@@ -11,9 +11,19 @@
       <span class="pk-accent">{{ .Params.hero.headline_2 }}</span>
     </h1>
     <p class="pk-subtitle pk-animate-in pk-animate-delay-1">{{ .Params.hero.subheadline }}</p>
-    <a href="{{ .Params.hero.cta_url | relURL }}" class="btn btn-primary pk-animate-in pk-animate-delay-2">
-      {{ .Params.hero.cta_text }} →
+    {{ $hero := .Params.hero }}
+    {{ $ctaURL := cond (hasPrefix $hero.cta_url "#") $hero.cta_url ($hero.cta_url | relURL) }}
+    <a href="{{ $ctaURL }}"{{ if hasPrefix $hero.cta_url "#" }} data-pk-scroll{{ end }} class="btn btn-primary pk-animate-in pk-animate-delay-2">
+      {{ $hero.cta_text }} →
     </a>
+    {{ with $hero.cta2_url }}
+    <a href="{{ . | relURL }}" class="btn btn-outline-primary pk-animate-in pk-animate-delay-2">
+      {{ $hero.cta2_text }} →
+    </a>
+    {{ end }}
+    {{ with $hero.cta_hint }}
+    <p class="pk-hero-hint pk-animate-in pk-animate-delay-2">{{ . }}</p>
+    {{ end }}
   </div>
 </section>
 
@@ -47,7 +57,7 @@
 </section>
 
 <!-- Services Overview -->
-<section class="pk-services-overview">
+<section class="pk-services-overview" id="services">
   <div class="container">
     <h2>{{ .Params.services.headline }}</h2>
     <div class="pk-services-grid">
@@ -65,30 +75,99 @@
       </div>
       {{ end }}
     </div>
-    <div class="pk-services-cta">
-      <a href="{{ "services/" | relURL }}" class="btn btn-primary">Explore Services →</a>
-    </div>
   </div>
 </section>
 
-<!-- Methodology -->
-<section class="pk-methodology">
-  <div class="container">
-    <h2>{{ .Params.methodology.headline }}</h2>
-    <div class="pk-steps">
-      {{ range $i, $step := .Params.methodology.steps }}
-        {{ if gt $i 0 }}
-        <div class="pk-step-arrow">→</div>
-        {{ end }}
-        <div class="pk-step">
-          <div class="pk-step-number">{{ .number }}</div>
-          <h3>{{ .title }}</h3>
-          <p>{{ .description }}</p>
+<!-- How we engage -->
+{{ with .Params.engagement_section }}
+<section class="pk-services-detail">
+  <div class="container" style="max-width: 960px;">
+    <div class="pk-section pk-engagement">
+      <h2 class="pk-section-title">{{ .title }}</h2>
+      <p class="pk-section-sub">{{ .intro }}</p>
+      <div class="pk-engagement-grid">
+        {{ range .modes }}
+        <div class="pk-engagement-card">
+          <div class="pk-engagement-number">{{ .number }}</div>
+          <div class="pk-engagement-title">{{ .title }}</div>
+          <p class="pk-engagement-desc">{{ .description }}</p>
         </div>
-      {{ end }}
+        {{ end }}
+      </div>
     </div>
   </div>
 </section>
+{{ end }}
+
+<!-- Who we work with -->
+{{ with .Params.audiences_section }}
+<section class="pk-services-detail">
+  <div class="container" style="max-width: 960px;">
+    <div class="pk-section pk-audiences">
+      <h2 class="pk-section-title">{{ .title }}</h2>
+      <p class="pk-section-sub">{{ .intro }}</p>
+      <div class="pk-audience-grid">
+        {{ range .audiences }}
+        <div class="pk-audience-card">
+          <div class="pk-audience-label">{{ .label }}</div>
+          {{ with .description }}<p class="pk-audience-desc">{{ . }}</p>{{ end }}
+          <div class="pk-audience-caps">
+            {{ range .capabilities }}
+            <div class="pk-audience-cap">
+              <div class="pk-audience-cap-title">{{ .title }}</div>
+              <p class="pk-audience-cap-desc">{{ .description }}</p>
+            </div>
+            {{ end }}
+          </div>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}
+
+<!-- Services → Products CTA -->
+{{ with .Params.services_cta }}
+<section class="pk-services-overview" style="padding-top: 0;">
+  <div class="container">
+    <div class="pk-services-cta">
+      <a href="{{ .url | relURL }}" class="btn btn-primary">{{ .text }} →</a>
+      {{ with .hint }}<p class="pk-hero-hint" style="margin-top: 16px;">{{ . }}</p>{{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+
+<!-- Team -->
+{{ with .Params.team }}
+<section class="pk-team" id="people">
+  <div class="container" style="max-width: 1060px;">
+    <h2 class="pk-section-title">{{ .headline }}</h2>
+    <p class="pk-section-sub">{{ .intro }}</p>
+    <div class="pk-team-grid">
+      {{ range .partners }}
+      <div class="pk-team-card">
+        <div class="pk-partner-image">
+          <img src="{{ .image | relURL }}" alt="{{ .name }}" loading="lazy" />
+        </div>
+        <div class="pk-partner-info">
+          <h3>{{ .name }}</h3>
+          <p class="pk-partner-role">{{ .role }}</p>
+          {{ with .bio }}<p class="pk-partner-bio">{{ . }}</p>{{ end }}
+          <div class="pk-partner-links">
+            <a href="{{ .linkedin }}" target="_blank" class="pk-social-link">LinkedIn ↗</a>
+          </div>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+    {{ with .patkis_cta }}
+    <a href="{{ "the-patkis/" | relURL }}" class="pk-patkis-link-card">{{ . }}</a>
+    {{ end }}
+  </div>
+</section>
+{{ end }}
 
 <!-- Case Studies Preview (hidden if no content) -->
 {{ $caseStudies := where $page.Site.RegularPages "Section" "case-studies" }}
@@ -117,4 +196,61 @@
 </section>
 
 {{ end }}
+
+{{/* In-page scroll for hero CTAs and the header/footer nav anchors (Services, People).
+     The theme sets `html body { overflow: hidden }`, which makes <html> the scroller and
+     breaks the theme's smooth-scroll lib. A per-frame rAF animation also nets zero movement
+     in this setup, but a single `behavior:'instant'` jump scrolls reliably — so we jump.
+     Binding waits for DOMContentLoaded so the footer nav (rendered after this script) is
+     present too. Arriving with a #hash from another page is handled on load. */}}
+<script>
+(function () {
+  function idFromHref(href) {
+    if (!href) return '';
+    var i = href.indexOf('#');
+    return i === -1 ? '' : href.slice(i + 1);
+  }
+  function scrollToId(id) {
+    var target = id && document.getElementById(id);
+    if (!target) return false;
+    var header = document.getElementById('header');
+    var offset = (header ? header.offsetHeight : 70) + 12;
+    var y = target.getBoundingClientRect().top + window.scrollY - offset;
+    window.scrollTo({ top: y, behavior: 'instant' });
+    return true;
+  }
+  function closeMobileNav() {
+    var navbar = document.getElementById('navbarSupportedContent');
+    var toggler = document.querySelector('.navbar-toggler');
+    if (navbar && navbar.classList.contains('show') && toggler) toggler.click();
+  }
+  function init() {
+    // Hero CTAs plus any in-page anchor link in the header/footer nav.
+    var links = document.querySelectorAll('a[data-pk-scroll], a.nav-link[href*="#"]');
+    links.forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        var id = idFromHref(a.getAttribute('href') || '');
+        if (!scrollToId(id)) return; // no on-page target: let the link navigate
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        closeMobileNav();
+        if (history.replaceState) history.replaceState(null, '', '#' + id);
+      });
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+  // Landed here with a hash from another page — scroll past the fixed header once laid out.
+  if (window.location.hash.length > 1) {
+    var hid = window.location.hash.slice(1);
+    window.addEventListener('load', function () {
+      requestAnimationFrame(function () { scrollToId(hid); });
+    });
+  }
+})();
+</script>
+
 {{ end }}

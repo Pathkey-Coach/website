@@ -37,10 +37,10 @@
 
 ## Homepage head title
 - id: "head_title"
-  translation: "Pathkey | AI Advisory & Enablement for Founders"
+  translation: "Pathkey | AI-Native Software Studio"
 
 - id: "head_description"
-  translation: "Pathkey believes AI should make people more capable, not more replaceable. We help founders and teams make that real."
+  translation: "An AI-native software studio. We go deep into a domain and ship our own tools, and partner with founders and teams to build, advise, and teach. Honest pricing, AI only where it earns its keep."
 
 - id: "footer_navigation"
   translation: "Footer navigation"
