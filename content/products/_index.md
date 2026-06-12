@@ -29,9 +29,6 @@ audiences:
           - "Flags what turns into notices — taxable spend past the threshold with missed or short deduction, and TDS that doesn't match the books. 194Q GST gross-vs-net is reversed so goods purchases still reconcile."
           - "Nothing dropped silently — every party it can't confidently match goes to a flags list with the reason."
           - "Each row shows how it was matched — a position you can defend to a senior or an officer, not 'trust the software.'"
-        price_per: "₹2,000 / audit"
-        price_annual: "₹50,000 / yr unlimited"
-        free_line: "Your first audit is free — run it on a live file. Email us '<a class=\"pk-email\" data-u=\"hello\" data-d=\"pathkey.in\">hello<span class=\"pk-at\">[at]</span>pathkey.in</a>' with 'Try TDS Audit' and we'll set you up within a working day."
         demo:
           kind: "component"
           ref: "tds"
@@ -46,9 +43,6 @@ audiences:
           - "Works straight off your Tally or Zoho trial balance — reads both layouts and lays them out ready to classify. No reformatting."
           - "Built-in balance check — confirms assets equal equity plus liabilities, and that nothing is left unclassified, before you send."
           - "Forgotten groups don't hide — anything unclassified is flagged, never left silently at zero."
-        price_per: "₹500 / balance sheet"
-        price_annual: "₹25,000 / yr unlimited"
-        free_line: "Your first balance sheet is free — try it on a live file. Email us '<a class=\"pk-email\" data-u=\"hello\" data-d=\"pathkey.in\">hello<span class=\"pk-at\">[at]</span>pathkey.in</a>' with 'Try Schedule III' and we'll set you up within a working day."
         demo:
           kind: "component"
           ref: "s3"
