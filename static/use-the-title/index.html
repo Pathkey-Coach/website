@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="A short self-check companion to the essay Use the Title. Don't Become the Title. Where you are standing, and one decision you are weighing.">
+<link rel="canonical" href="https://pathkey.in/use-the-title">
+
+<!-- Link preview (LinkedIn, WhatsApp, X). Update the URLs to your own once hosted. -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Use it, or become it?">
+<meta property="og:description" content="A short self-check: is the role something you are using, or something you have quietly become?">
+<meta property="og:url" content="https://pathkey.in/use-the-title">
+<meta property="og:image" content="https://pathkey.in/use-the-title/preview.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<style>
+  html { color-scheme: light dark; }
+  body { margin: 0; }
+  img { max-width: 100%; }
+  [hidden] { display: none !important; }
+</style>
+<title>Use It or Become It</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Archivo:wght@400;500;600&display=swap">
+<style>
+  :root {
+    --paper: #faf7f2;
+    --panel: #f4efe6;
+    --ink: #1c1b19;
+    --ink-soft: #57534c;
+    --ink-faint: #8a8377;
+    --rule: #e2dacd;
+    --accent: #3d5a73;
+    --accent-soft: #e6ecf1;
+    --gold: #9a8f7a;
+    --focus: #b8863b;
+    --serif: "Lora", Georgia, "Times New Roman", serif;
+    --sans: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #15161a;
+      --panel: #1d1f24;
+      --ink: #eeeae3;
+      --ink-soft: #b3aca2;
+      --ink-faint: #837c72;
+      --rule: #32343a;
+      --accent: #9dbcd6;
+      --accent-soft: #242a31;
+      --gold: #b3a68c;
+      --focus: #d9a95f;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #15161a;
+    --panel: #1d1f24;
+    --ink: #eeeae3;
+    --ink-soft: #b3aca2;
+    --ink-faint: #837c72;
+    --rule: #32343a;
+    --accent: #9dbcd6;
+    --accent-soft: #242a31;
+    --gold: #b3a68c;
+    --focus: #d9a95f;
+  }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--serif);
+    font-size: 17px;
+    line-height: 1.6;
+  }
+  .wrap {
+    max-width: 680px;
+    margin: 0 auto;
+    padding-inline: 22px;
+    padding-block: 54px 80px;
+  }
+  .eyebrow {
+    font-family: var(--sans);
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin: 0 0 14px;
+  }
+  h1 {
+    font-size: clamp(34px, 7vw, 46px);
+    font-weight: 500;
+    line-height: 1.12;
+    letter-spacing: -0.015em;
+    margin: 0 0 18px;
+    text-wrap: balance;
+  }
+  .standfirst { color: var(--ink-soft); margin: 0 0 8px; }
+  .caveat {
+    font-style: italic;
+    color: var(--ink-faint);
+    font-size: 15.5px;
+    margin: 0;
+  }
+  .hr { height: 1px; background: var(--rule); border: 0; margin: 38px 0 0; }
+
+  /* mode switch */
+  .modes {
+    display: flex;
+    gap: 8px;
+    margin: 32px 0 6px;
+    flex-wrap: wrap;
+  }
+  .mode {
+    font-family: var(--sans);
+    font-size: 13.5px;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    color: var(--ink-soft);
+    background: transparent;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    padding: 9px 17px;
+    cursor: pointer;
+  }
+  .mode[aria-selected="true"] {
+    background: var(--accent-soft);
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .mode:focus-visible, .go:focus-visible, .link:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
+  }
+
+  .lede {
+    color: var(--ink-soft);
+    font-size: 16px;
+    margin: 18px 0 30px;
+  }
+
+  /* questions */
+  .q { border-top: 1px solid var(--rule); padding: 26px 0 22px; margin: 0; border-inline: 0; border-bottom: 0; }
+  .q legend {
+    padding: 0;
+    font-size: 19px;
+    line-height: 1.45;
+    color: var(--ink);
+    text-wrap: pretty;
+  }
+  .num {
+    font-family: var(--sans);
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 9px;
+  }
+  .opts { display: flex; gap: 8px; margin-top: 16px; flex-wrap: wrap; }
+  .opts label {
+    font-family: var(--sans);
+    font-size: 13px;
+    color: var(--ink-soft);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 8px 13px;
+    cursor: pointer;
+    flex: 1 1 auto;
+    text-align: center;
+    min-width: 0;
+    transition: background .15s, border-color .15s, color .15s;
+  }
+  .opts input { position: absolute; opacity: 0; pointer-events: none; }
+  .opts input:checked + label {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--paper);
+  }
+  .opts input:focus-visible + label { outline: 2px solid var(--focus); outline-offset: 2px; }
+
+  .field { border-top: 1px solid var(--rule); padding: 26px 0 4px; }
+  .field label { display: block; font-size: 19px; margin-bottom: 14px; }
+  input[type="text"] {
+    width: 100%;
+    font-family: var(--serif);
+    font-size: 17px;
+    color: var(--ink);
+    background: var(--panel);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 12px 14px;
+    box-sizing: border-box;
+  }
+  input[type="text"]:focus-visible { outline: 2px solid var(--focus); outline-offset: 1px; }
+
+  .go {
+    font-family: var(--sans);
+    font-size: 14.5px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--paper);
+    background: var(--ink);
+    border: 0;
+    border-radius: 3px;
+    padding: 14px 26px;
+    cursor: pointer;
+    margin-top: 30px;
+  }
+  .go[disabled] { background: var(--rule); color: var(--ink-faint); cursor: not-allowed; }
+  .hint { font-family: var(--sans); font-size: 13px; color: var(--ink-faint); margin: 12px 0 0; }
+
+  /* result */
+  .result { border-top: 3px solid var(--gold); margin-top: 46px; padding-top: 30px; }
+  .result h2 {
+    font-size: 30px;
+    font-weight: 500;
+    margin: 6px 0 4px;
+    letter-spacing: -0.01em;
+  }
+  .scores {
+    font-family: var(--sans);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin: 0 0 22px;
+  }
+  .plot { margin: 26px 0 30px; }
+  .plot svg { width: 100%; height: auto; display: block; }
+  .reading { font-size: 18px; color: var(--ink); margin: 0 0 20px; }
+  .sit {
+    border-left: 3px solid var(--gold);
+    padding: 4px 0 4px 20px;
+    margin: 26px 0 0;
+    font-style: italic;
+    font-size: 19px;
+    color: var(--ink-soft);
+  }
+  .sit .tag {
+    display: block;
+    font-family: var(--sans);
+    font-style: normal;
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+  .link {
+    font-family: var(--sans);
+    font-size: 13.5px;
+    color: var(--accent);
+    background: none;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    margin-top: 30px;
+  }
+  footer {
+    border-top: 1px solid var(--rule);
+    margin-top: 60px;
+    padding-top: 22px;
+    font-family: var(--sans);
+    font-size: 13px;
+    color: var(--ink-faint);
+  }
+  footer em { font-family: var(--serif); }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="eyebrow">A companion to the essay</p>
+  <h1>Use it, or become it?</h1>
+  <p class="standfirst">Two short readings on the same question: whether the role is something you are using, or something you have quietly become.</p>
+  <p class="caveat">This is a mirror, not a measurement. Nothing is stored, scored against anyone else, or sent anywhere.</p>
+  <hr class="hr">
+
+  <div class="modes" role="tablist" aria-label="Choose a reading">
+    <button class="mode" id="tab-state" role="tab" aria-selected="true" aria-controls="panel-state" type="button">Where am I standing?</button>
+    <button class="mode" id="tab-decision" role="tab" aria-selected="false" aria-controls="panel-decision" type="button">A decision I'm weighing</button>
+  </div>
+
+  <!-- ---------------- STATE ---------------- -->
+  <section id="panel-state" role="tabpanel" aria-labelledby="tab-state">
+    <p class="lede">Eight statements. Answer for the last few months, not for the person you intend to be.</p>
+    <form id="form-state"></form>
+    <button class="go" id="go-state" type="button" disabled>See where this lands</button>
+    <p class="hint" id="hint-state">Eight answers needed.</p>
+    <div id="result-state" hidden></div>
+  </section>
+
+  <!-- ---------------- DECISION ---------------- -->
+  <section id="panel-decision" role="tabpanel" aria-labelledby="tab-decision" hidden>
+    <p class="lede">For one specific thing you are deciding right now — a title, a raise, a role, a fundraise, a move.</p>
+    <div class="field">
+      <label for="decision-name">The decision, in a few words</label>
+      <input type="text" id="decision-name" placeholder="e.g. Taking the CXO title at the new company" autocomplete="off">
+    </div>
+    <form id="form-decision"></form>
+    <button class="go" id="go-decision" type="button" disabled>Read it back to me</button>
+    <p class="hint" id="hint-decision">Five answers needed.</p>
+    <div id="result-decision" hidden></div>
+  </section>
+
+  <footer>
+    A companion to the essay <em>Use the Title. Don't Become the Title.</em> — on ambition, identity, and the difference between using a role and becoming one.
+  </footer>
+</div>
+
+<script>
+(function () {
+  var SCALE = ["Rarely", "Sometimes", "Often", "Almost always"];
+
+  // axis: "id" = identification with the role (high = becoming it)
+  //       "enq" = inner enquiry present (high = asking)
+  var STATE_Q = [
+    { t: "When I introduce myself, I lead with the role, and I feel its weight in the room.", a: "id" },
+    { t: "If the title changed tomorrow, I would feel smaller — not just inconvenienced.", a: "id" },
+    { t: "Criticism of the work lands as criticism of me.", a: "id" },
+    { t: "I keep a quiet count of who responds to me now that didn't before.", a: "id" },
+    { t: "I notice the moment an extraordinary achievement becomes the new ordinary.", a: "enq" },
+    { t: "I can tell the difference between a goal I chose and one I absorbed from the people around me.", a: "enq" },
+    { t: "I ask what I am identifying myself with, not only what I want next.", a: "enq" },
+    { t: "I examine my means as carefully as I examine my goals.", a: "enq" }
+  ];
+
+  // w: weight toward "this is being decided for the eyes of others"
+  var DEC_Q = [
+    { t: "If nobody ever knew I had done this, would I still want it?", s: ["Almost certainly", "Probably", "Probably not", "No"] },
+    { t: "How much of the appeal is what this makes me, rather than what it lets me build?", s: ["Almost none", "Some", "A good deal", "Most of it"] },
+    { t: "If the title or label were stripped out of the outcome, would the decision change?", s: ["Not at all", "A little", "Quite a bit", "Completely"] },
+    { t: "Are my means here as respectable as my goal?", s: ["Entirely", "Mostly", "Not quite", "No"] },
+    { t: "If this doesn't work, how much of what I'd lose is standing rather than substance?", s: ["Almost none", "Some", "A good deal", "Most of it"] }
+  ];
+
+  var QUADS = {
+    hollow: {
+      name: "Hollow Success",
+      reading: "The pursuit is outward and the identification is strong. That combination works — often spectacularly — right up until the role changes. The exposure isn't the ambition; it's that the answer to who I am is currently being supplied by something that can be taken away.",
+      sit: "If this title disappeared tomorrow, what exactly would I feel I had lost?"
+    },
+    healthy: {
+      name: "Healthy Ambition",
+      reading: "You are building, and the role has stayed a role. Nothing here needs fixing. The only thing worth watching is drift: identification tends to arrive quietly, during a good stretch, when the recognition is pleasant and there is no reason to examine it.",
+      sit: "If nobody applauded this achievement, would it still matter to me?"
+    },
+    spiritual: {
+      name: "Spiritual Ego",
+      reading: "The enquiry is real, and it has acquired a scoreboard. I am more detached. I have fewer desires. I meditate every day. When these become a way of ranking oneself, ego hasn't gone — it has found a more sophisticated costume. This is the subtlest quadrant, and the hardest to see from inside.",
+      sit: "Would I still practise this if it made me look like no one in particular?"
+    },
+    quiet: {
+      name: "Quiet Enquiry",
+      reading: "The role is held lightly and the question is being asked. Worth saying plainly: this isn't a finish line, and it isn't morally above the other quadrants. It is simply a different enquiry, running alongside the worldly one rather than replacing it.",
+      sit: "Why does my happiness continuously require the next achievement?"
+    },
+    middle: {
+      name: "Near the Middle",
+      reading: "Your answers sit close to the centre, which is where most honest ones land. Rather than a quadrant, take this as a direction: the movement that matters is rightward — loosening what the role is being asked to prove — more than downward.",
+      sit: "If the next milestone did not arrive, would I still know who I am?"
+    }
+  };
+
+  function el(tag, cls, text) {
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text) n.textContent = text;
+    return n;
+  }
+
+  function buildForm(form, qs, prefix, onChange) {
+    qs.forEach(function (q, i) {
+      var fs = el("fieldset", "q");
+      var lg = el("legend");
+      var num = el("span", "num", String(i + 1).padStart(2, "0"));
+      lg.appendChild(num);
+      lg.appendChild(document.createTextNode(q.t));
+      fs.appendChild(lg);
+      var opts = el("div", "opts");
+      (q.s || SCALE).forEach(function (label, v) {
+        var id = prefix + i + "o" + v;
+        var input = document.createElement("input");
+        input.type = "radio";
+        input.name = prefix + i;
+        input.id = id;
+        input.value = String(v);
+        input.addEventListener("change", onChange);
+        var lab = document.createElement("label");
+        lab.setAttribute("for", id);
+        lab.textContent = label;
+        opts.appendChild(input);
+        opts.appendChild(lab);
+      });
+      fs.appendChild(opts);
+      form.appendChild(fs);
+    });
+  }
+
+  function answers(prefix, n) {
+    var out = [];
+    for (var i = 0; i < n; i++) {
+      var c = document.querySelector('input[name="' + prefix + i + '"]:checked');
+      out.push(c ? Number(c.value) : null);
+    }
+    return out;
+  }
+
+  function plot(x, y) {
+    // x, y in 0..1. x: 0 = becoming the role, 1 = using it. y: 0 = outer, 1 = inner enquiry
+    var P = 46, S = 300;
+    var px = P + x * S, py = P + y * S;
+    var labels = [
+      [P + S * 0.25, P + S * 0.25, "Hollow Success"],
+      [P + S * 0.75, P + S * 0.25, "Healthy Ambition"],
+      [P + S * 0.25, P + S * 0.75, "Spiritual Ego"],
+      [P + S * 0.75, P + S * 0.75, "Quiet Enquiry"]
+    ].map(function (l) {
+      return '<text x="' + l[0] + '" y="' + l[1] + '" text-anchor="middle" fill="var(--ink-faint)" font-family="Lora, Georgia, serif" font-size="13">' + l[2] + '</text>';
+    }).join("");
+    return '<svg viewBox="0 0 392 392" role="img" aria-label="Your position in the matrix: horizontal axis from becoming the role to using the role, vertical axis from outer achievement to inner enquiry.">' +
+      '<rect x="' + P + '" y="' + P + '" width="' + S + '" height="' + S + '" fill="none" stroke="var(--rule)" stroke-width="2"/>' +
+      '<line x1="' + (P + S / 2) + '" y1="' + P + '" x2="' + (P + S / 2) + '" y2="' + (P + S) + '" stroke="var(--rule)" stroke-width="1.5"/>' +
+      '<line x1="' + P + '" y1="' + (P + S / 2) + '" x2="' + (P + S) + '" y2="' + (P + S / 2) + '" stroke="var(--rule)" stroke-width="1.5"/>' +
+      labels +
+      '<text x="' + (P + S / 2) + '" y="24" text-anchor="middle" fill="var(--gold)" font-family="Archivo, Arial, sans-serif" font-size="10.5" letter-spacing="1.6">OUTER ACHIEVEMENT</text>' +
+      '<text x="' + (P + S / 2) + '" y="380" text-anchor="middle" fill="var(--gold)" font-family="Archivo, Arial, sans-serif" font-size="10.5" letter-spacing="1.6">INNER ENQUIRY</text>' +
+      '<text x="16" y="' + (P + S / 2) + '" text-anchor="middle" fill="var(--gold)" font-family="Archivo, Arial, sans-serif" font-size="10.5" letter-spacing="1.6" transform="rotate(-90 16 ' + (P + S / 2) + ')">BECOMING THE ROLE</text>' +
+      '<text x="376" y="' + (P + S / 2) + '" text-anchor="middle" fill="var(--gold)" font-family="Archivo, Arial, sans-serif" font-size="10.5" letter-spacing="1.6" transform="rotate(90 376 ' + (P + S / 2) + ')">USING THE ROLE</text>' +
+      '<circle cx="' + px + '" cy="' + py + '" r="13" fill="var(--accent)" opacity="0.18"/>' +
+      '<circle cx="' + px + '" cy="' + py + '" r="6" fill="var(--accent)"/>' +
+      '</svg>';
+  }
+
+  function band(v) { return v < 0.34 ? "low" : v < 0.67 ? "moderate" : "high"; }
+
+  function renderState() {
+    var a = answers("s", STATE_Q.length);
+    var idSum = 0, enqSum = 0;
+    STATE_Q.forEach(function (q, i) {
+      if (q.a === "id") idSum += a[i]; else enqSum += a[i];
+    });
+    var idN = idSum / 12, enqN = enqSum / 12;      // 0..1
+    var x = 1 - idN, y = enqN;
+    var near = Math.abs(idN - 0.5) < 0.13 && Math.abs(enqN - 0.5) < 0.13;
+    var key = near ? "middle" : (enqN >= 0.5
+      ? (idN >= 0.5 ? "spiritual" : "quiet")
+      : (idN >= 0.5 ? "hollow" : "healthy"));
+    var q = QUADS[key];
+
+    var box = document.getElementById("result-state");
+    box.innerHTML = "";
+    var w = el("div", "result");
+    w.appendChild(el("p", "eyebrow", "Where this lands"));
+    w.appendChild(el("h2", null, q.name));
+    w.appendChild(el("p", "scores",
+      "Identification " + band(idN) + " · Enquiry " + band(enqN)));
+    var pl = el("div", "plot");
+    pl.innerHTML = plot(x, y);
+    w.appendChild(pl);
+    w.appendChild(el("p", "reading", q.reading));
+    var sit = el("blockquote", "sit");
+    sit.appendChild(el("span", "tag", "A question to sit with"));
+    sit.appendChild(document.createTextNode(q.sit));
+    w.appendChild(sit);
+    var again = el("button", "link", "Answer again");
+    again.type = "button";
+    again.addEventListener("click", function () {
+      document.getElementById("form-state").reset();
+      box.hidden = true;
+      sync("s", STATE_Q.length, "go-state", "hint-state");
+      document.getElementById("tab-state").scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+    w.appendChild(again);
+    box.appendChild(w);
+    box.hidden = false;
+    w.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  function renderDecision() {
+    var a = answers("d", DEC_Q.length);
+    var name = document.getElementById("decision-name").value.trim();
+    var outward = (a[0] + a[1] + a[2] + a[4]) / 12;   // 0..1, higher = more for the eyes of others
+    var means = a[3] / 3;                              // 0..1, higher = means are questionable
+
+    var head, reading;
+    if (means >= 0.67) {
+      head = "The means are the question here";
+      reading = "Whatever the ambition is worth, the answer you gave about means outranks the rest. This isn't about whether the goal is legitimate — Artha and Kama both are. It's the older question: are the means as respectable as the goal? Everything else in this decision can wait behind that one.";
+    } else if (outward >= 0.62) {
+      head = "Much of this is being decided by how it will look";
+      reading = "By your own answers, a substantial part of the appeal is what this would make you rather than what it would let you build, and a good share of what you'd lose if it failed is standing rather than substance. That doesn't make it the wrong decision. It does mean the decision is currently being made by the part of you that is watching the room.";
+    } else if (outward <= 0.34) {
+      head = "This one appears to be yours";
+      reading = "You'd want it unobserved, the appeal is in what it lets you build, and what's at risk is substance rather than standing. Go and do it properly — clarity of goals, discipline and committed execution are exactly what this calls for.";
+    } else {
+      head = "Mixed, and honestly so";
+      reading = "Part of this is the work and part of it is the signal, which is true of most real decisions. The useful move isn't to purify the motive. It's to know which part is which, so that if the signal never arrives, you already know whether you'd still have wanted the work.";
+    }
+
+    var box = document.getElementById("result-decision");
+    box.innerHTML = "";
+    var w = el("div", "result");
+    w.appendChild(el("p", "eyebrow", name ? "On: " + name : "The reading"));
+    w.appendChild(el("h2", null, head));
+    w.appendChild(el("p", "scores",
+      "Weight of the signal " + band(outward) + " · Means " + (means >= 0.67 ? "in question" : means >= 0.34 ? "worth a look" : "clear")));
+    w.appendChild(el("p", "reading", reading));
+    var sit = el("blockquote", "sit");
+    sit.appendChild(el("span", "tag", "Before you decide"));
+    sit.appendChild(document.createTextNode(
+      means >= 0.67
+        ? "Are my means as respectable as my goals?"
+        : "If nobody ever knew I had done this, would I still want it?"));
+    w.appendChild(sit);
+    var again = el("button", "link", "Weigh another decision");
+    again.type = "button";
+    again.addEventListener("click", function () {
+      document.getElementById("form-decision").reset();
+      document.getElementById("decision-name").value = "";
+      box.hidden = true;
+      sync("d", DEC_Q.length, "go-decision", "hint-decision");
+      document.getElementById("tab-decision").scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+    w.appendChild(again);
+    box.appendChild(w);
+    box.hidden = false;
+    w.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  function sync(prefix, n, btnId, hintId) {
+    var a = answers(prefix, n);
+    var left = a.filter(function (v) { return v === null; }).length;
+    var btn = document.getElementById(btnId);
+    btn.disabled = left > 0;
+    document.getElementById(hintId).textContent =
+      left === 0 ? "" : left + (left === 1 ? " answer left." : " answers left.");
+  }
+
+  buildForm(document.getElementById("form-state"), STATE_Q, "s", function () {
+    sync("s", STATE_Q.length, "go-state", "hint-state");
+  });
+  buildForm(document.getElementById("form-decision"), DEC_Q, "d", function () {
+    sync("d", DEC_Q.length, "go-decision", "hint-decision");
+  });
+
+  document.getElementById("go-state").addEventListener("click", renderState);
+  document.getElementById("go-decision").addEventListener("click", renderDecision);
+
+  var tabs = [
+    { btn: "tab-state", panel: "panel-state" },
+    { btn: "tab-decision", panel: "panel-decision" }
+  ];
+  tabs.forEach(function (t) {
+    document.getElementById(t.btn).addEventListener("click", function () {
+      tabs.forEach(function (o) {
+        var on = o.btn === t.btn;
+        document.getElementById(o.btn).setAttribute("aria-selected", String(on));
+        document.getElementById(o.panel).hidden = !on;
+      });
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
