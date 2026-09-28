@@ -1,0 +1,27 @@
+# Pathkey
+
+> Pathkey is an AI advisory and software studio. We find where AI would save a business's team real time, then build the tools that team uses every day: process automation, custom business software and private AI assistants. We take on only a few clients at a time and work directly with their teams.
+
+Pathkey is a shared professional brand used by three independent professionals: Suyog Patki (strategy and mentorship), Avani Patki (people and culture) and Rohan Nevrikar (technology and delivery). Enquiries go to hello@pathkey.in.
+
+## Services
+
+- AI advisory: where AI fits, what to build or buy, and what to leave alone. Covers established and newer models, quality and running costs, cloud or self-hosted deployment, and privacy and DPDP considerations. For owners and leadership teams.
+- Automation and implementation: custom systems built around how a business works. Rule-based automation where fixed rules are enough, AI where interpretation is needed, and human review where it matters. The client's team is handed the keys when it's done.
+
+## Work in daily use at clients
+
+- Business systems: stock records for a distributor, worked out from scanned purchase invoices and the factory's WhatsApp messages.
+- Process automation: client compliance reminders that follow up on a schedule once a partner approves them.
+- Finance and compliance: vendor invoices read by AI and posted to Zoho Books as bills, with TDS and GST worked out and checked by a person before they are final.
+- Private AI: an AI assistant set up for a firm in place of per-person ChatGPT or Claude licences, paid for by use. The team uses it for work such as reconciliations.
+
+Clients include accounting, compliance and professional-services firms in India, among them FiNOPS, C.S. Kelkar & Associates, A N Gawade & Co LLP, HMA & Associates and Gita Kulkarni & Associates.
+
+## Pages
+
+- [Home](https://pathkey.in/): approach, work, people and contact
+- [Values](https://pathkey.in/values/): the values Pathkey works by
+- [The Patkis](https://pathkey.in/the-patkis/): the story behind Pathkey
+- [Blog](https://pathkey.in/blog/): articles by the Pathkey partners
+- [Privacy & cookies](https://pathkey.in/privacy/)

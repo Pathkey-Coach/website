@@ -1,12 +1,28 @@
-{{ define "main" }}
-{{ with .Params.link }}
-  <meta http-equiv="refresh" content="0; url={{ . }}" />
-  <script>window.location.href = "{{ . }}";</script>
-  <p>Redirecting to <a href="{{ . }}">{{ . }}</a>...</p>
-{{ else }}
-  <article class="blog-post">
-    <h1>{{ .Title }}</h1>
-    <div>{{ .Content }}</div>
-  </article>
-{{ end }}
-{{ end }}
+{{- /* Blog post in the new design. Posts with a `link` live on LinkedIn: this page sends
+       the visitor there and shows a plain link if the redirect doesn't run. */ -}}
+{{- $home := (index (where .Site.RegularPages "Type" "home") 0).Params -}}
+<!doctype html>
+<html lang="en">
+<head>
+{{ partial "pk/head.html" (dict "page" . "title" (print .Title " · Pathkey") "description" (.Description | default .Summary)) }}
+{{ with .Params.link }}<meta http-equiv="refresh" content="0; url={{ . }}"><meta name="robots" content="noindex">{{ end }}
+</head>
+<body>
+{{ partial "pk/header.html" (dict "page" . "home" $home) }}
+<main id="main" tabindex="-1">
+<section class="page-intro" aria-labelledby="page-title"><div class="wrap">
+  <div class="section-head"><div class="eyebrow accent"><a href="{{ "blog/" | relURL }}">Blog</a></div><div>
+    <span class="post-meta">{{ .Date.Format "2 Jan 2006" }}{{ with .Params.author }} · {{ . }}{{ end }}</span>
+    <h1 id="page-title" class="post-title">{{ .Title }}</h1>
+    {{ with .Params.link }}
+    <p class="section-intro">This article is on {{ $.Params.source | default "another site" }}. If it doesn't open automatically, <a class="inline-link" href="{{ . }}">read it there</a>.</p>
+    <script>window.location.replace({{ . }});</script>
+    {{ else }}
+    <div class="rich page-body">{{ .Content }}</div>
+    {{ end }}
+  </div></div>
+</div></section>
+{{ with $home.contact }}{{ partial "pk/contact.html" . }}{{ end }}
+</main>
+{{ partial "pk/footer.html" (dict "page" . "home" $home) }}
+</body></html>

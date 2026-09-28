@@ -1,0 +1,8 @@
+{{- /* List of blog posts, newest first. Context: a collection of pages.
+       Posts with a `link` live elsewhere (LinkedIn) and open in a new tab. */ -}}
+<ul class="post-list" role="list">
+  {{ range .ByDate.Reverse }}
+  {{ $link := .Params.link | default .RelPermalink }}
+  <li class="reveal"><span class="post-meta">{{ .Date.Format "2 Jan 2006" }}{{ with .Params.author }} · {{ . }}{{ end }}{{ with .Params.source }} · on {{ . }}{{ end }}</span><h3><a href="{{ $link }}"{{ if .Params.link }} target="_blank" rel="noopener noreferrer"{{ end }}>{{ .Title }}{{ if .Params.link }}<span class="sr-only"> (opens {{ .Params.source | default "external site" }} in a new tab)</span>{{ end }}</a></h3>{{ with .Description }}<p>{{ . }}</p>{{ end }}</li>
+  {{ end }}
+</ul>

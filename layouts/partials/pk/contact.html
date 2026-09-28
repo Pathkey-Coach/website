@@ -1,0 +1,5 @@
+{{- /* Shared contact section; context is the `contact` block from content/home/home.md. */ -}}
+<section class="contact" id="contact" aria-labelledby="contact-title"><div class="wrap">
+  <div class="contact-layout reveal"><div><div class="eyebrow accent">{{ .eyebrow }}</div><h2 id="contact-title">{{ .headline_1 }}<br>{{ .headline_2 }}</h2><p>{{ .copy_1 }}<br>{{ .copy_2 }}</p></div></div>
+  <a class="email reveal" href="mailto:{{ .email }}">{{ .email }}</a>
+</div></section>

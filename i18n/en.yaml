@@ -33,14 +33,14 @@
 
 ## Footer
 - id: "footer_notice"
-  translation: "© 2025 Pathkey. All rights reserved."
+  translation: "© {{ .Year }} Pathkey. All rights reserved."
 
 ## Homepage head title
 - id: "head_title"
-  translation: "Pathkey | AI-Native Software Studio"
+  translation: "Pathkey — AI advisory & automation for businesses"
 
 - id: "head_description"
-  translation: "An AI-native software studio. We go deep into a domain and ship our own tools, and partner with founders and teams to build, advise, and teach. Honest pricing, AI only where it earns its keep."
+  translation: "Pathkey is an AI advisory and software studio. We find where AI saves your team real time, then build it: automation, custom software and private AI assistants."
 
 - id: "footer_navigation"
   translation: "Footer navigation"

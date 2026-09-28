@@ -1,7 +1,10 @@
 baseURL = "https://pathkey.in/"
-title = "Pathkey – AI-native software studio"
+title = "Pathkey — AI advisory & automation for businesses"
 languageCode = "en"
 theme = "adritian-free-hugo-theme"
+# No tags or categories are used, so their empty list pages are not built.
+# (Must stay above the first [table], or TOML attaches it to that table.)
+disableKinds = ["taxonomy", "term"]
 
 [pagination]
 pagerSize = 6
@@ -19,7 +22,23 @@ pagerSize = 6
   category = "categories"
   author = "authors"
 
-disableKinds = ["footerSection"]
+
+# Content that only feeds other pages (homepage copy, footer, The Patkis testimonials and
+# ventures, the unused case-studies section) is kept for templates but not published, so it
+# can't show up in search as thin or duplicate pages.
+[[cascade]]
+  [cascade.build]
+    render = "never"
+    list = "always"
+  [cascade.target]
+    path = "{/home,/home/**,/footer,/footer/**,/testimonial,/testimonial/**,/client-work,/client-work/**,/case-studies,/case-studies/**,/experience,/experience/**}"
+
+# Blog posts redirect to LinkedIn and are marked noindex, so keep them out of the sitemap.
+[[cascade]]
+  [cascade.sitemap]
+    disable = true
+  [cascade.target]
+    path = "/blog/**"
 
 ## Base mounts
 [[module.mounts]]
@@ -59,11 +78,11 @@ source = "node_modules/bootstrap-print-css/css/bootstrap-print.css"
 target = "assets/css/bootstrap-print.css"
 
 [params]
-title = "Pathkey – AI-native software studio"
-description = "An AI-native software studio. We go deep into a domain and ship our own tools, and partner with founders and teams to build, advise, and teach. Honest pricing, AI only where it earns its keep."
+title = "Pathkey — AI advisory & automation for businesses"
+description = "Pathkey is an AI advisory and software studio. We find where AI saves your team real time, then build it: automation, custom software and private AI assistants."
 themeColor = "#2c3e2d"
 logo = "/images/pathkey_logo.png"
-images = ["/images/pathkey_logo_transparent.png"]
+images = ["/pk/img/og-image.png"]
 
 homepageExperienceCount = 6
 
@@ -72,8 +91,8 @@ cloudflareAnalyticsToken = "479ece13f46e4ef6ba71ad6dd50d350c"
 
 [params.seo]
 siteName = "Pathkey"
-siteDescription = "An AI-native software studio. We go deep into a domain and ship our own tools, and partner with founders and teams to build, advise, and teach. Honest pricing, AI only where it earns its keep."
-siteImage = "/images/pathkey_logo_transparent.png"
+siteDescription = "Pathkey is an AI advisory and software studio. We find where AI saves your team real time, then build it: automation, custom software and private AI assistants."
+siteImage = "/pk/img/og-image.png"
 
 [params.seo.person]
 name = "Pathkey"
@@ -142,13 +161,21 @@ name = "Home"
 URL = "/"
 weight = 1
 [[languages.en.menus.header]]
-name = "Services"
-URL = "/#services"
+name = "Approach"
+URL = "/#approach"
 weight = 2
+[[languages.en.menus.header]]
+name = "Our work"
+URL = "/#work"
+weight = 3
 [[languages.en.menus.header]]
 name = "Products"
 URL = "/products/"
 weight = 3
+[[languages.en.menus.header]]
+name = "Clients"
+URL = "/#clients"
+weight = 4
 [[languages.en.menus.header]]
 name = "People"
 URL = "/#people"
@@ -172,9 +199,13 @@ name = "Home"
 URL = "/"
 weight = 1
 [[languages.en.menus.footer]]
-name = "Services"
-URL = "/#services"
+name = "Approach"
+URL = "/#approach"
 weight = 2
+[[languages.en.menus.footer]]
+name = "Our work"
+URL = "/#work"
+weight = 3
 [[languages.en.menus.footer]]
 name = "Products"
 URL = "/products/"
@@ -196,6 +227,10 @@ weight = 5
 name = "Values"
 URL = "/values/"
 weight = 6
+[[languages.en.menus.footer]]
+name = "Privacy & cookies"
+URL = "/privacy/"
+weight = 7
 
 [build]
 writeStats = true

@@ -3,10 +3,8 @@
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "{{ .Site.Params.cloudflareAnalyticsToken }}"}'></script>
 {{ end }}
 
-<!-- Google Fonts: Fraunces (headlines) + Inter (body) -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!-- DM Sans, self-hosted (same file as the homepage) -->
+<link rel="preload" href="{{ "pk/fonts/dm-sans-latin.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
 
 <!-- Email obfuscation: hide from crawlers, assemble for real users -->
 <style>.pk-at { font-size: 0; }</style>

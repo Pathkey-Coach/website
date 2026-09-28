@@ -3,6 +3,15 @@
    ============================================ */
 
 /* --- Font Faces --- */
+/* DM Sans, self-hosted with the homepage (static/pk/fonts), so every page uses one typeface. */
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('/pk/fonts/dm-sans-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
 @font-face {
   font-family: 'AutumnMoon';
   src: url('/fonts/autumn-moon/AutumnMoon.woff2') format('woff2'),
@@ -2103,15 +2112,13 @@ p, li, td, th, label, input, textarea, select {
 
 /* ============================================
    Blue re-skin tweaks (color + font only)
-   Fraunces carries less weight than DM Serif at 400,
-   so headings move to ~600. CTAs use electric blue while
-   headings stay navy (mirrors the reference pricing page).
+   Headings use DM Sans at 500 with tight tracking, as on the homepage.
+   CTAs use electric blue while headings stay navy.
    ============================================ */
 h1, h2, h3, h4, h5, h6,
 .display-1, .display-2, .display-3, .display-4, .display-5, .display-6 {
-  font-optical-sizing: auto;
-  font-weight: 600 !important;
-  letter-spacing: -0.01em;
+  font-weight: 500 !important;
+  letter-spacing: -0.03em;
 }
 
 .btn-primary, .nav-cta {
@@ -2142,8 +2149,8 @@ h1, h2, h3, h4, h5, h6,
   --blue-soft:#e9eefb; --blue-tint:#f0f4fd;
   --ink:#1d2740; --slate:#55617c; --faint:#8a93a8;
   --paper:#ffffff; --line:#e1e7f3; --line-soft:#eef2fa;
-  --serif:'Fraunces',Georgia,serif;
-  --sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --serif:'DM Sans',Arial,sans-serif;
+  --sans:'DM Sans',Arial,sans-serif;
   --shadow:0 22px 60px -30px rgba(10,25,49,.45);
 }
 
@@ -2374,7 +2381,7 @@ body{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
-  margin: 40px 0 40px;
+  margin: 0 0 40px;
 }
 
 .pk-team-card {
@@ -2440,3 +2447,96 @@ body{
   .pk-team-grid { grid-template-columns: 1fr; max-width: 520px; margin-left: auto; margin-right: auto; }
   .pk-team-card .pk-partner-bio { text-align: center; }
 }
+
+/* --- Home: clients section --- */
+.pk-clients { padding: 80px 0; }
+.pk-clients .pk-section-title { text-align: center; font-weight: 400; font-size: clamp(1.6rem, 3vw, 2.2rem); margin-bottom: 12px; }
+.pk-clients-list {
+  list-style: none; margin: 0 auto; padding: 0;
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 56px;
+}
+.pk-clients-list li {
+  display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 24px; align-items: center;
+  padding: 24px 0; border-top: 1px solid var(--pk-border);
+}
+.pk-clients-mark { display: flex; align-items: center; min-height: 44px; }
+.pk-clients-mark img {
+  max-height: 36px; max-width: 100%; width: auto; object-fit: contain;
+  filter: grayscale(1); opacity: 0.75;
+}
+.pk-clients-wordmark { font-family: var(--pk-font-heading); font-size: 1.6rem; line-height: 1; letter-spacing: 0.02em; color: #6b7280; }
+.pk-clients-list h3 {
+  font-family: var(--pk-font-body) !important; font-weight: 600 !important;
+  font-size: 1rem; margin: 0 0 4px;
+}
+.pk-clients-list h3 a { color: var(--pk-primary); text-decoration: underline; text-decoration-color: var(--pk-border-strong); text-underline-offset: 3px; }
+.pk-clients-list h3 a:hover { text-decoration-color: var(--pk-primary-light); }
+.pk-clients-list h3 a:focus-visible { outline: 2px solid var(--pk-primary-light); outline-offset: 3px; }
+.pk-clients-list p { font-size: 0.93rem; line-height: 1.6; color: var(--pk-text-secondary); margin: 0; }
+
+@media (max-width: 900px) {
+  .pk-clients-list { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .pk-clients-list li { grid-template-columns: 1fr; gap: 12px; }
+}
+
+/* --- Home: one page rhythm ---
+   Two widths only: 720px for reading text, 960px for every card grid.
+   Tinted bands run edge to edge; their content keeps the same widths. */
+.pk-problem-grid,
+.pk-services-grid,
+.pk-engagement-grid,
+.pk-audience-grid,
+.pk-clients-list,
+.pk-team-grid,
+.pk-team .pk-patkis-link-card {
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.pk-section-sub { max-width: 720px; margin-left: auto; margin-right: auto; }
+
+/* Full-bleed background without moving the content: paint the band colour
+   out to the viewport edges, clipped so it never adds horizontal scroll. */
+.pk-problem,
+.pk-team {
+  box-shadow: 0 0 0 100vmax var(--pk-bg-alt);
+  clip-path: inset(0 -100vmax);
+}
+
+
+
+/* Hero: larger type and less empty padding, so it holds its space on wide screens */
+.pk-hero { padding: 128px 0 16px; }
+.pk-hero h1 { font-size: clamp(2.4rem, 5.6vw, 4.6rem); line-height: 1.1; margin-bottom: 24px; }
+.pk-hero .pk-subtitle { font-size: clamp(1.05rem, 1.6vw, 1.25rem); max-width: 640px; }
+@media (max-width: 600px) {
+  .pk-hero { padding-top: 104px; }
+}
+
+/* --- Home: vertical rhythm ---
+   Plain sections: 48px top and bottom, so 96px between two of them.
+   Tinted bands: 72px inside. Heading → intro 16px, heading/intro → content 40px. */
+.pk-why,
+.pk-services-overview,
+.pk-services-detail,
+.pk-clients { padding-top: 48px; padding-bottom: 48px; }
+.pk-problem,
+.pk-team { padding-top: 72px; padding-bottom: 72px; }
+.pk-closing { padding: 48px 0 72px; }
+
+/* "How we engage" and "Who we work with" nest an extra padded block */
+.pk-services-detail .pk-section { padding: 0; }
+
+/* The products button belongs to "Who we work with", so it sits closer */
+.pk-services-detail + .pk-services-overview { padding-top: 0; }
+.pk-services-detail + .pk-services-overview .pk-services-cta { margin-top: 0; }
+
+.pk-why h2,
+.pk-problem h2,
+.pk-services-overview h2,
+.pk-services-detail .pk-section h2.pk-section-title,
+.pk-clients .pk-section-title,
+.pk-team .pk-section-title { margin-bottom: 40px; }
+.pk-section-sub { margin-top: -24px; margin-bottom: 40px; }

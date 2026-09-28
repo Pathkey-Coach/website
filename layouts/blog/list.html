@@ -1,0 +1,23 @@
+{{- /* Blog list in the new design (static/pk/styles.css). Content: content/blog/. */ -}}
+{{- $home := (index (where .Site.RegularPages "Type" "home") 0).Params -}}
+<!doctype html>
+<html lang="en">
+<head>
+{{ partial "pk/head.html" (dict "page" . "title" (print .Title " · Pathkey") "description" .Description) }}
+</head>
+<body>
+{{ partial "pk/header.html" (dict "page" . "home" $home) }}
+<main id="main" tabindex="-1">
+
+<section class="page-intro" aria-labelledby="page-title"><div class="wrap">
+  <div class="section-head"><div class="eyebrow accent">{{ .Params.eyebrow | default "Writing" }}</div><div><h1 id="page-title">{{ .Params.headline | default .Title }}</h1>{{ with .Description }}<p class="section-intro">{{ . }}</p>{{ end }}</div></div>
+</div></section>
+
+<section class="page-block page-block--flush" aria-label="Posts"><div class="wrap">
+  {{ partial "pk/post-list.html" .Pages }}
+</div></section>
+
+{{ with $home.contact }}{{ partial "pk/contact.html" . }}{{ end }}
+</main>
+{{ partial "pk/footer.html" (dict "page" . "home" $home) }}
+</body></html>

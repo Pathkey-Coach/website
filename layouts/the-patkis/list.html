@@ -1,214 +1,109 @@
-{{ define "main" }}
+{{- /* The Patkis page in the new design (static/pk/styles.css). Content: content/the-patkis/_index.md,
+       plus the client-work, testimonial and blog sections. The Patkis is Avani and Suyog's own practice. */ -}}
+{{- $home := (index (where .Site.RegularPages "Type" "home") 0).Params -}}
+{{- $p := .Params -}}
+<!doctype html>
+<html lang="en">
+<head>
+{{ partial "pk/head.html" (dict "page" . "title" (print .Title " · Pathkey") "description" .Description) }}
+<script src="{{ "pk/graph-paper.js" | relURL }}" defer></script>
+</head>
+<body>
+{{ partial "pk/header.html" (dict "page" . "home" $home) }}
+<main id="main" tabindex="-1">
 
-<div class="pk-page-header">
-  <h1>{{ .Title }}</h1>
-  <p class="pk-subtitle">{{ .Params.intro }}</p>
-</div>
-
-<div class="container" style="max-width: 880px;">
-
-  <!-- Founder Profiles -->
-  <div class="pk-founder-entries">
-    {{ range .Params.founders }}
-    <div class="pk-founder-entry">
-      <div class="pk-founder-header">
-        <img src="{{ .image | relURL }}" alt="{{ .name }}" class="pk-founder-photo" loading="lazy" />
-        <div class="pk-founder-info">
-          <h3 class="pk-founder-name">{{ .name }}</h3>
-        </div>
-      </div>
-      {{ with .bio }}<p class="pk-founder-bio">{{ . | markdownify }}</p>{{ end }}
-      {{ with .meta }}
-      <div class="pk-founder-meta-grid">
-        {{ range . }}
-        <div class="pk-founder-meta-item">
-          <div class="pk-founder-meta-label">{{ .label }}</div>
-          <p class="pk-founder-meta-content">{{ .content | markdownify }}</p>
-        </div>
-        {{ end }}
-      </div>
-      {{ end }}
-      {{ if .linkedin }}
-      <div class="pk-founder-links">
-        <a href="{{ .linkedin }}" target="_blank" class="pk-social-link">LinkedIn ↗</a>
-      </div>
-      {{ end }}
-    </div>
-    {{ end }}
-  </div>
-
-  <!-- About Section -->
-  {{ with .Params.about_heading }}
-  <div class="pk-about-section">
-    <div class="pk-about-kicker">{{ . }}</div>
-    <h2 class="pk-about-title">{{ $.Params.about_title }}</h2>
-    <p class="pk-about-subtitle">{{ $.Params.about_subtitle }}</p>
-    <div class="pk-about-body">
-      {{ $.Params.about_body | markdownify }}
-    </div>
-
-    {{ with $.Params.philosophy }}
-    <div class="pk-philosophy">
-      <strong>{{ .title }}</strong>
-      <p>{{ .body | markdownify }}</p>
-    </div>
+<section class="page-intro" aria-labelledby="page-title"><div class="wrap">
+  <div class="section-head"><div class="eyebrow accent">{{ $p.eyebrow | default "The story behind Pathkey" }}</div><div><h1 id="page-title">{{ .Title }}</h1>{{ with $p.intro }}<p class="section-intro">{{ . }}</p>{{ end }}</div></div>
+  {{ with $p.founders }}
+  <div class="founders">
+    {{ range . }}
+    <article class="founder reveal"><img class="founder-photo" src="{{ .image | relURL }}" alt="{{ .name }}" decoding="async"{{ with .image_position }} style="object-position: {{ . }}"{{ end }}><div><h2 class="person-name">{{ .name }}</h2>{{ with .role }}<span class="founder-role">{{ . }}</span>{{ end }}{{ with .bio }}<p class="person-copy">{{ . }}</p>{{ end }}{{ with .linkedin }}<a class="person-link" href="{{ . }}" target="_blank" rel="noopener noreferrer">LinkedIn</a>{{ end }}</div></article>
     {{ end }}
   </div>
   {{ end }}
+</div></section>
 
-  <!-- Good Fit -->
-  {{ with .Params.good_fit }}
-  <div class="pk-good-fit">
-    <h3 class="pk-good-fit-title">{{ $.Params.good_fit_title }}</h3>
-    <ul class="pk-good-fit-list">
-      {{ range . }}
-      <li>{{ . }}</li>
-      {{ end }}
-    </ul>
+{{ with $p.about_heading }}
+<section class="page-block" aria-labelledby="about-title"><div class="wrap">
+  <div class="section-head reveal"><div class="eyebrow accent">{{ . }}</div><div><h2 id="about-title">{{ $p.about_title }}</h2>{{ with $p.about_subtitle }}<p class="section-intro">{{ . }}</p>{{ end }}<div class="rich page-body">{{ $p.about_body | markdownify }}</div></div></div>
+  {{ with $p.philosophy }}<div class="approach-note reveal"><span>{{ .title }}</span><p>{{ .body | markdownify }}</p></div>{{ end }}
+  {{ with $p.good_fit }}<div class="approach-note reveal"><span>{{ $p.good_fit_title }}</span><ul class="plain-list">{{ range . }}<li>{{ . }}</li>{{ end }}</ul></div>{{ end }}
+</div></section>
+{{ end }}
+
+{{ with $p.featured_talk }}
+<section class="page-block" aria-labelledby="talk-title"><div class="wrap">
+  <a class="talk reveal" href="{{ .url }}" target="_blank" rel="noopener noreferrer">
+    <span class="talk-thumb"><img src="{{ .thumbnail }}" alt="" loading="lazy" decoding="async"><span class="talk-play" aria-hidden="true"></span></span>
+    <span class="talk-copy"><span class="eyebrow accent">Featured talk</span><span class="talk-title" id="talk-title">{{ .title }}</span><span class="talk-desc">{{ .description }}</span><span class="talk-cta">Watch on YouTube</span></span>
+  </a>
+</div></section>
+{{ end }}
+
+{{ $ventures := where .Site.RegularPages "Type" "client-work" }}
+{{ with $ventures }}
+<section class="page-block" aria-labelledby="ventures-title"><div class="wrap">
+  <div class="section-head reveal"><div class="eyebrow accent">Ventures &amp; portfolio</div><div><h2 id="ventures-title">Teams we have built or backed.</h2><p class="section-intro">The Patkis sit on top of a lived ecosystem, not a buzzword "network". These are the teams we have built or backed, where values, craft and responsible use of technology are non-negotiable.</p></div></div>
+  <ul class="venture-list" role="list">
+    {{ range .ByWeight }}
+    <li class="reveal">
+      {{ with .Params.logo }}{{ with .src }}<div class="venture-logo"><img src="{{ . | relURL }}" alt="" loading="lazy" decoding="async"></div>{{ end }}{{ end }}
+      <h3>{{ .Title }}</h3>
+      {{ with .Params.link }}<a class="venture-link" href="{{ . }}" target="_blank" rel="noopener noreferrer">{{ . | replaceRE "^https?://(www\\.)?" "" | replaceRE "/$" "" }}</a>{{ end }}
+      {{ with .Content }}<p>{{ . | plainify }}</p>{{ end }}
+    </li>
+    {{ end }}
+  </ul>
+  <p class="page-footnote">A handful of companies where Suyog invests time and capital alongside the founders. Small portfolio, high involvement, honest conversations.</p>
+</div></section>
+{{ end }}
+
+{{ with $p.advisory_pillars }}
+<section class="page-block" aria-labelledby="advisory-title"><div class="wrap">
+  <div class="section-head reveal"><div class="eyebrow accent">{{ $p.advisory_heading }}</div><div><h2 id="advisory-title">{{ $p.advisory_title }}</h2>{{ with $p.advisory_subtitle }}<p class="section-intro">{{ . }}</p>{{ end }}</div></div>
+  <div class="services pillars-grid">
+    {{ range $i, $x := . }}
+    <article class="service reveal"><div><h3>{{ $x.title }}</h3><p>{{ $x.body }}</p></div></article>
+    {{ end }}
   </div>
-  {{ end }}
+</div></section>
+{{ end }}
 
-  <!-- Featured Talk -->
-  {{ with .Params.featured_talk }}
-  <div class="pk-section">
-    <a href="{{ .url }}" target="_blank" class="pk-talk-card">
-      <div class="pk-talk-content">
-        <div class="pk-talk-kicker">Featured Talk</div>
-        <h3 class="pk-talk-title">{{ .title }}</h3>
-        <p class="pk-talk-desc">{{ .description }}</p>
-        <span class="pk-talk-cta">Watch on YouTube →</span>
-      </div>
-      <div class="pk-talk-thumbnail" style="background-image: url('{{ .thumbnail }}');">
-        <div class="pk-talk-play"></div>
-      </div>
-    </a>
+{{ $testimonials := where .Site.RegularPages "Type" "testimonial" }}
+{{ with $testimonials }}
+<section class="quotes" aria-labelledby="quotes-title"><div class="wrap">
+  <div class="section-head reveal"><div class="eyebrow">In their words</div><div><h2 id="quotes-title">What others say.</h2></div></div>
+  <div class="quote-track" tabindex="0" role="region" aria-label="Testimonials, scroll sideways for more">
+    {{ range .ByWeight }}
+    <figure class="quote"><blockquote>{{ .Content | plainify }}</blockquote><figcaption><strong>{{ .Title }}</strong>{{ with .Params.name }}<span>{{ . }}</span>{{ end }}</figcaption></figure>
+    {{ end }}
   </div>
-  {{ end }}
+  <div class="quote-controls"><button class="quote-button" type="button" data-dir="-1" aria-label="Previous testimonials">←</button><button class="quote-button" type="button" data-dir="1" aria-label="Next testimonials">→</button></div>
+</div></section>
+{{ end }}
 
-  <!-- Ventures & Portfolio -->
-  {{ $clients := where .Site.RegularPages "Type" "client-work" }}
-  {{ if gt (len $clients) 0 }}
-  <div class="pk-section">
-    <h2 class="pk-section-title">Ventures & Portfolio</h2>
-    <p class="pk-section-sub">The Patkis sit on top of a lived ecosystem, not a buzzword "network". These are the teams we have built or backed, where values, craft and responsible use of technology are non-negotiable.</p>
-    <div class="pk-ventures-grid">
-      {{ range $clients.ByWeight }}
-      <div class="pk-venture-card">
-        {{ if and .Params.logo .Params.logo.src }}
-        <div class="pk-venture-logo">
-          <img src="{{ .Params.logo.src | relURL }}" alt="{{ .Title }}" loading="lazy" />
-        </div>
-        {{ end }}
-        <div class="pk-venture-info">
-          <div class="pk-venture-name">{{ .Title }}</div>
-          {{ if .Params.link }}<a href="{{ .Params.link }}" target="_blank" rel="noreferrer" class="pk-venture-link">{{ .Params.link | replaceRE "^https?://(www\\.)?" "" | replaceRE "/$" "" }}</a>{{ end }}
-          {{ if .Content }}<p class="pk-venture-desc">{{ .Content }}</p>{{ end }}
-        </div>
-      </div>
-      {{ end }}
-    </div>
-    <p class="pk-ventures-footnote">A handful of companies where Suyog invests time and capital alongside the founders. Small portfolio, high involvement, honest conversations.</p>
-  </div>
-  {{ end }}
+{{ $posts := where .Site.RegularPages "Section" "blog" }}
+{{ with $posts }}
+<section class="page-block" aria-labelledby="blog-title"><div class="wrap">
+  <div class="section-head reveal"><div class="eyebrow accent">Writing</div><div><h2 id="blog-title">Leadership blog.</h2></div></div>
+  {{ partial "pk/post-list.html" . }}
+</div></section>
+{{ end }}
 
-  <!-- Advisory Pillars -->
-  {{ with .Params.advisory_pillars }}
-  <div class="pk-section">
-    <div class="pk-advisory-header">
-      <div class="pk-advisory-kicker">{{ $.Params.advisory_heading }}</div>
-      <h2 class="pk-section-title">{{ $.Params.advisory_title }}</h2>
-      <p class="pk-section-sub">{{ $.Params.advisory_subtitle }}</p>
-    </div>
-    <div class="pk-pillars-grid">
-      {{ range $i, $p := . }}
-      <div class="pk-pillar-card">
-        <div class="pk-pillar-title">{{ add $i 1 }}. {{ $p.title }}</div>
-        <p class="pk-pillar-body">{{ $p.body }}</p>
-      </div>
-      {{ end }}
-    </div>
-  </div>
-  {{ end }}
-
-  <!-- Testimonials -->
-  {{ $testimonials := where .Site.RegularPages "Type" "testimonial" }}
-  {{ if gt (len $testimonials) 0 }}
-  <div class="pk-section">
-    <h2 class="pk-section-title">What Others Say</h2>
-    <div class="pk-testimonials-slider">
-      <div class="pk-testimonials-track">
-        {{ range $testimonials.ByWeight }}
-        <div class="pk-testimonial-card">
-          <blockquote>{{ .Content }}</blockquote>
-          <div class="pk-testimonial-author">
-            <div>
-              <div class="pk-author-name">{{ .Title }}</div>
-              {{ if .Params.name }}
-              <div class="pk-author-position">{{ .Params.name }}</div>
-              {{ end }}
-            </div>
-          </div>
-        </div>
-        {{ end }}
-      </div>
-      <div class="pk-slider-nav">
-        <button class="pk-slider-btn pk-slider-prev" aria-label="Previous">&larr;</button>
-        <button class="pk-slider-btn pk-slider-next" aria-label="Next">&rarr;</button>
-      </div>
-    </div>
-  </div>
-  {{ end }}
-
-  <!-- Leadership Blog -->
-  {{ $blogPosts := where .Site.RegularPages "Section" "blog" }}
-  {{ if gt (len $blogPosts) 0 }}
-  <div class="pk-section">
-    <h2 class="pk-section-title">Leadership Blog</h2>
-    <div class="pk-blog-grid">
-      {{ range $blogPosts.ByDate.Reverse }}
-      {{ $link := .Params.link | default .Permalink }}
-      <a href="{{ $link }}" target="_blank" rel="noreferrer" class="pk-blog-card pk-blog-card--link">
-        <div class="pk-blog-meta">
-          <span class="pk-blog-date">{{ .Date.Format "Jan 2, 2006" }}</span>
-          {{ with .Params.author }}<span class="pk-blog-author">· {{ . }}</span>{{ end }}
-        </div>
-        <h3 class="pk-blog-title">{{ .Title }}</h3>
-        {{ if .Description }}<p class="pk-blog-desc">{{ .Description }}</p>{{ end }}
-      </a>
-      {{ end }}
-    </div>
-  </div>
-  {{ end }}
-
-
-</div>
-
+{{ with $home.contact }}{{ partial "pk/contact.html" . }}{{ end }}
+</main>
+{{ partial "pk/footer.html" (dict "page" . "home" $home) }}
 <script>
-(function() {
-  var track = document.querySelector('.pk-testimonials-track');
+/* Testimonials: previous/next scroll by one card; the track also scrolls natively. */
+(() => {
+  const track = document.querySelector('.quote-track');
   if (!track) return;
-  var prev = document.querySelector('.pk-slider-prev');
-  var next = document.querySelector('.pk-slider-next');
-  var card = track.querySelector('.pk-testimonial-card');
-  if (!card) return;
-  function scrollAmount() {
-    return card.offsetWidth + 20;
-  }
-  prev.addEventListener('click', function() {
-    if (track.scrollLeft <= 5) {
-      track.scrollTo({ left: track.scrollWidth, behavior: 'smooth' });
-    } else {
-      track.scrollBy({ left: -scrollAmount(), behavior: 'smooth' });
-    }
-  });
-  next.addEventListener('click', function() {
-    if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 10) {
-      track.scrollTo({ left: 0, behavior: 'smooth' });
-    } else {
-      track.scrollBy({ left: scrollAmount(), behavior: 'smooth' });
-    }
-  });
+  const smooth = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+  document.querySelectorAll('.quote-button').forEach(button => button.addEventListener('click', () => {
+    const card = track.querySelector('.quote');
+    const step = card ? card.getBoundingClientRect().width + 20 : track.clientWidth;
+    track.scrollBy({ left: step * Number(button.dataset.dir), behavior: smooth });
+  }));
 })();
 </script>
-
-{{ end }}
+</body></html>

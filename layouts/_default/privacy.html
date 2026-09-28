@@ -1,0 +1,64 @@
+{{- /* Privacy notice, carried over from the static site (website-static/site/privacy.html).
+       Standalone page in the new design: shared head and footer, its own short header. */ -}}
+{{- $home := (index (where .Site.RegularPages "Type" "home") 0).Params -}}
+<!doctype html>
+<html lang="en">
+<head>
+{{ partial "pk/head.html" (dict "page" . "title" "Privacy & cookies — Pathkey" "description" .Description) }}
+</head>
+<body class="privacy-page">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="privacy-header">
+    <div class="wrap privacy-bar">
+      <a class="brand" href="{{ "/" | relURL }}" aria-label="Pathkey home"><img src="{{ "pk/img/pathkey-logo.png" | relURL }}" alt="Pathkey" width="875" height="295"></a>
+      <a class="privacy-back" href="{{ "/" | relURL }}"><span aria-hidden="true">←</span> Back to Pathkey</a>
+    </div>
+  </header>
+  <main class="privacy-content" id="main" tabindex="-1">
+    <p class="eyebrow accent">Pathkey</p>
+    <h1>Privacy &amp; cookies.</h1>
+    <p class="privacy-lead">How we handle enquiries and information from this website.</p>
+    <p class="privacy-updated">Last updated <time datetime="{{ .Lastmod.Format "2006-01-02" }}">{{ .Lastmod.Format "2 January 2006" }}</time></p>
+
+    <section class="privacy-section" aria-labelledby="who-we-are">
+      <h2 id="who-we-are">The people behind Pathkey</h2>
+      <p>Pathkey is a shared professional brand bringing together <a href="{{ "/#suyog-patki" | relURL }}">Suyog Patki</a>, <a href="{{ "/#avani-patki" | relURL }}">Avani Patki</a> and <a href="{{ "/#rohan-nevrikar" | relURL }}">Rohan Nevrikar</a>. Our work combines experience in business strategy and relationships, marketing and culture, and technology delivery.</p>
+      <p>In this notice, “Pathkey”, “we”, “us” and “our” refer to these three professionals in connection with the Pathkey website and shared enquiry mailbox, which we manage together. This notice explains how we handle information received through these channels.</p>
+      <p>For each client engagement, the agreed documentation identifies the relevant professionals and sets out the scope of services, commercial terms and responsibilities. Project-specific data handling is addressed through the privacy and confidentiality arrangements applicable to that engagement.</p>
+    </section>
+
+    <section class="privacy-section" aria-labelledby="shared-enquiries">
+      <h2 id="shared-enquiries">Enquiries and shared access</h2>
+      <p>When you email <a href="mailto:hello@pathkey.in">hello@pathkey.in</a>, your email address, message and any details or attachments you include are received in a mailbox shared by all three of us. Any of us may read and respond to your enquiry.</p>
+      <p>We use these details to understand your request, respond and discuss possible work. Please send only what is needed for an initial conversation.</p>
+    </section>
+
+    <section class="privacy-section" aria-labelledby="retention">
+      <h2 id="retention">How long we keep enquiries</h2>
+      <p>We currently retain enquiry emails and their attachments indefinitely. We do not apply a fixed deletion schedule.</p>
+      <p>You can write to the shared mailbox to ask about information you have sent or request its deletion. Records relating to a client engagement may also be subject to applicable record-keeping obligations.</p>
+    </section>
+
+    <section class="privacy-section" aria-labelledby="hosting-email">
+      <h2 id="hosting-email">Website and email services</h2>
+      <p>To deliver this website, your browser sends technical information, such as your IP address, browser details and the requested page, to the hosting service. Depending on its configuration, the host may retain access or security logs.</p>
+      <p>Enquiry emails and attachments are also handled by the email services used to deliver and store them. You can contact us with questions about these services.</p>
+    </section>
+
+    <section class="privacy-section" aria-labelledby="cookies">
+      <h2 id="cookies">Cookies and tracking</h2>
+      <p>The website’s page code does not set cookies or use browser storage. It includes no advertising trackers. Fonts and images are served with the website, except for one video thumbnail on The Patkis page, which loads from YouTube.</p>
+      <p>We use Cloudflare Web Analytics to count visits to each page. It does not set cookies or use browser storage, and it does not build a profile of individual visitors.</p>
+      <p>Hosting infrastructure may use operational cookies or logs, depending on its configuration.</p>
+      <p>If you follow a link to another website, that website’s own privacy and cookie practices apply.</p>
+    </section>
+
+    <section class="privacy-section" aria-labelledby="privacy-contact">
+      <h2 id="privacy-contact">Questions and requests</h2>
+      <p>Contact <a href="mailto:hello@pathkey.in?subject=Privacy%20request">hello@pathkey.in</a> with “Privacy request” in the subject to ask about access, correction or deletion of your information, or to raise a privacy concern. This address is shared by Suyog, Avani and Rohan.</p>
+      <p>Please identify the enquiry or engagement your request relates to so we can understand which information is involved.</p>
+    </section>
+  </main>
+{{ partial "pk/footer.html" (dict "page" . "home" $home) }}
+</body>
+</html>

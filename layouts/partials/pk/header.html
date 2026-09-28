@@ -1,0 +1,13 @@
+{{- /* Shared header. Call with dict "page" . "home" <home.md params>.
+       On the homepage, section links stay in-page and highlight while scrolling;
+       elsewhere they point back to the homepage, and the current page is marked. */ -}}
+{{- $isHome := .page.IsHome -}}
+{{- $here := .page.RelPermalink -}}
+<a class="skip" href="#main">Skip to content</a>
+<header id="header"><div class="reading-progress" aria-hidden="true"></div><div class="wrap nav"><a class="brand" href="{{ if $isHome }}#main{{ else }}{{ "/" | relURL }}{{ end }}" aria-label="Pathkey home"><img src="{{ "pk/img/pathkey-logo.png" | relURL }}" alt="Pathkey" width="875" height="295"></a><button class="menu-button" type="button" aria-expanded="false" aria-controls="navigation">Menu <span aria-hidden="true">+</span></button><nav id="navigation" aria-label="Main navigation">
+{{- range .home.nav -}}
+{{- $inPage := hasPrefix .url "#" -}}
+{{- $href := cond $inPage (cond $isHome .url (print "/" .url | relURL)) (.url | relURL) -}}
+<a href="{{ $href }}"{{ if and $isHome .section }} data-section="{{ .section }}"{{ end }}{{ if eq $href $here }} aria-current="page"{{ end }}>{{ .name }}</a>
+{{- end -}}
+<a class="nav-contact" href="#contact"{{ if $isHome }} data-section="contact"{{ end }}>Let’s talk</a></nav></div></header>

@@ -1,0 +1,31 @@
+{{- /* Shared <head> contents for pages in the new design. Call with
+       dict "page" . "title" "…" "description" "…" ("ogDescription" "…").
+       The caller closes </head>, so it can add page-specific tags first. */ -}}
+{{- $p := .page -}}
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ .title }}</title>
+<meta name="description" content="{{ .description }}">
+<link rel="canonical" href="{{ $p.Permalink }}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Pathkey">
+<meta property="og:title" content="{{ .title }}">
+<meta property="og:description" content="{{ .ogDescription | default .description }}">
+<meta property="og:url" content="{{ $p.Permalink }}">
+<meta property="og:locale" content="en_IN">
+<meta property="og:image" content="{{ "pk/img/og-image.png" | absURL }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Pathkey: What can AI actually do for your business?">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ .title }}">
+<meta name="twitter:description" content="{{ .ogDescription | default .description }}">
+<meta name="twitter:image" content="{{ "pk/img/og-image.png" | absURL }}">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="{{ "favicon.ico" | relURL }}" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="{{ "pk/img/icon-32.png" | relURL }}"><link rel="icon" type="image/png" sizes="16x16" href="{{ "pk/img/icon-16.png" | relURL }}"><link rel="apple-touch-icon" sizes="180x180" href="{{ "pk/img/apple-touch-icon.png" | relURL }}">
+<link rel="preload" href="{{ "pk/fonts/dm-sans-latin.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="{{ "pk/styles.css" | relURL }}">
+<script src="{{ "pk/experience.js" | relURL }}" defer></script>
+{{ if and hugo.IsProduction $p.Site.Params.cloudflareAnalyticsToken }}
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "{{ $p.Site.Params.cloudflareAnalyticsToken }}"}'></script>
+{{ end }}
+<noscript><style>@media(max-width:580px){.menu-button{display:none}header{position:static}.nav{height:auto;flex-wrap:wrap;padding-block:16px}#navigation{display:flex;position:static;flex-direction:row;flex-wrap:wrap;border:0;padding:0;gap:14px;width:100%}.nav-contact{margin:0}}</style></noscript>

@@ -17,7 +17,7 @@ $sidebar-link-color: #2c3e2d;
   --bs-link-hover-color-rgb: #{red(darken($base-color, 10%))}, #{green(darken($base-color, 10%))}, #{blue(darken($base-color, 10%))};
   --bs-link-decoration: none;
 
-  // Pathkey Blue tokens (navy + electric blue, Fraunces + Inter)
+  // Pathkey Blue tokens (navy + electric blue, DM Sans to match the homepage)
   --pk-bg: #f4f6fc;
   --pk-bg-alt: #e9eefb;
   --pk-primary: #0a1931;
@@ -28,8 +28,8 @@ $sidebar-link-color: #2c3e2d;
   --pk-border: #e1e7f3;
   --pk-border-strong: #c5d0ea;
   --pk-surface: #ffffff;
-  --pk-font-heading: 'Fraunces', Georgia, 'Times New Roman', serif;
-  --pk-font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --pk-font-heading: 'DM Sans', Arial, sans-serif;
+  --pk-font-body: 'DM Sans', Arial, sans-serif;
 }
 
 // Explicit link override for all <a> tags
